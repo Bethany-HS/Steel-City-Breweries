@@ -21,11 +21,7 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     currentDisplay : 1,
-<<<<<<< HEAD
-    reviews: []
-=======
     editingMode:0,
->>>>>>> 6d284f3f822078c456c827cbda7d9640fb092235
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -44,16 +40,13 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-<<<<<<< HEAD
     ADD_REVIEW(state, review) {
       state.reviews.unshift(review);
-=======
     SET_CURRENT_PAGE(state,id){
       state.currentDisplay = id
     },
     SET_EDITING_MODE(state,id){
       state.editingMode = id;
->>>>>>> 6d284f3f822078c456c827cbda7d9640fb092235
     }
   }
 })
