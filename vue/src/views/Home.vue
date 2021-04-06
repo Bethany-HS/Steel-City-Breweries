@@ -1,9 +1,11 @@
 <template>
   <div class="home">
     <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
+    <p>You must be authenticated to see this</p><br>
+    <span id='main-page'>
     <side-nav />
     <content-page />
+    </span>
   </div>
 </template>
 
@@ -19,3 +21,16 @@ export default {
   }
 };
 </script>
+
+<style>
+#main-page{
+  display: flex;
+
+}
+side-nav{
+  flex-grow:1;
+}
+content-page{
+  flex-grow: 5;
+}
+</style>
