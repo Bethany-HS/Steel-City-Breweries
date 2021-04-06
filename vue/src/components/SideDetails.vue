@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h1 id="name"></h1>
-    <h2 id="details"></h2>
-    <h2 id="ratings"></h2>
-        <button id="add-review"></button>
-    <h2 id="reviews"></h2>
+    <h1 id="name">Name</h1><br>
+    <h2 id="details">Details</h2><br>
+    <h2 id="ratings">Ratings</h2><br>
+        <button id="add-review">Add Review</button><br>
+    <h2 id="reviews">Reviews</h2><br>
   </div>
 </template>
 
