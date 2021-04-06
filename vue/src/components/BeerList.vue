@@ -1,5 +1,5 @@
 <template>
-  <div v-on:click="loadInfo()" class="beer-list">
+  <div >
      <h1>Name of Beer</h1><br> 
         <img src=""/>
      <h2>Brewery</h2><br>
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import SideDetails from '@/SideDetails.vue'
+import SideDetails from '@/components/SideDetails.vue'
 export default {
     components: {
         SideDetails

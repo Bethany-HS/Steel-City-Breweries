@@ -11,9 +11,11 @@
 <script>
 export default {
     components: {},
-    computed: {
-        reviews,
-        ratings
+    data() {
+      return{
+        reviews: [],
+        ratings: []
+      }
     },
     methods: {}
 }

@@ -1,18 +1,19 @@
 <template>
   <div id="side-nav">
+      <button  @click="setPage(0)">Home</button><br>
       <h2>Find Your Beer</h2>
-      <button>Brewery List</button><br>
-      <button>Beer List</button><br>
-      <button>Reviews</button><br>
+      <button  @click="setPage(1)">Brewery List</button><br>
+      <button  @click="setPage(2)">Beer List</button><br>
+      <button  @click="setPage(3)">Reviews</button><br>
       <!-- <button>Favorites</button><br> -->
       <span>
-        <button>Manage Brewery</button><br>
-        <button>Manage Beers</button><br>
+        <button  @click="setPage(4)">Manage Brewery</button><br>
+        <button  @click="setPage(5)">Manage Beers</button><br>
         <!-- <button>Manage Events</button><br> -->
       </span>
       <span>
-        <button>Manage Breweries</button><br>
-        <button>Manage Users</button><br>
+        <button @click="setPage(6)">Manage Breweries</button><br>
+        <button @click="setPage(7)">Manage Users</button><br>
       </span>
 
   </div>
@@ -20,6 +21,11 @@
 
 <script>
 export default {
+  methods:{
+    setPage(id){
+      this.$store.state.currentDisplay = id
+    }
+  }
 
 }
 </script>
