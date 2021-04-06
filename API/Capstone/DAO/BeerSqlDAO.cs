@@ -53,7 +53,7 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT * from beers");
+                    SqlCommand cmd = new SqlCommand("SELECT * from beers", conn);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
