@@ -3,6 +3,7 @@
     <h1>Home</h1>
     <p>You must be authenticated to see this</p>
     <side-nav />
+    
   </div>
 </template>
 
