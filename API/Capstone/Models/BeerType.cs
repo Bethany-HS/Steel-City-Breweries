@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.Models
 {
-    public class BeerTypes
+    public class BeerType
     {
         public int BeerTypeId { get; set; }
         public string Beertype { get; set; }
