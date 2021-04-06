@@ -59,6 +59,7 @@ CREATE TABLE beers (
 	beer_id int IDENTITY(1,1) NOT NULL,
 	brewery_id int NOT NULL,
 	beer_type_id int NOT NULL,
+	name varchar(50) not null,
 	abv decimal(2,2) NOT NULL,
 	description varchar(200) NOT NULL,
 	ingredients varchar(200) NOT NULL
@@ -80,11 +81,11 @@ CONSTRAINT PK_brewery_review_id PRIMARY KEY (brewery_review_id)
 );
 
 CREATE TABLE beer_reviews(
-beerRating_id int IDENTITY (1,1) not null,
+beerReview_id int IDENTITY (1,1) not null,
 beer_id int not null,
 beerRating int not null,
 beerReview varchar(300) not null
-CONSTRAINT PK_beerRating_id PRIMARY KEY (beerRating_id)
+CONSTRAINT PK_beerReview_id PRIMARY KEY (beerReview_id)
 );
 ALTER TABLE breweries ADD CONSTRAINT fk_brewer_id FOREIGN KEY (brewer_id) REFERENCES brewer(brewer_id);
 
@@ -103,5 +104,10 @@ commit transaction
 --populate default data
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('admin','YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','admin');
+
+INSERT INTO brewer (user_id, brewery_id, name) values (1,1,'testbrewer');
+
+INSERT INTO breweries (name, brewer_id, street_address1, city, state, zip, phone, history, isActive) 
+values ('testBrewery', 1, '1234 streetroad', 'testville', 'TE', '12345', '1234567892', 'The best test brewery around', 1);
 
 GO
