@@ -7,7 +7,7 @@ namespace Capstone.Models
 {
     public class BreweryReview
     {
-        public int BreweryRatingId { get; set; }
+        public int BreweryReviewId { get; set; }
         public int BreweryId { get; set; }
         public int BreweryRating { get; set; }
         public string Review { get; set; }
