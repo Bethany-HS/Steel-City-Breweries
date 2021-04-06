@@ -80,11 +80,11 @@ CONSTRAINT PK_brewery_review_id PRIMARY KEY (brewery_review_id)
 );
 
 CREATE TABLE beer_reviews(
-beerRating_id int IDENTITY (1,1) not null,
+beerReview_id int IDENTITY (1,1) not null,
 beer_id int not null,
 beerRating int not null,
 beerReview varchar(300) not null
-CONSTRAINT PK_beerRating_id PRIMARY KEY (beerRating_id)
+CONSTRAINT PK_beerReview_id PRIMARY KEY (beerReview_id)
 );
 ALTER TABLE breweries ADD CONSTRAINT fk_brewer_id FOREIGN KEY (brewer_id) REFERENCES brewer(brewer_id);
 
