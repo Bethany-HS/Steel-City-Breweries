@@ -1,5 +1,5 @@
 <template>
-  <div on-click:loadInfo()>
+  <div >
      <h1>Name of Brewery</h1><br> 
         <img/>
      <h2>Contact Info</h2><br>
@@ -10,7 +10,8 @@
 </template>
 
 <script>
-import SideDetails from '@/SideDetails.vue'
+import SideDetails from '@/components/SideDetails.vue'
+
 export default {
     components: {
         SideDetails

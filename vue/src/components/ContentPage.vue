@@ -7,6 +7,8 @@
 <script>
 import BreweryList from '@/components/BreweryList.vue';
 import BeerList from '@/components/BeerList.vue';
+import UserProfile from '@/components/UserProfile.vue';
+
 export default {
   data(){
     return{
@@ -14,7 +16,8 @@ export default {
   },
   components: {
     BeerList,
-    BreweryList
+    BreweryList,
+    UserProfile
   },
   computed:{
     display(){
@@ -24,7 +27,7 @@ export default {
         case 2:
           return "BeerList"
         default:
-          return "Temp"
+          return "UserProfile"
       }
     }
   }
