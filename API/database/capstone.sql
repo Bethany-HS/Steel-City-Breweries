@@ -60,7 +60,7 @@ CREATE TABLE beers (
 	brewery_id int NOT NULL,
 	beer_type_id int NOT NULL,
 	name varchar(50) not null,
-	abv decimal(2,2) NOT NULL,
+	abv decimal(4,2) NOT NULL,
 	description varchar(200) NOT NULL,
 	ingredients varchar(200) NOT NULL
 	CONSTRAINT PK_beer_id PRIMARY KEY (beer_id)
@@ -110,4 +110,7 @@ INSERT INTO brewer (user_id, brewery_id, name) values (1,1,'testbrewer');
 INSERT INTO breweries (name, brewer_id, street_address1, city, state, zip, phone, history, isActive) 
 values ('testBrewery', 1, '1234 streetroad', 'testville', 'TE', '12345', '1234567892', 'The best test brewery around', 1);
 
+INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients) VALUES ('Beer', 12, 1, 1, 'test', 'test')
+
+Insert Into beer_types (beer_type) values('IPA');
 GO

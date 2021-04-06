@@ -20,7 +20,8 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    currentDisplay : 1
+    currentDisplay : 1,
+    editingMode:0,
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -38,6 +39,12 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    SET_CURRENT_PAGE(state,id){
+      state.currentDisplay = id
+    },
+    SET_EDITING_MODE(state,id){
+      state.editingMode = id;
     }
   }
 })
