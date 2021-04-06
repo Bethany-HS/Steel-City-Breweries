@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class BeerController : ControllerBase
     {
@@ -37,7 +37,7 @@ namespace Capstone.Controllers
         public ActionResult<Beer> AddBeer(Beer beer)
         {
             Beer newBeer = beerDAO.AddBeer(beer);
-            return Created($"/beers/{newBeer}", newBeer);
+            return Created($"/beer/{newBeer}", newBeer);
 
         }
     }
