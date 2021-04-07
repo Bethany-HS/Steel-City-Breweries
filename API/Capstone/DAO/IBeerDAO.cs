@@ -11,5 +11,6 @@ namespace Capstone.DAO
         Beer GetBeer(int id);
         List<Beer> GetBeers();
         Beer AddBeer(Beer beer);
+        Beer DeleteBeer(int id, Beer beer);
     }
 }

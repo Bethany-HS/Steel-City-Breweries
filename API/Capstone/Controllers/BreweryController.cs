@@ -40,5 +40,16 @@ namespace Capstone.Controllers
             return Created($"/brewery/{newBrewery}", newBrewery);
 
         }
+        [HttpPut("{id}")]
+        public ActionResult<Brewery> UpdateBrewery(int id, Brewery brewery)
+        {
+            Brewery existingBrewery = breweryDAO.GetBrewery(id);
+            if (existingBrewery == null)
+            {
+                return NotFound("Brewery not found");
+            }
+            Brewery updatedBrewery = breweryDAO.UpdateBrewery(id, brewery);
+            return Ok(updatedBrewery);
+        }
     }
 }
