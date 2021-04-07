@@ -44,7 +44,7 @@ namespace Capstone.DAO
             return returnBrewery;
         }
 
-        public List<Brewery> GetBrewery()
+        public List<Brewery> GetBreweries()
         {
             List<Brewery> breweryList = new List<Brewery>();
             try
