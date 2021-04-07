@@ -20,7 +20,8 @@ export default {
     computed:{
       currentBreweries(){
         return this.$store.state.breweries;
-      },
+      }
+    },
     methods: {
         loadInfo() {}
     }

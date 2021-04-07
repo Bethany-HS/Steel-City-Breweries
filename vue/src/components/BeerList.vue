@@ -18,7 +18,8 @@ export default {
     computed:{
       currentBeers(){
         return this.$store.state.beers;
-      },
+      }
+    },
     methods: {
         loadInfo() {}
     }
