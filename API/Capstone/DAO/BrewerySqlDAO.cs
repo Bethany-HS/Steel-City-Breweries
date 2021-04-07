@@ -53,7 +53,7 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT * from breweries");
+                    SqlCommand cmd = new SqlCommand("SELECT * from breweries",conn);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
@@ -110,7 +110,7 @@ namespace Capstone.DAO
                 Name = Convert.ToString(reader["name"]),
                 BrewerId = Convert.ToInt32(reader["brewer_id"]),
                 StreetAddress1 = Convert.ToString(reader["street_address1"]),
-                StreetAddress2 = Convert.ToString(reader["street_adress2"]),
+                StreetAddress2 = Convert.ToString(reader["street_address2"]),
                 City = Convert.ToString(reader["city"]),
                 State = Convert.ToString(reader["state"]),
                 Zip = Convert.ToInt32(reader["zip"]),

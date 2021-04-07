@@ -42,6 +42,9 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
+    ADD_REVIEW(state, review) {
+      state.reviews.unshift(review);
+    },
     SET_CURRENT_PAGE(state,id){
       state.currentDisplay = id
     },

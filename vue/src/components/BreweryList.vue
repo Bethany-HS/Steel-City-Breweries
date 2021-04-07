@@ -9,7 +9,6 @@
 
 <script>
 import SideDetails from '@/components/SideDetails.vue'
-
 export default {
   data(){
     return{
@@ -21,7 +20,9 @@ export default {
     computed:{
       currentBreweries(){
         return this.$store.state.breweries;
-      }
+      },
+    methods: {
+        loadInfo() {}
     }
 }
 </script>

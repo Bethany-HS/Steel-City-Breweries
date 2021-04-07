@@ -4,7 +4,7 @@
     <h1 id="name"></h1>
     <h2 id="details"></h2>
     <h2 id="ratings"></h2>
-        <button id="add-review">Add Reveiw</button>
+    <review-form />
     <h2 id="reviews"></h2>
     </span>
     <span v-if='$store.state.editingMode===1'>
@@ -20,8 +20,11 @@
 </template>
 
 <script>
+import ReviewForm from '@/components/ReviewForm.vue'
 export default {
-    components: {},
+    components: {
+        ReviewForm
+    },
     data() {
       return{
         reviews: [],
