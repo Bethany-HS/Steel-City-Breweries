@@ -111,5 +111,6 @@ INSERT INTO breweries (name, brewer_id, street_address1, city, state, zip, phone
 values ('testBrewery', 1, '1234 streetroad', 'testville', 'TE', '12345', '1234567892', 'The best test brewery around', 1);
 
 INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients) VALUES ('Beer', 12, 1, 1, 'test', 'test')
+
 Insert Into beer_types (beer_type) values('IPA');
 GO
