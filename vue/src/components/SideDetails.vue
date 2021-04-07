@@ -1,6 +1,6 @@
 <template>
-  <div >
-    <span v-if='$store.state.editingMode===0'>
+  <div id='sidedetails' >
+    <span  v-if='$store.state.editingMode===0'>
     <h1 id="name"></h1>
     <h2 id="details"></h2>
     <h2 id="ratings"></h2>
@@ -36,5 +36,8 @@ export default {
 </script>
 
 <style>
-
+#sidedetails{
+background-color: royalblue;
+flex-grow: 1;
+}
 </style>

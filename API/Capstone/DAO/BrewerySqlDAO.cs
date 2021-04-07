@@ -53,7 +53,7 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT * from breweries", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT * from breweries",conn);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
@@ -63,9 +63,9 @@ namespace Capstone.DAO
                     }
                 }
             }
-            catch (SqlException)
+            catch (SqlException e)
             {
-                throw;
+                throw e;
             }
 
             return breweryList;
@@ -102,6 +102,37 @@ namespace Capstone.DAO
             return brewery;
         }
 
+        public Brewery UpdateBrewery(int id, Brewery brewery)
+        {
+            try
+            {
+                using(SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    string sqlTest = "UPDATE breweries set name = @name, street_address1 = @street_address1, " +
+                        "street_address_2 = @street_address2, city = @city, state = @state, zip = @zip, phone = @phone, history = @history, isActive = @isActive " +
+                        "where brewery_id = @breweryId;";
+                    SqlCommand cmd = new SqlCommand(sqlTest, conn);
+                    cmd.Parameters.AddWithValue("@name", brewery.Name);
+                    cmd.Parameters.AddWithValue("@street_address1", brewery.StreetAddress1);
+                    cmd.Parameters.AddWithValue("@street_address2", brewery.StreetAddress2);
+                    cmd.Parameters.AddWithValue("@city", brewery.City);
+                    cmd.Parameters.AddWithValue("@state", brewery.State);
+                    cmd.Parameters.AddWithValue("@zip", brewery.Zip);
+                    cmd.Parameters.AddWithValue("@phone", brewery.Phone);
+                    cmd.Parameters.AddWithValue("@history", brewery.History);
+                    cmd.Parameters.AddWithValue("@isActive", brewery.IsActive);
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            return brewery;
+        }
+
         private Brewery GetBreweryFromReader(SqlDataReader reader)
         {
             Brewery brewery = new Brewery()
@@ -110,7 +141,7 @@ namespace Capstone.DAO
                 Name = Convert.ToString(reader["name"]),
                 BrewerId = Convert.ToInt32(reader["brewer_id"]),
                 StreetAddress1 = Convert.ToString(reader["street_address1"]),
-                StreetAddress2 = Convert.ToString(reader["street_adress2"]),
+                StreetAddress2 = Convert.ToString(reader["street_address2"]),
                 City = Convert.ToString(reader["city"]),
                 State = Convert.ToString(reader["state"]),
                 Zip = Convert.ToInt32(reader["zip"]),

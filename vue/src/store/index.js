@@ -23,8 +23,7 @@ export default new Vuex.Store({
     currentDisplay : 1,
     editingMode:0,
     breweries:[],
-    beers:[],
-    beerReviews:[]
+    beers:[]
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
