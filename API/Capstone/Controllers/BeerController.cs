@@ -40,5 +40,16 @@ namespace Capstone.Controllers
             return Created($"/beer/{newBeer}", newBeer);
 
         }
+        [HttpPut("{id}")]
+        public ActionResult<Beer> DeleteBeer(int id, Beer beer)
+        {
+            Beer existingBeer = beerDAO.GetBeer(id);
+            if (existingBeer == null)
+            {
+                return NotFound("Beer not found");
+            }
+            Beer updateBeer = beerDAO.DeleteBeer(id, beer);
+            return Ok(updateBeer);
+        }
     }
 }
