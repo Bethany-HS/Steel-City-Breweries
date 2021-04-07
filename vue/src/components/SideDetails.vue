@@ -6,6 +6,7 @@
     <h2 id="ratings"></h2>
     <h2 id="reviews"></h2>
     <review-form/>
+    <review-display/>
     </span>
     <span  id='brewerydetails' v-if='$store.state.editingMode===1'>
       <button>Edit Brewery Info</button>
@@ -20,10 +21,12 @@
 </template>
 
 <script>
+import ReviewDisplay from '@/components/ReviewDisplay.vue'
 import ReviewForm from '@/components/ReviewForm.vue'
 export default {
     components: {
-        ReviewForm
+        ReviewForm,
+        ReviewDisplay
     },
     data() {
       return{
