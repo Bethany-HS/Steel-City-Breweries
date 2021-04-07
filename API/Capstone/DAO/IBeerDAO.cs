@@ -10,7 +10,6 @@ namespace Capstone.DAO
     {
         Beer GetBeer(int id);
         List<Beer> GetBeers();
-        //pass in beer object to AddBeer
         Beer AddBeer(Beer beer);
     }
 }
