@@ -1,11 +1,11 @@
 <template>
-  <div >
-     <h1>Name of Beer</h1><br> 
-        <img/>
-     <h2>Brewery</h2><br>
-     <h2>Type of Beer</h2><br>
-     <h2>Rating/Reviews</h2><br>
-     <side-details/>
+  <div id='viewBeers' >
+    <span id='beerlist'>
+      <span v-for='beer in currentBeers' :key='beer.beerId' :id=beer.beerId>
+        <h1>{{beer.name}} {{beer.abv}}</h1>
+      </span>
+    </span>
+    <side-details/>
   </div>
 </template>
 
@@ -14,10 +14,27 @@ import SideDetails from '@/components/SideDetails.vue'
 export default {
     components: {
         SideDetails
+    },
+    computed:{
+      currentBeers(){
+        return this.$store.state.beers;
+      }
     }
 }
 </script>
 
-<style>
+<style scoped>
+#viewBeers{
+  display: flex;
+
+}
+#beerlist{
+  flex-grow:1;
+  flex-direction: row;
+  background-color: green;
+}
+#beerlist > span{
+  flex-grow:1;
+}
 
 </style>

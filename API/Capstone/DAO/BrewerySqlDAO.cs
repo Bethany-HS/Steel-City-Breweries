@@ -44,7 +44,7 @@ namespace Capstone.DAO
             return returnBrewery;
         }
 
-        public List<Brewery> GetBrewery()
+        public List<Brewery> GetBreweries()
         {
             List<Brewery> breweryList = new List<Brewery>();
             try
@@ -53,7 +53,7 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT * from brewery");
+                    SqlCommand cmd = new SqlCommand("SELECT * from breweries");
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
@@ -63,9 +63,9 @@ namespace Capstone.DAO
                     }
                 }
             }
-            catch (SqlException)
+            catch (SqlException e)
             {
-                throw;
+                throw e;
             }
 
             return breweryList;
