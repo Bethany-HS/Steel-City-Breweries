@@ -23,7 +23,16 @@ namespace Capstone.Controllers
         [HttpGet("{id}")]
         public ActionResult<Beer> GetBeer(int id)
         {
-            return Ok(beerDAO.GetBeer(id));
+            Beer existingBeer = beerDAO.GetBeer(id);
+            if (existingBeer != null)
+            {
+                return Ok(existingBeer);
+            }
+            else
+            {
+                return NotFound();
+            }
+            
         }
 
         [HttpGet]
