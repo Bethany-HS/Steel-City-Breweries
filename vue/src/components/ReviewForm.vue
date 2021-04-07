@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div id='review-form'>
         <button id="display-form" v-if="showForm === false" v-on:click.prevent="showForm = true">
             Make A Review
         </button>
@@ -54,6 +54,13 @@ export default {
 </script>
 
 <style>
+#review-form{
+    flex-grow: 1;
+}
+#display-form{
+    width:100%;
+    height:100%;
+}
 div.form-element {
   margin-top: 10px;
 }

@@ -41,3 +41,11 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.content{
+  background-color: lightblue;
+  align-items: stretch;
+  justify-content: stretch;
+}
+</style>
