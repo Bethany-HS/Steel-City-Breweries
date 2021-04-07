@@ -21,9 +21,18 @@ namespace Capstone.Controllers
         }
 
         [HttpGet("{id}")]
-        public ActionResult<BeerReview> GetBeerReviews(int id)
+        public ActionResult<List<BeerReview>> GetBeerReviews(int id)
         {
-            return Ok(beerReviewDAO.GetBeerReviews(id));
+            List<BeerReview> existingReview = beerReviewDAO.GetBeerReviews(id);
+            if (existingReview != null)
+            {
+                return Ok();
+            }
+            else
+            {
+                return NotFound("Reviews not found");
+            }
+            
         }
 
         [HttpPost]

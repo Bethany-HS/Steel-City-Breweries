@@ -80,7 +80,7 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients) VALUES (@name, @abv, @breweryId, @beerTypeId, @description, @ingredients)", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients, isActive) VALUES (@name, @abv, @breweryId, @beerTypeId, @description, @ingredients, 1)", conn);
                     cmd.Parameters.AddWithValue("@name", beer.Name);
                     cmd.Parameters.AddWithValue("@breweryId", beer.BreweryId);
                     cmd.Parameters.AddWithValue("@beerTypeId", beer.BeerTypeId);
@@ -95,6 +95,27 @@ namespace Capstone.DAO
                 throw e;
             }
 
+            return beer;
+        }
+        public Beer DeleteBeer(int id, Beer beer)
+        {
+            try
+            {
+                using(SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    string sqlText = "UPDATE beers set isActive = 0 where beer_id = @beerId;";
+                    SqlCommand cmd = new SqlCommand(sqlText, conn);
+                    cmd.Parameters.AddWithValue("@beerId", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
             return beer;
         }
 

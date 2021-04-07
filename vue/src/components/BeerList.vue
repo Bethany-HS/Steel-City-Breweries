@@ -6,11 +6,15 @@
       </span>
     </span>
     <side-details v-if='showSideDetails'/>
+    <review-form/>
+    <review-display/>
   </div>
 </template>
 
 <script>
 import SideDetails from '@/components/SideDetails.vue'
+import ReviewDisplay from '@/components/ReviewDisplay.vue'
+import ReviewForm from '@/components/ReviewForm.vue'
 export default {
     data(){
       return{
@@ -19,7 +23,9 @@ export default {
       }
     },
     components: {
-        SideDetails
+        SideDetails,
+        ReviewDisplay,
+        ReviewForm
     },
     computed:{
       currentBeers(){

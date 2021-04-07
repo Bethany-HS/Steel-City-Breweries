@@ -3,7 +3,7 @@
         <button id="display-form" v-if="showForm === false" v-on:click.prevent="showForm = true">
             Make A Review
         </button>
-        <form v-on:submit.prevent="addNewReview" v-if="showForm === true">
+        <form @submit.prevent="addNewReview" v-if="showForm === true">
             <div class="form-element">
                 <label for="title">Title</label>
                 <input id="title" type="text" v-model="reviewForm.title"/>
@@ -21,8 +21,8 @@
             <div class="form-element">
                 <textarea id="comment" v-model="reviewForm.comment"></textarea>
             </div>
-            <input type="submit" value="Save" />
-            <input type="button" value="Cancel" v-on:click.prevent="resetForm" />
+            <input type="submit" value="Submit" />
+            <input type="button" value="Cancel" @click.prevent="resetForm" />
         </form>
     </div>
 </template>
