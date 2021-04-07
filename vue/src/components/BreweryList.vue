@@ -11,7 +11,6 @@
 
 <script>
 import SideDetails from '@/components/SideDetails.vue'
-
 export default {
     components: {
         SideDetails

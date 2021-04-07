@@ -3,12 +3,27 @@
         <button id="display-form" v-if="showForm === false" v-on:click.prevent="showForm = true">
             Make A Review
         </button>
-  <form class="review-form">
-      <div>Title</div>
-      <div>Star Rating</div>
-      <div>Comment</div>
-      <button>Submit</button>
-  </form>
+        <form v-on:submit.prevent="addNewReview" v-if="showForm === true">
+            <div class="form-element">
+                <label for="title">Title</label>
+                <input id="title" type="text" v-model="reviewForm.title"/>
+            </div>
+            <div class="form-element">
+                <label for="rating">Rate Review:</label>
+                <select id="rating" v-model.number="reviewForm.rating">
+                    <option value="1">1 Beer</option>
+                    <option value="2">2 Beers</option>
+                    <option value="3">3 Beers</option>
+                    <option value="4">4 Beers</option>
+                    <option value="5">5 Beers</option>
+                </select>
+            </div>
+            <div class="form-element">
+                <textarea id="comment" v-model="reviewForm.comment"></textarea>
+            </div>
+            <input type="submit" value="Save" />
+            <input type="button" value="Cancel" v-on:click.prevent="resetForm" />
+        </form>
     </div>
 </template>
 
@@ -20,7 +35,7 @@ export default {
             showForm: false,
             reviewForm: {
                 title: "",
-                starRating: 1,
+                rating: 1,
                 comment: "",
             },
             newReview: {}
@@ -28,7 +43,7 @@ export default {
     },
     methods: {
         addNewReview() {
-            this.$store.commit("ADD_REVIEW", this.newReview)
+            this.$store.commit("ADD_REVIEW", this.reviewForm)
         },
         resetForm() {
             this.showForm = false;
@@ -39,5 +54,26 @@ export default {
 </script>
 
 <style>
-
+div.form-element {
+  margin-top: 10px;
+}
+div.form-element > label {
+  display: block;
+}
+div.form-element > input,
+div.form-element > select {
+  height: 30px;
+  width: 300px;
+}
+div.form-element > textarea {
+  height: 60px;
+  width: 300px;
+}
+form > input[type="button"] {
+  width: 100px;
+}
+form > input[type="submit"] {
+  width: 100px;
+  margin-right: 10px;
+}
 </style>

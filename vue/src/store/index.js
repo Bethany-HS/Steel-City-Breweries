@@ -42,6 +42,7 @@ export default new Vuex.Store({
     },
     ADD_REVIEW(state, review) {
       state.reviews.unshift(review);
+    },
     SET_CURRENT_PAGE(state,id){
       state.currentDisplay = id
     },
