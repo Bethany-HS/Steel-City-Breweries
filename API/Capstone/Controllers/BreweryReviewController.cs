@@ -30,7 +30,7 @@ namespace Capstone.Controllers
             }
             else
             {
-                return NotFound("Review not found")
+                return NotFound("Review not found");
             }
         }
 
