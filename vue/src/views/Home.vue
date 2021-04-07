@@ -10,6 +10,9 @@
 </template>
 
 <script>
+import breweryService from "@/services/BreweryService.js";
+import beerService from "@/services/BeerService.js";
+
 import SideNav from '@/components/SideNav.vue';
 import ContentPage from '@/components/ContentPage.vue';
 
@@ -18,6 +21,14 @@ export default {
   components: {
     SideNav,
     ContentPage
+  },
+  created(){
+    breweryService.getBreweries().then(response => {
+      this.$store.state.breweries =  response.data;
+    })
+    beerService.getBeers().then(response => {
+      this.$store.state.beers = response.data;
+    })
   }
 };
 </script>

@@ -1,8 +1,10 @@
 <template>
-  <div >
-    <h1>Select Brewery</h1>
-    <span v-for="brewery in getBreweries()" :key="brewery.id">
-    <button @click='chooseBrewery(brewery.id)'>{{brewery.name}}</button>
+  <div id='breweryManagement'>
+    <span id='managebrewerylist'>
+        <h1>Select Brewery</h1>
+        <span v-for="brewery in getBreweries()" :key="brewery.id">
+            <button @click='chooseBrewery(brewery.id)'>{{brewery.name}}</button>
+        </span>
     </span>
     <side-details v-if='showSide'/>
   </div>
@@ -34,5 +36,14 @@ export default {
 </script>
 
 <style>
+#breweryManagement{
+    display:flex;
+}
+
+#managebrewerylist{
+    flex-grow:3;
+    background-color: green;
+   
+}
 
 </style>

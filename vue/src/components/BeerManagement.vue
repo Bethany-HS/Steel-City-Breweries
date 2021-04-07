@@ -1,14 +1,13 @@
 <template>
   <div>
     <span id="contents">
-    <span id="beerlist">
-    <h1>Select Beer</h1>
-    <span v-for="beer in getBeers()" :key="beer.id">
-    <button @click='chooseBeer(beer.id)'>{{beer.name}}</button>
-    </span>
-    </span>
-
-    <side-details v-if='showSide'/>
+        <span id="beerlist">
+            <h1>Select Beer</h1>
+            <span v-for="beer in getBeers()" :key="beer.id">
+                <button @click='chooseBeer(beer.id)'>{{beer.name}}</button>
+            </span>
+        </span>
+        <side-details v-if='showSide'/>
     </span>
   </div>
 </template>
@@ -45,6 +44,7 @@ export default {
 }
 #beerlist{
     flex-grow:3;
+    background-color: green;
    
 }
 side-details{

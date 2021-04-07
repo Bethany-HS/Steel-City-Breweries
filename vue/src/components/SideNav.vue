@@ -21,6 +21,7 @@
 export default {
   methods:{
     setPage(id){
+      this.$store.commit('SET_EDITING_MODE',0);
       this.$store.commit('SET_CURRENT_PAGE',id);
     }
   }
@@ -29,5 +30,5 @@ export default {
 </script>
 
 <style>
-
+#side-nav{background-color: palevioletred;}
 </style>
