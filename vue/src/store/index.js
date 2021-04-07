@@ -22,6 +22,7 @@ export default new Vuex.Store({
     user: currentUser || {},
     currentDisplay : 1,
     editingMode:0,
+    beerReviews: [],
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
