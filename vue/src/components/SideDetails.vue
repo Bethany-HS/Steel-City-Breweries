@@ -4,8 +4,8 @@
     <h1 id="name"></h1>
     <h2 id="details"></h2>
     <h2 id="ratings"></h2>
-    <review-form />
     <h2 id="reviews"></h2>
+    <review-form/>
     </span>
     <span v-if='$store.state.editingMode===1'>
       <button>Edit Brewery Info</button>
