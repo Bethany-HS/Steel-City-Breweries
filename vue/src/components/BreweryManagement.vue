@@ -1,50 +1,71 @@
 <template>
   <div id='breweryManagement'>
-    <span id='managebrewerylist'>
+    
+        <add-brewery-form></add-brewery-form>>
+    <div id="MainContent">
         <h1>Select Brewery</h1>
-        <span v-for="brewery in getBreweries()" :key="brewery.id">
-            <button @click='chooseBrewery(brewery.id)'>{{brewery.name}}</button>
-        </span>
-    </span>
-    <side-details v-if='showSide'/>
+        <div id='managebrewerylist' v-for="brewery in getBreweries()" :key="brewery.breweryId">
+            <h1 @click='chooseBrewery(brewery.breweryId)'>{{brewery.name}}</h1>
+        </div>
+    </div>
+    <side-details :current-brewery='currentBrewery' v-if='showSide'/>
   </div>
 </template>
 
 <script>
 import SideDetails from '@/components/SideDetails.vue'
+import AddBreweryForm from '@/components/AddBreweryForm.vue'
 export default {
     data(){
         return{
     showSide: false,
     currentBrewery : -1,
+    breweries: [],
+    user:{},
     }
     },
     components: {
-        SideDetails
+        SideDetails,
+        AddBreweryForm
     },
     methods:{
         getBreweries(){
-            return [{id:1,name:'Drinks on me'}]
+            this.breweries=this.$store.state.breweries
+            this.user = this.$store.state.user
+            return this.$store.state.breweries.filter(brew => brew.brewerId===this.$store.state.user.userId && brew.isActive)
         },
         chooseBrewery(id){
-            this.showSide = true
             this.currentBrewery = id
+            this.showSide = true
             this.$store.commit('SET_EDITING_MODE',1);
         }
     }
 }
 </script>
 
-<style>
+<style >
 #breweryManagement{
-    display:flex;
+    display: flex;
     flex-grow:1;
+    flex-direction: row;
+    background-color: green;
+}
+#MainContent{
+    display: flex;
+    flex-grow:2;
+    flex-direction: column;
 }
 
 #managebrewerylist{
-    flex-grow:3;
-    background-color: green;
-   
+    display: flex;
+    flex-grow: 1;
+    flex-basis:100%;
 }
+#managebrewerylist >h1{
+    display: flex;
+    flex-grow: 1;
+    flex-basis:100%;
+}
+
 
 </style>

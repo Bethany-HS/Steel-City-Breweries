@@ -60,6 +60,9 @@ export default new Vuex.Store({
     ADD_BEER(state, beer){
       state.beers.unshift(beer);
     },
+    ADD_BREWERY(state, brewery){
+      state.breweries.unshift(brewery);
+    },
     MAKE_REVIEW_PRIVATE(state, reviewToPrivate) {
       reviewToPrivate.private = ! reviewToPrivate.private;
     }
