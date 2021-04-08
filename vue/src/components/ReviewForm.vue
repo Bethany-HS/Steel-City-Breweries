@@ -55,11 +55,12 @@ export default {
 
 <style>
 #review-form{
-    flex-grow: 1;
+    display:flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 #display-form{
-    width:100%;
-    height:100%;
+    width:50%;
 }
 div.form-element {
   margin-top: 10px;
@@ -67,10 +68,13 @@ div.form-element {
 div.form-element > label {
   display: block;
 }
-div.form-element > input,
-div.form-element > select {
+div.form-element > input{
   height: 30px;
   width: 300px;
+}
+div.form-element > select{
+  height: 30px;
+  width: 307.97px;
 }
 div.form-element > textarea {
   height: 60px;

@@ -45,7 +45,8 @@ export default {
 <style scoped>
 .content{
   background-color: lightblue;
-  align-items: stretch;
-  justify-content: stretch;
+  display: flex;
+  flex-direction: row;
+  justify-content:stretch
 }
 </style>

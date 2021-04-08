@@ -1,12 +1,12 @@
 <template>
-  <div id='viewBreweries' >
+    <div id='viewBreweries'>
     <div id='brewerylist'>
       <div  v-for='brewery in currentBreweries' :key='brewery.breweryId' @click='showSideMenu()'>
         <h1>{{brewery.name}} </h1>
       </div>
     </div>
     <side-details v-if='showSideDetails'/>
-  </div>
+    </div>
 </template>
 
 <script>
@@ -36,16 +36,17 @@ export default {
 
 <style >
 #viewBreweries{
-  display: flex;
-  flex-direction: row;
-  align-items: stretch;
+   display: flex;
+   flex-basis: 100%;
+   flex-grow:1;
 }
 #brewerylist{
-  flex-grow: 1;
+  flex-grow: 3;
   flex-direction: column;
   background-color: green;
 }
 side-details{
  flex-grow:1;
+ justify-content: center;
 }
 </style>
