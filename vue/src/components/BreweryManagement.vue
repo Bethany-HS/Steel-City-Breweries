@@ -1,6 +1,7 @@
 <template>
   <div id='breweryManagement'>
     <span id='managebrewerylist'>
+        <add-brewery-form></add-brewery-form>>
         <h1>Select Brewery</h1>
         <span v-for="brewery in getBreweries()" :key="brewery.id">
             <button @click='chooseBrewery(brewery.id)'>{{brewery.name}}</button>
@@ -12,6 +13,7 @@
 
 <script>
 import SideDetails from '@/components/SideDetails.vue'
+import AddBreweryForm from '@/components/AddBreweryForm.vue'
 export default {
     data(){
         return{
@@ -20,7 +22,8 @@ export default {
     }
     },
     components: {
-        SideDetails
+        SideDetails,
+        AddBreweryForm
     },
     methods:{
         getBreweries(){
