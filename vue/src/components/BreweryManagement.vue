@@ -43,8 +43,7 @@ export default {
 
 #managebrewerylist{
     flex-grow:3;
-    background-color: green;
-   
+    
 }
 
 </style>

@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <h1>Steel City Brews</h1>
+    <div class="header">
+    <img src="../assets/logo1.png">
+    </div>
     <span id='main-page'>
     <side-nav id='sidenav'/>
     <content-page id='content' />
@@ -46,5 +48,9 @@ export default {
 }
 #content{
   flex-grow: 5;
+  background-color: rgb(214, 214, 214);
+    border: 1px solid black;
+    display: block;
+    box-shadow: 3px 3px black;
 }
 </style>
