@@ -46,7 +46,7 @@ export default new Vuex.Store({
       axios.defaults.headers.common = {};
     },
     ADD_BREWERY_REVIEW(state, breweryReview) {
-      state.beerReviews.unshift(breweryReview);
+      state.breweryReviews.unshift(breweryReview);
     },
     ADD_BEER_REVIEW(state, beerReview) {
       state.beerReviews.unshift(beerReview);

@@ -1,7 +1,7 @@
 <template>
     <div id='review-form'>
         <button id="display-form" v-if="showForm === false" v-on:click.prevent="showForm = true">
-            Make A Review
+            Make A  Brewery Review
         </button>
         <form @submit.prevent="addNewReview" v-if="showForm === true">
             <div class="form-element">
@@ -21,11 +21,11 @@
             <div class="form-element">
                 <textarea id="comment" v-model="reviewForm.comment"></textarea>
             </div>
-            <input type="submit" value="Submit" @click="addBreweryReview"/>
+            <input type="button" value="Submit" @click="addBreweryReview"/>
             <input type="button" value="Cancel" @click.prevent="resetForm" />
             <p>
                 Make Review Private
-                <input type="checkbox" v-bind:checked="review.private" @change="privateReview"/>
+                <input type="checkbox" v-bind:checked="reviewForm.private" @change="privateReview"/>
             </p>
         </form>
     </div>

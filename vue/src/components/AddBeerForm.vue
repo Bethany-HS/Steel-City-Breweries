@@ -10,14 +10,14 @@
         </div>
         <div class="form-element">
             <label for="type">Select Beer Type</label>
-            <select name="beer-type" id="type" v-model.number="newBeer.BeerTypeId">
-                <option value="1">1 Ale</option>
-                <option value="2">2 Lager</option>
-                <option value="3">3 IPA</option>
-                <option value="4">4 Stout</option>
-                <option value="5">5 Pilsner</option>
-                <option value="6">6 Porter</option>
-                <option value="7">7 Wheat</option>
+            <select name="beer-type" id="type" v-model.number="newBeer.type">
+                <option value="1">Ale</option>
+                <option value="2">Lager</option>
+                <option value="3">IPA</option>
+                <option value="4">Stout</option>
+                <option value="5">Pilsner</option>
+                <option value="6">Porter</option>
+                <option value="7">Wheat</option>
             </select>
         </div>
         <div class="form-element">
@@ -29,8 +29,8 @@
             <input type="text" id="ingredients" placeholder="Ingredients" v-model="newBeer.Ingredients">
         </div>
         <div class="form-element">  
-            <label for="description">Discription</label>
-            <textarea name="description" id="description" cols="30" rows="10" placeholder="Describe Beer here" v-model="newBeer.Description"></textarea>
+            <label for="description">Description</label>
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Describe Beer here" v-model="newBeer.description"></textarea>
         </div>
         <div class="form-element">
             <input type="submit" value="Submit" @click ="addBeer"/>
