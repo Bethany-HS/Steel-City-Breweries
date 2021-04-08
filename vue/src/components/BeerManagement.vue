@@ -1,6 +1,7 @@
 <template>
   <div>
     <span id="contents">
+        <add-beer-form></add-beer-form>
         <span id="beerlist">
             <h1>Select Beer</h1>
             <span v-for="beer in getBeers()" :key="beer.id">
@@ -14,6 +15,7 @@
 
 <script>
 import SideDetails from '@/components/SideDetails.vue'
+import AddBeerForm from '@/components/AddBeerForm.vue'
 export default {
     data(){
         return{
@@ -22,7 +24,8 @@ export default {
     }
     },
     components: {
-        SideDetails
+        SideDetails,
+        AddBeerForm
     },
     methods:{
         getBeers(){
