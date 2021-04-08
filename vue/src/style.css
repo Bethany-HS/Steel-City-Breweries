@@ -1,0 +1,79 @@
+body
+{
+    background-color: rgb(128, 38, 41);
+    font-family: sans-serif;
+}
+
+button
+{
+    background-color: rgb(255, 200, 27);
+    border-radius: 5px;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 3px 3px black;
+}
+
+.home img
+{
+    display: block;
+    margin: auto;
+}
+
+.nav-button
+{
+    background-color: rgb(255, 200, 27);
+    border-radius: 0px;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 3px 3px black;
+    width: 300px;
+}
+.nav-button-top
+{
+    background-color: rgb(255, 200, 27);
+    border-radius: 5px 5px 0px 0px;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 3px 3px black;
+    width: 300px;
+}
+
+.nav-button-bottom
+{
+    background-color: rgb(255, 200, 27);
+    border-radius: 0px 0px 5px 5px;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 3px 3px black;
+    width: 300px;
+}
+
+.nav-h2
+{
+    background-color: rgb(255, 200, 27);
+    border-radius: 0px 0px 5px 5px;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    box-shadow: 3px 3px black;
+    width: 300px;
+}
