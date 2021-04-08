@@ -5,10 +5,11 @@
     <h2 id="details"></h2>
     <h2 id="ratings"></h2>
     <h2 id="reviews"></h2>
-    <review-form/>
+    <beer-review-form/>
     <review-display/>
     </span>
     <span  id='brewerydetails' v-if='$store.state.editingMode===1'>
+      <h1 >{{this.currentBrewery}}</h1>
       <button>Edit Brewery Info</button>
       <button @click="$store.commit('SET_CURRENT_PAGE',4)">Manage Beers</button>
     </span>
@@ -22,19 +23,21 @@
 
 <script>
 import ReviewDisplay from '@/components/ReviewDisplay.vue'
-import ReviewForm from '@/components/ReviewForm.vue'
+import BeerReviewForm from '@/components/BeerReviewForm.vue'
 export default {
     components: {
-        ReviewForm,
+        BeerReviewForm,
         ReviewDisplay
     },
-    data() {
+    data() {  
       return{
         reviews: [],
-        ratings: []
+        ratings: [],
+        
       }
     },
-    methods: {}
+    methods: {},
+    props:['currentBrewery']
 }
 </script>
 
@@ -43,7 +46,6 @@ export default {
 flex-grow: 1;
 background-color: royalblue;
 flex-direction:row;
-align-items: center;
 
 }
 

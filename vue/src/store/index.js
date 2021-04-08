@@ -23,7 +23,10 @@ export default new Vuex.Store({
     currentDisplay : 1,
     editingMode:0,
     breweries:[],
-    beers:[]
+    beers:[],
+    private: false,
+    beerReviews:[],
+    breweryReviews:[]
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -42,14 +45,26 @@ export default new Vuex.Store({
       state.user = {};
       axios.defaults.headers.common = {};
     },
-    ADD_REVIEW(state, review) {
-      state.reviews.unshift(review);
+    ADD_BREWERY_REVIEW(state, breweryReview) {
+      state.beerReviews.unshift(breweryReview);
+    },
+    ADD_BEER_REVIEW(state, beerReview) {
+      state.beerReviews.unshift(beerReview);
     },
     SET_CURRENT_PAGE(state,id){
       state.currentDisplay = id
     },
     SET_EDITING_MODE(state,id){
       state.editingMode = id;
+    },
+    ADD_BEER(state, beer){
+      state.beers.unshift(beer);
+    },
+    ADD_BREWERY(state, brewery){
+      state.breweries.unshift(brewery);
+    },
+    MAKE_REVIEW_PRIVATE(state, reviewToPrivate) {
+      reviewToPrivate.private = ! reviewToPrivate.private;
     }
   }
 })

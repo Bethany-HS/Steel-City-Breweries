@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div class="review">
+    <h3>{{ review.title }}</h3>
+    <div></div>
+    <h3>{{ review.comment }}</h3>
 
   </div>
 </template>
