@@ -1,11 +1,11 @@
 <template>
   <div id='viewBeers' >
     <span id='beerlist'>
-      <span v-for='beer in currentBeers' :key='beer.beerId' :id='beer.beerId' @click='showSideMenu()'>
+      <span v-for='beer in currentBeers' :key='beer.beerId' :id='beer.beerId' @click='showSideMenu(beer.beerId)'>
         <h1>{{beer.name}} {{beer.abv}}</h1>
       </span>
     </span>
-    <side-details v-if='showSideDetails'/>
+    <side-details :current-brewery='-1' :current-beer='currentBeer[0].beerId' v-if='showSideDetails'/>
 
   </div>
 </template>
@@ -28,7 +28,8 @@ export default {
       }
     },
     methods: {
-      showSideMenu(){
+        showSideMenu(id){
+        this.currentBeer  = this.currentBeers.filter(x => x.beerId === id)
         this.showSideDetails = true
       }
     }
