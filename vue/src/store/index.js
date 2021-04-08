@@ -50,6 +50,9 @@ export default new Vuex.Store({
     },
     SET_EDITING_MODE(state,id){
       state.editingMode = id;
+    },
+    ADD_BEER(state, beer){
+      state.beers.unshift(beer);
     }
   }
 })
