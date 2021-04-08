@@ -21,8 +21,12 @@
             <div class="form-element">
                 <textarea id="comment" v-model="reviewForm.comment"></textarea>
             </div>
-            <input type="submit" value="Submit" />
+            <input type="submit" value="Submit" @click="addBreweryReview"/>
             <input type="button" value="Cancel" @click.prevent="resetForm" />
+            <p>
+                Make Review Private
+                <input type="checkbox" v-bind:checked="review.private" @change="privateReview"/>
+            </p>
         </form>
     </div>
 </template>
@@ -37,17 +41,22 @@ export default {
                 title: "",
                 rating: 1,
                 comment: "",
+                private: false
             },
             newReview: {}
         };
     },
     methods: {
-        addNewReview() {
-            this.$store.commit("ADD_REVIEW", this.reviewForm)
+        addBreweryReview() {
+            this.$store.commit("ADD_BREWERY_REVIEW", this.reviewForm);
+            this.resetForm();
         },
         resetForm() {
             this.showForm = false;
             this.newReview = {};
+        },
+        privateReview() {
+            this.$store.commit("MAKE_REVIEW_PRIVATE", this.reviewForm);
         }
     }
 };
