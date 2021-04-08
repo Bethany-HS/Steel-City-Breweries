@@ -38,6 +38,7 @@ export default {
 <style>
 #breweryManagement{
     display:flex;
+    flex-grow:1;
 }
 
 #managebrewerylist{

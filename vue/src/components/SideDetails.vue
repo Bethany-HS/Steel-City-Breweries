@@ -40,9 +40,10 @@ export default {
 
 <style>
 #sidedetails{
-
+flex-grow: 1;
 background-color: royalblue;
 flex-direction:row;
+align-items: center;
 
 }
 

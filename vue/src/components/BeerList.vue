@@ -38,15 +38,13 @@ export default {
 <style scoped>
 #viewBeers{
   display: flex;
-
+  flex-basis: 100%;
 }
 #beerlist{
-  flex-grow:1;
+  flex-grow:2;
   flex-direction: row;
   background-color: green;
 }
-#beerlist > span{
-  flex-grow:1;
-}
+
 
 </style>
