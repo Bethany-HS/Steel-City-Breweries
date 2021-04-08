@@ -38,15 +38,15 @@ export default {
 #viewBreweries{
    display: flex;
    flex-basis: 100%;
-   flex-grow:1;
+   flex-grow: 1;
 }
 #brewerylist{
   flex-grow: 3;
   flex-direction: column;
-  background-color: green;
+  
 }
 side-details{
- flex-grow:1;
+ flex-grow: 1;
  justify-content: center;
 }
 </style>
