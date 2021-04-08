@@ -1,5 +1,7 @@
 <template>
   <div id='breweryManagement'>
+    
+        <add-brewery-form></add-brewery-form>>
     <div id="MainContent">
         <h1>Select Brewery</h1>
         <div id='managebrewerylist' v-for="brewery in getBreweries()" :key="brewery.breweryId">
@@ -12,6 +14,7 @@
 
 <script>
 import SideDetails from '@/components/SideDetails.vue'
+import AddBreweryForm from '@/components/AddBreweryForm.vue'
 export default {
     data(){
         return{
@@ -22,7 +25,8 @@ export default {
     }
     },
     components: {
-        SideDetails
+        SideDetails,
+        AddBreweryForm
     },
     methods:{
         getBreweries(){

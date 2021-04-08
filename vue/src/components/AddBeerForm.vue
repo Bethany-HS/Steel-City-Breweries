@@ -30,7 +30,7 @@
         </div>
         <div class="form-element">  
             <label for="description">Discription</label>
-            <textarea name="Description" id="description" cols="30" rows="10" placeholder="Describe Beer here" v-model="newBeer.description"></textarea>
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Describe Beer here" v-model="newBeer.description"></textarea>
         </div>
         <div class="form-element">
             <input type="submit" value="Submit" />
@@ -52,7 +52,8 @@ export default {
                 type: 1,
                 abv: "",
                 ingredients: "",
-                description: ""
+                description: "",
+                isActive: true
             }
         };
     },
