@@ -44,7 +44,6 @@ export default {
 #beerlist{
   flex-grow:2;
   flex-direction: row;
-  background-color: green;
 }
 
 
