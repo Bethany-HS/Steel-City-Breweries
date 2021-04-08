@@ -1,25 +1,26 @@
 <template>
   <div id='viewBeers' >
     <span id='beerlist'>
-      <span v-for='beer in currentBeers' :key='beer.beerId' :id=beer.beerId>
+      <span v-for='beer in currentBeers' :key='beer.beerId' :id='beer.beerId' @click='showSideMenu()'>
         <h1>{{beer.name}} {{beer.abv}}</h1>
       </span>
     </span>
-    <review-form/>
-    <review-display/>
-    <side-details/>
+    <side-details v-if='showSideDetails'/>
+
   </div>
 </template>
 
 <script>
 import SideDetails from '@/components/SideDetails.vue'
-import ReviewDisplay from '@/components/ReviewDisplay.vue'
-import ReviewForm from '@/components/ReviewForm.vue'
 export default {
+    data(){
+      return{
+        showSideDetails:false,
+        currentBeer: {}
+      }
+    },
     components: {
         SideDetails,
-        ReviewDisplay,
-        ReviewForm
     },
     computed:{
       currentBeers(){
@@ -27,7 +28,9 @@ export default {
       }
     },
     methods: {
-        loadInfo() {}
+      showSideMenu(){
+        this.showSideDetails = true
+      }
     }
 }
 </script>
@@ -35,15 +38,13 @@ export default {
 <style scoped>
 #viewBeers{
   display: flex;
-
+  flex-basis: 100%;
 }
 #beerlist{
-  flex-grow:1;
+  flex-grow:2;
   flex-direction: row;
   background-color: green;
 }
-#beerlist > span{
-  flex-grow:1;
-}
+
 
 </style>

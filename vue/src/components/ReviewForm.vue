@@ -1,9 +1,7 @@
 <template>
-    <div>
-        <button id="display-form" v-if="showForm === false" @click.prevent="showForm = true"
-          
-        >
-            Start a Review
+    <div id='review-form'>
+        <button id="display-form" v-if="showForm === false" v-on:click.prevent="showForm = true">
+            Make A Review
         </button>
         <form @submit.prevent="addNewReview" v-if="showForm === true">
             <div class="form-element">
@@ -56,16 +54,27 @@ export default {
 </script>
 
 <style>
+#review-form{
+    display:flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+#display-form{
+    width:50%;
+}
 div.form-element {
   margin-top: 10px;
 }
 div.form-element > label {
   display: block;
 }
-div.form-element > input,
-div.form-element > select {
+div.form-element > input{
   height: 30px;
   width: 300px;
+}
+div.form-element > select{
+  height: 30px;
+  width: 307.97px;
 }
 div.form-element > textarea {
   height: 60px;

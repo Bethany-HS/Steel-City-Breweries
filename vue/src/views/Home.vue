@@ -1,10 +1,9 @@
 <template>
   <div class="home">
-    <h1>Home</h1>
-    <p>You must be authenticated to see this</p><br>
+    <h1>Steel City Brews</h1>
     <span id='main-page'>
-    <side-nav />
-    <content-page />
+    <side-nav id='sidenav'/>
+    <content-page id='content' />
     </span>
   </div>
 </template>
@@ -29,19 +28,23 @@ export default {
     beerService.getBeers().then(response => {
       this.$store.state.beers = response.data;
     })
+  },
+  methods:{
+    
   }
-};
+}
 </script>
 
 <style>
 #main-page{
   display: flex;
-
+  justify-content: stretch;
+  align-items: stretch;
 }
-side-nav{
+#sidenav{
   flex-grow:1;
 }
-content-page{
+#content{
   flex-grow: 5;
 }
 </style>
