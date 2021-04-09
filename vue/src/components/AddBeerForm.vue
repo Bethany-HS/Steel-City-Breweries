@@ -60,9 +60,6 @@ export default {
         };
     },
     methods:{
-        addNewBeer(){
-            this.$store.commit("ADD_BEER", this.newBeer);
-        },
         resetForm() {
             this.showForm = false;
             this.newBeer = {};
@@ -73,7 +70,7 @@ export default {
             .then(response => {
                 if (response.status === 201) {
                     this.showForm = false;
-                    BeerService.getBeer().then(response => {
+                    BeerService.getBeers().then(response => {
                     this.$store.state.beers =  response.data;})
                 }
             })

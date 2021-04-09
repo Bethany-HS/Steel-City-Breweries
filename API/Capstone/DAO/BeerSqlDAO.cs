@@ -130,6 +130,7 @@ namespace Capstone.DAO
                     Abv = Convert.ToDecimal(reader["abv"]),
                     Description = Convert.ToString(reader["description"]),
                     Ingredients = Convert.ToString(reader["ingredients"]),
+
                 };
 
                 return beer;

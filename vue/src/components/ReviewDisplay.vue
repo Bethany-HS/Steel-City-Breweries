@@ -1,6 +1,6 @@
 <template>
   <div class="review">
-    <div  v-for="review in reviews" :key='review.title'>
+    <div id='reviewpart' v-for="review in reviews" :key='review.title'>
     <h3>{{ review.title }}</h3>
 
     <div id="rating">
@@ -27,25 +27,30 @@ export default {
     computed:{
       reviews(){
         if(this.reviewType === true){
-         return this.$store.state.beerReviews
+         return this.$store.state.beerReviews.filter(x => x.objectId === this.reviewId)
         }
         else{
-         return this.$store.state.breweryReviews
+         return this.$store.state.breweryReviews.filter(x => x.objectId === this.reviewId)
         }
       }
     },
     methods: {},
-    props:['reviewType']
+    props:['reviewType','reviewId']
 }
 </script>
 
 <style>
 .review {
     display: flex;
+    
 }
 
-#rating {
-display: flex;
+#reviewpart{
+  display: flex;
+  
+}
+#rating { 
+display: flex;  
 height: 3rem;
 vertical-align: top;
 margin: 0 0.5rem;

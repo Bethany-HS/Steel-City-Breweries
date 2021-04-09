@@ -6,7 +6,7 @@
         <h2>{{brewery.city}} {{brewery.phone}}</h2>
       </div>
     </div>
-    <side-details :current-brewery='currentBrewery[0].breweryId' :current-beer='-1' v-if='showSideDetails'/>
+    <side-details :current-brewery='currentBrewery[0]' :current-beer='{}' v-if='showSideDetails'/>
     </div>
 </template>
 
