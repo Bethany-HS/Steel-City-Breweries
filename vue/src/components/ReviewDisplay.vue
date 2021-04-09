@@ -3,8 +3,12 @@
     <div  v-for="review in reviews" :key='review.title'>
     <h3>{{ review.title }}</h3>
 
-    <div class="rating">
-        <img src="@/images/Full_Beer.png"/>
+    <div id="rating">
+        <img src="@/images/Full_Beer.png"
+        v-bind:title="review.rating"
+        id="ratingBeer" v-for=" i in review.rating" 
+        v-bind:key="i"
+        />
     </div>
 
 
@@ -36,5 +40,22 @@ export default {
 </script>
 
 <style>
+.review {
+    display: flex;
+}
 
+#rating {
+display: flex;
+height: 3rem;
+vertical-align: top;
+margin: 0 0.5rem;
+}
+
+#ratingBeer {
+display: flex;
+height: 100%;
+justify-content: flex-start;
+flex-direction: row;
+flex-grow: 5;
+}
 </style>
