@@ -21,7 +21,7 @@ export default {
     showSide: false,
     currentBrewery : -1,
     breweries: [],
-    user:{},
+    user:{}
     }
     },
     components: {
@@ -48,7 +48,6 @@ export default {
     display: flex;
     flex-grow:1;
     flex-direction: row;
-    background-color: green;
 }
 #MainContent{
     display: flex;
