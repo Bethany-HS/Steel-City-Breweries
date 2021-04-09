@@ -3,6 +3,7 @@
     <div id='brewerylist'>
       <div id="brewery" v-for='brewery in currentBreweries' :key='brewery.breweryId' @click='showSideMenu(brewery.breweryId)'>
         <h1>{{brewery.name}} </h1>
+        <h2>{{brewery.city}} {{brewery.phone}}</h2>
       </div>
     </div>
     <side-details :current-brewery='currentBrewery[0].breweryId' :current-beer='-1' v-if='showSideDetails'/>
@@ -64,7 +65,12 @@ side-details
   box-shadow: 5px 5px 3px black;
 }
 
-#brewery > h1
+#brewery:hover
+{
+  background-color: rgb(85, 85, 85);
+}
+
+#brewery > h1, h2
 {
   margin-left: 10px;
 }
