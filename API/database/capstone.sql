@@ -45,10 +45,14 @@ CREATE TABLE breweries (
 	zip int not null,
 	phone varchar (15) not null,
 	history nvarchar(300) not null,
-	isActive bit not null
+	brewery_status_id int not null
 	CONSTRAINT PK_brewery PRIMARY KEY (brewery_id)
 );
-
+Create Table brewery_status_id (
+	brewery_status_id int IDENTITY(1,1),
+	brewery_status_desc varchar(10) not null
+	Constraint PK_brewery_status PRIMARY KEY (brewery_status_id)
+);
 CREATE TABLE users_favBreweries (
 	user_id int NOT NULL,
 	brewery_id int NOT NULL
@@ -101,6 +105,7 @@ Alter Table beer_reviews ADD CONSTRAINT fk_beerReview_beer_id FOREIGN KEY (beer_
 
 ALTER TABLE	brewer ADD CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users(user_id);
 ALTER TABLE brewery_reviews ADD CONSTRAINT fk_breweryReview_brewery_id FOREIGN KEY (brewery_id) REFERENCES breweries(brewery_id);
+ALTER TABLE  breweries ADD CONSTRAINT fk_brewery_status_id FOREIGN KEY (brewery_status_id) REFERENCES brewery_status_id(brewery_status_id);
 commit transaction
 --populate default data
 INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');
@@ -108,7 +113,11 @@ INSERT INTO users (username, password_hash, salt, user_role) VALUES ('admin','Yh
 
 INSERT INTO brewer (user_id, brewery_id, name) values (1,1,'testbrewer');
 
-INSERT INTO breweries (name, brewer_id, street_address1, city, state, zip, phone, history, isActive) 
+INSERT INTO brewery_status_id (brewery_status_desc) values ('pending');
+INSERT INTO brewery_status_id (brewery_status_desc) values ('active');
+INSERT INTO brewery_status_id (brewery_status_desc) values ('inactive');
+
+INSERT INTO breweries (name, brewer_id, street_address1, city, state, zip, phone, history, brewery_status_id) 
 values ('testBrewery', 1, '1234 streetroad', 'testville', 'TE', '12345', '1234567892', 'The best test brewery around', 1);
 
 Insert Into beer_types (beer_type) values('IPA');

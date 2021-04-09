@@ -3,7 +3,7 @@
         <button id="display-form" v-if="showForm === false" v-on:click.prevent="showForm = true">
             Make A  Brewery Review
         </button>
-        <form @submit.prevent="addNewReview" v-if="showForm === true">
+        <form v-if="showForm === true">
             <div class="form-element">
                 <label for="title">Title</label>
                 <input id="title" type="text" v-model="reviewForm.title"/>
@@ -39,6 +39,8 @@ export default {
             showForm: false,
             reviewForm: {
                 title: "",
+                userId: "",
+                beerId: "",
                 rating: 1,
                 objectId: this.brewery.breweryId ,
                 comment: "",
@@ -52,7 +54,7 @@ export default {
             this.$store.commit("ADD_BREWERY_REVIEW", this.reviewForm);
             this.resetForm();
         },
-        resetForm() {
+         resetForm() {
             this.showForm = false;
             this.reviewForm = {
                 title: "",

@@ -72,6 +72,37 @@ namespace Capstone.DAO
             return GetUser(username);
         }
 
+        //returning a user profile.  We could add this info to the db and pull it from returnUser
+        public ReturnUser GetUserProfile(int id)
+        {
+            ReturnUser returnUser = null;
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    string sqlText = "SELECT username, role from user where user_id = @user_id";
+                    SqlCommand cmd = new SqlCommand(sqlText, conn);
+                    cmd.Parameters.AddWithValue("@user_id", id);
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while(reader.Read())
+                    {
+                        returnUser.Username = Convert.ToString(reader["username"]);
+                        returnUser.Role = Convert.ToString(reader["role"]);
+                    }
+                    return returnUser; 
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
         private User GetUserFromReader(SqlDataReader reader)
         {
             User u = new User()
