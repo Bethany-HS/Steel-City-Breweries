@@ -92,7 +92,7 @@ namespace Capstone.DAO
                         returnUser.Username = Convert.ToString(reader["username"]);
                         returnUser.Role = Convert.ToString(reader["role"]);
                     }
-                    return returnUser;
+                    return returnUser; 
 
                 }
             }
