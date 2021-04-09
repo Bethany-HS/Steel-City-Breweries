@@ -21,6 +21,8 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     currentDisplay : 1,
+    currentBrewery : {},
+    currentBeer : {},
     editingMode:0,
     breweries:[],
     beers:[],
