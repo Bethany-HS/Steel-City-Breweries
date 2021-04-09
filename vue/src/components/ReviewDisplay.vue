@@ -1,7 +1,9 @@
 <template>
   <div class="review">
     <h3>{{ review.title }}</h3>
-    <div></div>
+    <div class="rating">
+        <img src="@/images/Full_Beer.png"/>
+    </div>
     <h3>{{ review.comment }}</h3>
 
   </div>

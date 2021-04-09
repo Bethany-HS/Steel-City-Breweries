@@ -5,7 +5,8 @@
     <h2 id="details"></h2>
     <h2 id="ratings"></h2>
     <h2 id="reviews"></h2>
-    <beer-review-form/>
+    <!-- <beer-review-form/> -->
+    <brewery-review-form/>
     <review-display/>
     </span>
     <span  id='brewerydetails' v-if='$store.state.editingMode===1'>
@@ -23,11 +24,13 @@
 
 <script>
 import ReviewDisplay from '@/components/ReviewDisplay.vue'
-import BeerReviewForm from '@/components/BeerReviewForm.vue'
+// import BeerReviewForm from '@/components/BeerReviewForm.vue'
+import BreweryReviewForm from '@/components/BreweryReviewForm.vue'
 export default {
     components: {
-        BeerReviewForm,
-        ReviewDisplay
+        // BeerReviewForm,
+        ReviewDisplay,
+        BreweryReviewForm
     },
     data() {  
       return{
