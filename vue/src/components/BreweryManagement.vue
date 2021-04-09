@@ -1,7 +1,7 @@
 <template>
   <div id='breweryManagement'>
     
-        <add-brewery-form></add-brewery-form>>
+        <add-brewery-form></add-brewery-form>
     <div id="MainContent">
         <h1>Select Brewery</h1>
         <div id='managebrewerylist' v-for="brewery in getBreweries()" :key="brewery.breweryId">
