@@ -39,6 +39,8 @@ export default {
             showForm: false,
             reviewForm: {
                 title: "",
+                userId: "",
+                beerId: "",
                 rating: 1,
                 comment: "",
                 private: false
