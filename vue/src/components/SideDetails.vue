@@ -8,6 +8,8 @@
     <beer-review-form v-if='currentBeer>=0'/>
     <brewery-review-form v-if='currentBrewery>=0'/>
     <review-display :review-type='currentBeer>=0'/>
+    <button @click="goToBrewery()">View Brewery Details</button>
+    <button @click="goToBeer()">View Beer Details</button>
     </span>
     <span  id='brewerydetails' v-if='$store.state.editingMode===1'>
       <h1 >{{this.currentBrewery}}</h1>
@@ -39,7 +41,16 @@ export default {
         
       }
     },
-    methods: {},
+    methods: {
+      goToBrewery(){
+        this.$store.state.currentBrewery = this.currentBrewery;
+        this.$store.commit('SET_CURRENT_PAGE', 5)
+      },
+      goToBeer(){
+        this.$store.state.currentBeer = this.currentBeer;
+        this.$store.commit('SET_CURRENT_PAGE', 6)
+      }
+    },
     props:['currentBrewery','currentBeer']
 }
 </script>
