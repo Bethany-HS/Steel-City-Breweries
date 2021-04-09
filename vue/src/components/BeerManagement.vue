@@ -16,6 +16,7 @@
 <script>
 import SideDetails from '@/components/SideDetails.vue'
 import AddBeerForm from '@/components/AddBeerForm.vue'
+import BeerService from '../services/BeerService.js'
 export default {
     data(){
         return{
@@ -35,7 +36,22 @@ export default {
             this.showSide = true
             this.currentBeer = id
             this.$store.commit('SET_EDITING_MODE',2);
-        }
+        },
+        addBeer(){
+            BeerService
+            .addBeer(this.beer)
+            .then(response => {
+                if (response.status === 201) {
+                    this.$router.push("/");
+                }
+            })
+            .catch(error => {
+                console.error(error);
+            });
+        },
+    cancel() {
+      this.$router.push("/");
+    }
     }
 }
 </script>

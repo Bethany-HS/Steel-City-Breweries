@@ -1,11 +1,11 @@
 <template>
     <div id='viewBreweries'>
     <div id='brewerylist'>
-      <div  v-for='brewery in currentBreweries' :key='brewery.breweryId' @click='showSideMenu()'>
+      <div  v-for='brewery in currentBreweries' :key='brewery.breweryId' @click='showSideMenu(brewery.breweryId)'>
         <h1>{{brewery.name}} </h1>
       </div>
     </div>
-    <side-details v-if='showSideDetails'/>
+    <side-details :current-brewery='currentBrewery[0].breweryId' :current-beer='-1' v-if='showSideDetails'/>
     </div>
 </template>
 
@@ -27,7 +27,8 @@ export default {
       }
     },
     methods: {
-      showSideMenu(){
+      showSideMenu(id){
+        this.currentBrewery  = this.currentBreweries.filter(x => x.breweryId === id)
         this.showSideDetails = true
       }
     }

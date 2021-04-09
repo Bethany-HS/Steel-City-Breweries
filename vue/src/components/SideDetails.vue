@@ -5,9 +5,9 @@
     <h2 id="details"></h2>
     <h2 id="ratings"></h2>
     <h2 id="reviews"></h2>
-    <!-- <beer-review-form/> -->
-    <brewery-review-form/>
-    <review-display/>
+    <beer-review-form v-if='currentBeer>=0'/>
+    <brewery-review-form v-if='currentBrewery>=0'/>
+    <review-display :review-type='currentBeer>=0'/>
     </span>
     <span  id='brewerydetails' v-if='$store.state.editingMode===1'>
       <h1 >{{this.currentBrewery}}</h1>
@@ -24,11 +24,11 @@
 
 <script>
 import ReviewDisplay from '@/components/ReviewDisplay.vue'
-// import BeerReviewForm from '@/components/BeerReviewForm.vue'
+import BeerReviewForm from '@/components/BeerReviewForm.vue'
 import BreweryReviewForm from '@/components/BreweryReviewForm.vue'
 export default {
     components: {
-        // BeerReviewForm,
+        BeerReviewForm,
         ReviewDisplay,
         BreweryReviewForm
     },
@@ -40,7 +40,7 @@ export default {
       }
     },
     methods: {},
-    props:['currentBrewery']
+    props:['currentBrewery','currentBeer']
 }
 </script>
 
