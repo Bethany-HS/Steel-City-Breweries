@@ -1,7 +1,7 @@
 <template>
     <div id='viewBreweries'>
     <div id='brewerylist'>
-      <div  v-for='brewery in currentBreweries' :key='brewery.breweryId' @click='showSideMenu(brewery.breweryId)'>
+      <div id="brewery" v-for='brewery in currentBreweries' :key='brewery.breweryId' @click='showSideMenu(brewery.breweryId)'>
         <h1>{{brewery.name}} </h1>
       </div>
     </div>
@@ -36,18 +36,36 @@ export default {
 </script>
 
 <style >
-#viewBreweries{
+#viewBreweries
+{
    display: flex;
    flex-basis: 100%;
    flex-grow: 1;
 }
-#brewerylist{
-  flex-grow: 3;
+#brewerylist
+{
   flex-direction: column;
+  flex-basis: 60%;
+  margin-right: 30px;
+}
+side-details
+{
+  flex-basis: 30%;
+  justify-content: center;
   
 }
-side-details{
- flex-grow: 1;
- justify-content: center;
+
+#brewery
+{
+  margin-bottom: 10px;
+  background-color: rgb(53,53,53);
+  border: 2px solid black;
+  border-radius: 10px;
+  box-shadow: 5px 5px 3px black;
+}
+
+#brewery > h1
+{
+  margin-left: 10px;
 }
 </style>
