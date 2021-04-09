@@ -48,9 +48,8 @@ export default {
 }
 #content{
   flex-grow: 5;
-  background-color: rgb(214, 214, 214);
-    border: 1px solid black;
     display: block;
-    box-shadow: 3px 3px black;
+    color: white;
+    text-shadow: 3px 3px black;
 }
 </style>
