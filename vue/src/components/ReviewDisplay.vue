@@ -1,6 +1,6 @@
 <template>
   <div class="review">
-    <div  v-for="review in reviews" :key='review.title'>
+    <div id='reviewpart' v-for="review in reviews" :key='review.title'>
     <h3>{{ review.title }}</h3>
 
     <div id="rating">
@@ -42,10 +42,15 @@ export default {
 <style>
 .review {
     display: flex;
+    
 }
 
-#rating {
-display: flex;
+#reviewpart{
+  display: flex;
+  
+}
+#rating { 
+display: flex;  
 height: 3rem;
 vertical-align: top;
 margin: 0 0.5rem;
