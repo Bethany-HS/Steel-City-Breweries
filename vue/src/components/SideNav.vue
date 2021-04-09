@@ -30,4 +30,8 @@ export default {
 </script>
 
 <style>
+#side-nav
+{
+  background-color: rgb(53, 53, 53);
+}
 </style>
