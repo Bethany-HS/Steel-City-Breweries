@@ -17,6 +17,6 @@ namespace Capstone.Models
         public int Zip { get; set; }
         public string Phone { get; set; }
         public string History { get; set; }
-        public bool IsActive { get; set; }
+        public bool BreweryStatus { get; set; }
     }
 }

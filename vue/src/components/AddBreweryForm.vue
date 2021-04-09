@@ -67,7 +67,7 @@ export default {
                 Zip: "",
                 Phone: "",
                 History: "",
-                IsActive: true
+                BreweryStatus: 1
             }
         };
     },
