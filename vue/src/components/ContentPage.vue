@@ -10,6 +10,7 @@ import BeerList from '@/components/BeerList.vue';
 import UserProfile from '@/components/UserProfile.vue';
 import BreweryManagement from '@/components/BreweryManagement.vue';
 import BeerManagement from '@/components/BeerManagement.vue';
+import BreweryPage from '@/components/BreweryPage.vue';
 
 export default {
   data(){
@@ -21,7 +22,8 @@ export default {
     BreweryList,
     UserProfile,
     BreweryManagement,
-    BeerManagement
+    BeerManagement,
+    BreweryPage
   },
   computed:{
     display(){
@@ -34,6 +36,10 @@ export default {
           return "BreweryManagement"
         case 4:
           return "BeerManagement"
+          case 5:
+            return "BreweryPage"
+          case 6:
+            return "BeerPage"
         default:
           return "UserProfile"
       }

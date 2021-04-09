@@ -37,7 +37,7 @@
         <input type="checkbox" id="brewer" true-value="brewer" false-value="user" v-model="user.role" />
       </div>
       
-      <router-link :to="{ name: 'login' }">Have an account?</router-link>
+      <router-link id="have-an-accnt-btn" :to="{ name: 'login' }">Have an account?</router-link>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
@@ -95,4 +95,37 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+#register {
+  background: rgb(53, 53, 53);
+  padding: 3rem;
+  display: flex;
+  border-radius: 5px;
+}
+
+h1 {
+  display: flex;
+  color: white;
+  background: rgb(251, 169, 45);
+  padding: .5rem;
+  border-radius: 5px;
+}
+
+label {
+  display: flex;
+  padding: .5rem;
+  color: white;
+}
+
+#have-an-accnt-btn {
+  display: flex;
+  justify-content: flex-start;
+  color: white;
+  padding: 1rem;
+  text-decoration: none;
+}
+
+#have-an-accnt-btn:hover {
+  color: rgb(251, 169, 45);
+}
+</style>
