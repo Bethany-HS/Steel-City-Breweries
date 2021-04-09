@@ -51,22 +51,32 @@ export default {
         },
     cancel() {
       this.$router.push("/");
-    }
+        }
     }
 }
 </script>
 
 <style>
-#contents{
-    display:flex;
-    width :100%;
+#beerManagement{
+    display: flex;
+    flex-grow:1;
+    flex-direction: row;
 }
-#beerlist{
-    flex-grow:3;
-    background-color: green;
-   
+#MainContent{
+    display: flex;
+    flex-grow:2;
+    flex-direction: column;
 }
-side-details{
-    flex-grow:1
+
+#managebeerlist{
+    display: flex;
+    flex-grow: 1;
+    flex-basis:100%;
 }
+#managebeerlist >h1{
+    display: flex;
+    flex-grow: 1;
+    flex-basis:100%;
+}
+
 </style>

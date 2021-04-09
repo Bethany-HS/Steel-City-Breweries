@@ -66,5 +66,4 @@ export default {
     flex-basis:100%;
 }
 
-
 </style>
