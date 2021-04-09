@@ -32,6 +32,11 @@
         v-model="user.confirmPassword"
         required
       />
+      <div>
+        <label for="brewer">Are you a Brewer? </label>
+        <input type="checkbox" id="brewer" true-value="brewer" false-value="user" v-model="user.role" />
+      </div>
+      
       <router-link :to="{ name: 'login' }">Have an account?</router-link>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
