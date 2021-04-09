@@ -1,14 +1,22 @@
 <template>
   <div id='sidedetails' >
-    <span id='generaldetails' v-if='$store.state.editingMode===0'>
-    <h1 id="name"></h1>
+    <span id='brewerydetails' v-if='$store.state.editingMode===0 && Object.keys(currentBeer).length === 0'>
+    <h1 id="name">{{currentBrewery.name}}</h1>
     <h2 id="details"></h2>
     <h2 id="ratings"></h2>
     <h2 id="reviews"></h2>
-    <beer-review-form v-if='currentBeer>=0'/>
-    <brewery-review-form v-if='currentBrewery>=0'/>
-    <review-display :review-type='currentBeer>=0'/>
+    <brewery-review-form :brewery='currentBrewery'/>
+    <review-display :review-id='currentBrewery.breweryId' :review-type='Object.keys(currentBeer).length !== 0'/>
     </span>
+    <span id='beerdetails' v-else-if='$store.state.editingMode===0 '>
+    <h1 id="name">{{currentBeer.name}}</h1>
+    <h2 id="details"></h2>
+    <h2 id="ratings"></h2>
+    <h2 id="reviews"></h2>
+    <beer-review-form :beer='currentBeer'/>
+    <review-display :review-id='currentBeer.beerId' :review-type='Object.keys(currentBeer).length !== 0'/>
+    </span>
+    
     <span  id='brewerydetails' v-if='$store.state.editingMode===1'>
       <h1 >{{this.currentBrewery}}</h1>
       <button>Edit Brewery Info</button>

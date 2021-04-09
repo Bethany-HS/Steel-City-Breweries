@@ -40,12 +40,13 @@ export default {
             reviewForm: {
                 title: "",
                 rating: 1,
+                objectId: this.brewery.breweryId ,
                 comment: "",
                 private: false
-            },
-            newReview: {}
+            }
         };
     },
+    props:['brewery'],
     methods: {
         addBreweryReview() {
             this.$store.commit("ADD_BREWERY_REVIEW", this.reviewForm);
@@ -53,7 +54,13 @@ export default {
         },
         resetForm() {
             this.showForm = false;
-            this.newReview = {};
+            this.reviewForm = {
+                title: "",
+                rating: 1,
+                objectId: this.brewery.breweryId,
+                comment: "",
+                private: false
+            };
         },
         privateReview() {
             this.$store.commit("MAKE_REVIEW_PRIVATE", this.reviewForm);
