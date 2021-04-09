@@ -73,9 +73,9 @@ namespace Capstone.DAO
         }
 
         //returning a user profile.  We could add this info to the db and pull it from returnUser
-        public ReturnUser GetUserProfile(int id)
+        public ReturnUser GetUserProfile(int id, ReturnUser returnUser)
         {
-            ReturnUser returnUser = null;
+            
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
