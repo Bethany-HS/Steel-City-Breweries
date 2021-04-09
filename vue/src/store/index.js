@@ -24,7 +24,6 @@ export default new Vuex.Store({
     editingMode:0,
     breweries:[],
     beers:[],
-    private: false,
     beerReviews:[],
     breweryReviews:[]
   },
