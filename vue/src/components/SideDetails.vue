@@ -5,6 +5,9 @@
     <h2 id="details"></h2>
     <h2 id="ratings"></h2>
     <h2 id="reviews"></h2>
+    <beer-review-form v-if='currentBeer>=0'/>
+    <button @click="goToBrewery()">View Brewery Details</button>
+    <button @click="goToBeer()">View Beer Details</button>
     <brewery-review-form :brewery='currentBrewery'/>
     <review-display :review-id='currentBrewery.breweryId' :review-type='Object.keys(currentBeer).length !== 0'/>
     </span>
@@ -47,7 +50,16 @@ export default {
         
       }
     },
-    methods: {},
+    methods: {
+      goToBrewery(){
+        this.$store.state.currentBrewery = this.currentBrewery;
+        this.$store.commit('SET_CURRENT_PAGE', 5)
+      },
+      goToBeer(){
+        this.$store.state.currentBeer = this.currentBeer;
+        this.$store.commit('SET_CURRENT_PAGE', 6)
+      }
+    },
     props:['currentBrewery','currentBeer']
 }
 </script>
