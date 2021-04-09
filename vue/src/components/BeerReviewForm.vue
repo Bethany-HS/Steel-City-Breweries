@@ -3,7 +3,7 @@
         <button id="display-form" v-if="showForm === false" v-on:click.prevent="showForm = true">
             Make A Beer Review
         </button>
-        <form @submit.prevent="addNewReview" v-if="showForm === true">
+        <form v-if="showForm === true">
             <div class="form-element">
                 <label for="title">Title</label>
                 <input id="title" type="text" v-model="reviewForm.title"/>
@@ -25,7 +25,7 @@
             <input type="button" value="Cancel" @click.prevent="resetForm" />
             <p>
                 Make Review Private
-                <input type="checkbox" v-bind:checked="reviewForm.private" @change="privateReview"/>
+                <input type="checkbox" v-bind:checked="reviewForm.private"/>
             </p>
         </form>
     </div>
@@ -45,7 +45,6 @@ export default {
                 comment: "",
                 private: false
             },
-            newReview: {}
         };
     },
     methods: {
@@ -55,7 +54,14 @@ export default {
         },
         resetForm() {
             this.showForm = false;
-            this.newReview = {};
+            this.reviewForm = {
+                title: "",
+                userId: "",
+                beerId: "",
+                rating: 1,
+                comment: "",
+                private: false
+            };
         },
         privateReview() {
             this.$store.commit("MAKE_REVIEW_PRIVATE", this.reviewForm);
