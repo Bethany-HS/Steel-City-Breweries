@@ -42,11 +42,13 @@ export default {
                 userId: "",
                 beerId: "",
                 rating: 1,
+                objectId: this.brewery.breweryId ,
                 comment: "",
                 private: false
-            },
+            }
         };
     },
+    props:['brewery'],
     methods: {
         addBreweryReview() {
             this.$store.commit("ADD_BREWERY_REVIEW", this.reviewForm);
@@ -56,9 +58,8 @@ export default {
             this.showForm = false;
             this.reviewForm = {
                 title: "",
-                userId: "",
-                breweryId: "",
                 rating: 1,
+                objectId: this.brewery.breweryId,
                 comment: "",
                 private: false
             };

@@ -39,14 +39,14 @@ export default {
             showForm: false,
             reviewForm: {
                 title: "",
-                userId: "",
-                beerId: "",
+                objectId:this.beer.beerId,
                 rating: 1,
                 comment: "",
                 private: false
             },
         };
     },
+    props:['beer'],
     methods: {
         addBeerReview() {
             this.$store.commit("ADD_BEER_REVIEW", this.reviewForm);
@@ -56,8 +56,7 @@ export default {
             this.showForm = false;
             this.reviewForm = {
                 title: "",
-                userId: "",
-                beerId: "",
+                objectId:this.beer.beerId,
                 rating: 1,
                 comment: "",
                 private: false
