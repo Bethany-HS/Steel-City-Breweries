@@ -6,9 +6,9 @@
         <h2>Brewery Description</h2>
         <p>{{brewery.description}}</p>
         <h2>View Beer List</h2>
-        <p>{{beers}}</p>
+        <p v-for='beer in beers' :key='beer.beerId'>{{beer.name}}</p>
         <h2>Ratings and Reviews</h2>
-        <review-display/>
+        <review-display :review-id='brewery.breweryId' :review-type='false'/>
   </div>
 </template>
 
@@ -20,12 +20,10 @@ export default {
       },
   computed: {
       brewery(){
-        return this.$store.state.breweries.filter(brewery =>
-        brewery.breweryId === this.$store.state.currentBrewery)[0]
+        return this.$store.state.currentBrewery
       },
       beers(){
-        return this.$store.state.beers.filter(beer =>{
-        beer.breweryId === this.brewery.breweryId})
+        return this.$store.state.beers.filter(beer =>beer.breweryId === this.brewery.breweryId)
     }
   }
 }

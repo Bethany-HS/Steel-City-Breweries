@@ -11,6 +11,7 @@ import UserProfile from '@/components/UserProfile.vue';
 import BreweryManagement from '@/components/BreweryManagement.vue';
 import BeerManagement from '@/components/BeerManagement.vue';
 import BreweryPage from '@/components/BreweryPage.vue';
+import BeerPage from '@/components/BeerPage.vue';
 
 export default {
   data(){
@@ -23,7 +24,8 @@ export default {
     UserProfile,
     BreweryManagement,
     BeerManagement,
-    BreweryPage
+    BreweryPage,
+    BeerPage
   },
   computed:{
     display(){

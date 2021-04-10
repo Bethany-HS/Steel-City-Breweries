@@ -21,11 +21,11 @@ namespace Capstone.Controllers
         {
             breweryReviewDAO = _breweryReviewDAO;
         }
-        //[AllowAnonymous]
-        [HttpGet("{id}")]
-        public ActionResult<List<BreweryReview>> GetBreweryReviews(int id)
+
+        [HttpGet]
+        public ActionResult<List<BreweryReview>> GetBreweryReviews()
         {
-            List<BreweryReview> existingReview = breweryReviewDAO.GetBreweryReviews(id);
+            List<BreweryReview> existingReview = breweryReviewDAO.GetBreweryReviews();
             if (existingReview != null)
             {
                 return Ok(existingReview);
