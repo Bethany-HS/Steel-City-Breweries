@@ -36,6 +36,14 @@
             <label for="history">History</label>
             <textarea name="history" id="history" cols="30" rows="10" placeholder="Add Brewery History" v-model="newBrewery.History"></textarea>
         </div>
+        <div class="form-element">  
+            <label for="hours">Hours of Operation</label>
+            <textarea name="hours" id="hours" cols="30" rows="10" placeholder="Add Hours of Operation" v-model="newBrewery.HoursOfOperation"></textarea>
+        </div>
+        <div class="form-element">
+            <label for="website">Website</label>
+            <input type="text" id="website" placeholder="URL" v-model="newBrewery.Website">
+        </div>
         <div class="form-element">
             <input type="submit" value="Submit" @click ="addBrewery"/>
             <input type="button" value="Cancel" @click.prevent="resetForm" />
@@ -63,6 +71,8 @@ export default {
                 Zip: "",
                 Phone: "",
                 History: "",
+                HoursOfOperation: "",
+                Website:"",
                 BreweryStatus: 1
             }
         };
@@ -80,6 +90,8 @@ export default {
                 Zip: "",
                 Phone: "",
                 History: "",
+                HoursOfOperation:"",
+                Website:"",
                 BreweryStatus: 1
             };
         },
