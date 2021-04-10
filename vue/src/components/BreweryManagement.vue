@@ -52,6 +52,8 @@ export default {
     display: flex;
     flex-grow:1;
     flex-direction: row;
+    background-color: rgb(53,53,53);
+  border-radius: 15px;
 }
 #MainContent{
     display: flex;
