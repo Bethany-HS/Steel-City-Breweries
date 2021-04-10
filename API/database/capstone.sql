@@ -45,7 +45,9 @@ CREATE TABLE breweries (
 	zip int not null,
 	phone varchar (15) not null,
 	history nvarchar(300) not null,
-	brewery_status_id int not null
+	brewery_status_id int not null,
+	hours_of_operation varchar(300) not null,
+	website varchar(30) not null
 	CONSTRAINT PK_brewery PRIMARY KEY (brewery_id)
 );
 Create Table brewery_status_id (
@@ -65,7 +67,7 @@ CREATE TABLE beers (
 	beer_type_id int NOT NULL,
 	name varchar(50) not null,
 	abv decimal(4,2) NOT NULL,
-	description varchar(200) NOT NULL,
+	description varchar(500) NOT NULL,
 	ingredients varchar(200) NOT NULL,
 	isActive bit not null
 	CONSTRAINT PK_beer_id PRIMARY KEY (beer_id)
@@ -125,11 +127,36 @@ INSERT INTO brewery_status_id (brewery_status_desc) values ('pending');
 INSERT INTO brewery_status_id (brewery_status_desc) values ('active');
 INSERT INTO brewery_status_id (brewery_status_desc) values ('inactive');
 
-INSERT INTO breweries (name, brewer_id, street_address1, city, state, zip, phone, history, brewery_status_id) 
-values ('testBrewery', 1, '1234 streetroad', 'testville', 'TE', '12345', '1234567892', 'The best test brewery around', 1);
+INSERT INTO breweries (name, brewer_id, street_address1, city, state, zip, phone, history, hours_of_operation, website, brewery_status_id) 
+values ('Penn Brewery', 1, '800 Vinial Street', 'Pittsburgh', 'PA', '15212', '412-237-9400', 'Began brewing craft beer since 1986. We started brewing classic lagers and
+German beer styles.  Our Restaurant serves Pittsburgh Native foods.  See our site for more details.', 'Weds-Sat: Noon - 10pm Sun: Noon - 9pm Closed Mon-Tues', 'https://www.pennbrew.com', 1);
 
+INSERT INTO breweries (name, brewer_id, street_address1, city, state, zip, phone, history, hours_of_operation, website, brewery_status_id) 
+values ('Southern Tier Brewing Co', 1, '316 N. Shore Drive', 'Pittsburgh', 'PA', '15212', '412-301-2337', '"Sothern Tier Brewering Companys first satellite brewpub.  
+Were known for brewing world-class hoppy ales and decadent dessert beers alike, but we are known for the experience customers have when they visit.', 
+'Mon-Wed: 3 - 10pm, Thur: 11 am - 10pm, fri-sat: 11am - 12am, sun 11am - 10pm"', 'https://taprooms.stbcbeer.com', 1);
+
+Insert Into beer_types (beer_type) values('Ale');
+Insert Into beer_types (beer_type) values('Lager');
 Insert Into beer_types (beer_type) values('IPA');
+Insert Into beer_types (beer_type) values('Stout');
+Insert Into beer_types (beer_type) values('Pilsner');
+Insert Into beer_types (beer_type) values('Porter');
+Insert Into beer_types (beer_type) values('Wheat');
 
-INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients, isActive) VALUES ('Beer', 12, 1, 1, 'test', 'test', 1)
+INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients, isActive) VALUES ('Penn Pilsner', 5.0, 1, 5, 
+'Our flagship beer. Amber-colored with a malty nose and a touch of Nobel hops, Penn Pilsner has caramel and toffee notes as 
+well as toasted, nutty hints.  Penn Pilsner is a very well-rounded, balanced, and flavorful lager beer.', 'Hops: Hallertau Perle, Hallertau Tradition
+Malt: Two-row, caramel', 1);
+
+INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients, isActive) VALUES ('Penn Dark', 5.0, 1, 2, 
+'European-style Dark/Munchener Dunkel. Deep reddish-mahogany in color with sweet caramel malt, nutty and toffee notes, and roasted hints.
+Penn Dark has a moderate hopping rate and a crisp, clean lager beer finish. A surprisingly smooth dark beer.', 'Hops: Perle, Malt: Two-row, Munich, Carafa', 1);
+
+INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients, isActive) VALUES ('Across the Spectrum IPA', 6.5, 2, 3, 
+'Hazy & Juicy IPA','hops', 1);
+
+INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients, isActive) VALUES ('Pink Guava Milkshake IPA', 6.5, 2, 3, 
+'IPA sweetened with lactose milk sugar and pink guava puree','hops, lactose milk sugar, pink guava puree', 1);
 
 GO
