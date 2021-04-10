@@ -1,19 +1,31 @@
 <template>
   <div class="review">
-    <div id='reviewpart' v-for="review in reviews" :key='review.title'>
-    <h3>{{ review.title }}</h3>
-
-    <div id="rating">
-        <img src="@/images/Full_Beer.png"
-        v-bind:title="review.rating"
-        id="ratingBeer" v-for=" i in review.rating" 
-        v-bind:key="i"
-        />
+    <div v-if='reviewType' id='beerReviewDisplay'>
+      <div  id='reviewpart'  v-for="review in reviews" :key='review.beerReviewId'>
+        <h3>{{review.title}} </h3>
+        <div id="rating">
+          <img src="@/images/Full_Beer.png"
+          v-bind:title="review.beerRating"
+          id="ratingBeer" v-for=" i in review.beerRating" 
+          v-bind:key="i"
+          />
+        </div>
+        <h3>{{ review.review }}</h3>
+      </div>
     </div>
-
-
-    <h3>{{ review.comment }}</h3>
-  </div>
+    <div v-else id='breweryReviewDisplay'>
+      <div id='reviewpart'  v-for="review in reviews" :key='review.breweryReviewId'>
+        <h3>{{ review.title }}</h3>
+        <div id="rating">
+          <img src="@/images/Full_Beer.png"
+          v-bind:title="review.breweryRating"
+          id="ratingBeer" v-for=" i in review.breweryRating" 
+          v-bind:key="i"
+          />
+        </div>
+        <h3>{{ review.review }}</h3>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -27,10 +39,10 @@ export default {
     computed:{
       reviews(){
         if(this.reviewType === true){
-         return this.$store.state.beerReviews.filter(x => x.objectId === this.reviewId)
+         return this.$store.state.beerReviews.filter(x => x.beerId === this.reviewId)
         }
         else{
-         return this.$store.state.breweryReviews.filter(x => x.objectId === this.reviewId)
+         return this.$store.state.breweryReviews.filter(x => x.breweryId === this.reviewId)
         }
       }
     },
@@ -42,25 +54,22 @@ export default {
 <style>
 .review {
     display: flex;
-    
+    flex-direction: column;
 }
 
 #reviewpart{
   display: flex;
-  
+  flex-direction: column;
 }
 #rating { 
 display: flex;  
-height: 3rem;
+height:50px;
+width:50px;
 vertical-align: top;
-margin: 0 0.5rem;
 }
 
 #ratingBeer {
-display: flex;
 height: 100%;
-justify-content: flex-start;
-flex-direction: row;
-flex-grow: 5;
+margin-right: 10px;
 }
 </style>

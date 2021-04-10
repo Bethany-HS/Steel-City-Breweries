@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.DAO
 {
-    public class BreweryReviewSqlDAO
+    public class BreweryReviewSqlDAO : IBreweryReviewDAO
     {
         private readonly string connectionString;
 
@@ -16,7 +16,7 @@ namespace Capstone.DAO
             connectionString = dbConnectionString;
         }
 
-        public List<BreweryReview> GetBreweryReviews(int id)
+        public List<BreweryReview> GetBreweryReviews()
         {
             List<BreweryReview> breweryReviews = new List<BreweryReview>();
             try
@@ -25,9 +25,8 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    string sqlText = "Select * from brewery_reviews where brewery_id = '@id";
+                    string sqlText = "Select * from brewery_reviews";
                     SqlCommand cmd = new SqlCommand(sqlText, conn);
-                    cmd.Parameters.AddWithValue("@id", id);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     while (reader.Read())
@@ -39,10 +38,10 @@ namespace Capstone.DAO
                     return breweryReviews;
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                throw e;
             }
 
         }
@@ -53,19 +52,22 @@ namespace Capstone.DAO
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    string sqlText = "INSERT INTO beer_reviews ('brewery_id', 'rating', 'review') values (@breweryId, @review, @rating)";
+                    string sqlText = "INSERT INTO brewery_reviews (brewery_id, user_id, rating, title, review, is_private) values (@breweryId, @userId,  @rating, @title,@review, @isPrivate)";
                     SqlCommand cmd = new SqlCommand(sqlText, conn);
                     cmd.Parameters.AddWithValue("@breweryId", review.BreweryId);
+                    cmd.Parameters.AddWithValue("@userId", review.UserId);
                     cmd.Parameters.AddWithValue("@review", review.Review);
+                    cmd.Parameters.AddWithValue("@title", review.Title);
                     cmd.Parameters.AddWithValue("@rating", review.BreweryRating);
+                    cmd.Parameters.AddWithValue("@isPrivate", review.isPrivate);
 
                     cmd.ExecuteNonQuery();
                 }
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
-                throw;
+                throw e;
             }
             return review;
         }
@@ -75,9 +77,12 @@ namespace Capstone.DAO
             BreweryReview beerReview = new BreweryReview()
             {
                 BreweryReviewId = Convert.ToInt32(reader["brewery_review_id"]),
-                BreweryId = Convert.ToInt32(reader["brewery_id"]),                
+                BreweryId = Convert.ToInt32(reader["brewery_id"]),
+                UserId = Convert.ToInt32(reader["user_id"]),
+                Title = Convert.ToString(reader["title"]),
                 Review = Convert.ToString(reader["review"]),
                 BreweryRating = Convert.ToInt32(reader["rating"]),
+                isPrivate = Convert.ToInt32(reader["is_private"])
             };
             return beerReview;
 

@@ -4,7 +4,7 @@
         <add-brewery-form></add-brewery-form>
     <div id="MainContent">
         <h1>Select Brewery</h1>
-        <div id='managebrewerylist' v-for="brewery in getBreweries()" :key="brewery.breweryId">
+        <div id='managebrewerylist' v-for="brewery in breweries" :key="brewery.breweryId">
             <h1 @click='chooseBrewery(brewery.breweryId)'>{{brewery.name}}</h1>
         </div>
     </div>
@@ -20,7 +20,6 @@ export default {
         return{
     showSide: false,
     currentBrewery : -1,
-    breweries: [],
     user:{}
     }
     },
@@ -29,17 +28,22 @@ export default {
         AddBreweryForm
     },
     methods:{
-        getBreweries(){
-            this.breweries=this.$store.state.breweries
-            this.user = this.$store.state.user
-            return this.$store.state.breweries.filter(brew => brew.brewerId===this.$store.state.user.userId && brew.isActive)
-        },
         chooseBrewery(id){
             this.currentBrewery = id
             this.showSide = true
             this.$store.commit('SET_EDITING_MODE',1);
         }
-    }
+    },
+    computed:{
+        breweries(){
+            return this.$store.state.breweries.filter(brew => (brew.brewerId===this.$store.state.user.userId))
+        }
+    },
+    created(){
+        
+        this.user = this.$store.state.user
+        }
+    
 }
 </script>
 

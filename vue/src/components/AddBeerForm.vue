@@ -3,7 +3,7 @@
     <button id="add-beer" v-if="showForm === false" @click.prevent="showForm = true">
             Add A Beer
     </button>
-    <form class="beerform" @submit.prevent="addNewBeer" v-if="showForm === true">
+    <form class="beerform" @submit.prevent v-if="showForm === true">
         <div class="form-element">
             <label for="name">Name</label>
             <input type="text" id="name" placeholder = "Name" v-model="newBeer.Name">
@@ -50,7 +50,7 @@ export default {
             showForm: false,
             newBeer:{
                 BeerTypeId: 1,
-                BreweryId: 1,
+                BreweryId: this.$store.state.currentBrewery,
                 Name: "",
                 Abv: "",
                 Description: "",
@@ -62,7 +62,14 @@ export default {
     methods:{
         resetForm() {
             this.showForm = false;
-            this.newBeer = {};
+            this.newBeer = {
+                BeerTypeId: 1,
+                BreweryId: this.$store.state.currentBrewery,
+                Name: "",
+                Abv: "",
+                Description: "",
+                Ingredients: "",
+                IsActive: true};
         },
         addBeer(){
             BeerService

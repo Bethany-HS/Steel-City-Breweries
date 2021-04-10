@@ -8,7 +8,7 @@ namespace Capstone.DAO
 {
     public interface IBreweryReviewDAO
     {
-        List<BreweryReview> GetBreweryReviews(int id);
-        BreweryReview AddBreweryReview(BreweryReview breweryReview);
+        List<BreweryReview> GetBreweryReviews();
+        BreweryReview AddBreweryReview(BreweryReview review);
     }
 }
