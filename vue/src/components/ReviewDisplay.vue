@@ -1,19 +1,31 @@
 <template>
   <div class="review">
-    <div id='reviewpart' v-for="review in reviews" :key='review.beerReviewId'>
-    <h3>{{ review.title }}</h3>
-
-    <div id="rating">
-        <img src="@/images/Full_Beer.png"
-        v-bind:title="review.rating"
-        id="ratingBeer" v-for=" i in review.rating" 
-        v-bind:key="i"
-        />
+    <div v-if='reviewType' id='beerReviewDisplay'>
+      <div  id='reviewpart'  v-for="review in reviews" :key='review.beerReviewId'>
+        <h3>{{review.title}} </h3>
+        <div id="rating">
+          <img src="@/images/Full_Beer.png"
+          v-bind:title="review.beerRating"
+          id="ratingBeer" v-for=" i in review.beerRating" 
+          v-bind:key="i"
+          />
+        </div>
+        <h3>{{ review.review }}</h3>
+      </div>
     </div>
-
-
-    <h3>{{ review.comment }}</h3>
-  </div>
+    <div v-else id='breweryReviewDisplay'>
+      <div id='reviewpart'  v-for="review in reviews" :key='review.breweryReviewId'>
+        <h3>{{ review.title }}</h3>
+        <div id="rating">
+          <img src="@/images/Full_Beer.png"
+          v-bind:title="review.breweryRating"
+          id="ratingBeer" v-for=" i in review.breweryRating" 
+          v-bind:key="i"
+          />
+        </div>
+        <h3>{{ review.review }}</h3>
+      </div>
+    </div>
   </div>
 </template>
 

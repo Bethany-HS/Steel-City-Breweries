@@ -5,9 +5,7 @@
     <h2 id="details"></h2>
     <h2 id="ratings"></h2>
     <h2 id="reviews"></h2>
-    <beer-review-form v-if='currentBeer>=0'/>
     <button @click="goToBrewery()">View Brewery Details</button>
-    <button @click="goToBeer()">View Beer Details</button>
     <brewery-review-form :brewery='currentBrewery'/>
     <review-display :review-id='currentBrewery.breweryId' :review-type='Object.keys(currentBeer).length !== 0'/>
     </span>
@@ -16,6 +14,7 @@
     <h2 id="details"></h2>
     <h2 id="ratings"></h2>
     <h2 id="reviews"></h2>
+    <button @click="goToBeer()">View Beer Details</button>
     <beer-review-form :beer='currentBeer'/>
     <review-display :review-id='currentBeer[0].beerId' :review-type='Object.keys(currentBeer).length !== 0'/>
     </span>
@@ -23,9 +22,10 @@
     <span  id='brewerydetails' v-if='$store.state.editingMode===1'>
       <h1 >{{this.currentBrewery}}</h1>
       <button>Edit Brewery Info</button>
-      <button @click="$store.commit('SET_CURRENT_PAGE',4)">Manage Beers</button>
+      <button @click="navigateToManageBeers()">Manage Beers</button>
     </span>
     <span id='beerdetails' v-if='$store.state.editingMode===2'>
+      <h1>{{currentBeer.name}}</h1>
       <button>Edit Beer Info</button>
     </span>
 
@@ -43,20 +43,17 @@ export default {
         ReviewDisplay,
         BreweryReviewForm
     },
-    data() {  
-      return{
-        reviews: [],
-        ratings: [],
-        
-      }
-    },
     methods: {
       goToBrewery(){
         this.$store.state.currentBrewery = this.currentBrewery;
         this.$store.commit('SET_CURRENT_PAGE', 5)
       },
+      navigateToManageBeers(){
+        this.$store.state.currentBrewery = this.currentBrewery;
+        this.$store.commit('SET_CURRENT_PAGE',4)
+      },
       goToBeer(){
-        this.$store.state.currentBeer = this.currentBeer;
+        this.$store.state.currentBeer = this.currentBeer[0];
         this.$store.commit('SET_CURRENT_PAGE', 6)
       }
     },

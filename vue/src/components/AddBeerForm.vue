@@ -50,7 +50,7 @@ export default {
             showForm: false,
             newBeer:{
                 BeerTypeId: 1,
-                BreweryId: 1,
+                BreweryId: this.$store.state.currentBrewery,
                 Name: "",
                 Abv: "",
                 Description: "",
@@ -62,7 +62,14 @@ export default {
     methods:{
         resetForm() {
             this.showForm = false;
-            this.newBeer = {};
+            this.newBeer = {
+                BeerTypeId: 1,
+                BreweryId: this.$store.state.currentBrewery,
+                Name: "",
+                Abv: "",
+                Description: "",
+                Ingredients: "",
+                IsActive: true};
         },
         addBeer(){
             BeerService

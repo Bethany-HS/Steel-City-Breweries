@@ -8,7 +8,7 @@
 
         <p></p>
         <h2>Ratings and Reviews</h2>
-        <review-display/>
+        <review-display :review-id='beer.beerId' :review-type='true'/>
   </div>
 </template>
 
@@ -20,8 +20,7 @@ export default {
       },
   computed: {
       beer(){
-        return this.$store.state.beers.filter(beer =>
-        beer.beerId === this.$store.state.currentBeer)[0]
+        return this.$store.state.beers.filter(beer =>beer.beerId === this.$store.state.currentBeer.beerId)[0]
       }
   }
 }
