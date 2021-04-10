@@ -51,10 +51,10 @@ export default {
   align-items: stretch;
 }
 #sidenav{
-  flex-grow:1;
+  flex-basis: 20%;
 }
 #content{
-  flex-grow: 5;
+  flex-basis: 80%;
     display: block;
     color: white;
     text-shadow: 3px 3px black;

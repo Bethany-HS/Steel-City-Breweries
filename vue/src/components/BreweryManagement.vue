@@ -31,6 +31,7 @@ export default {
         chooseBrewery(id){
             this.currentBrewery = id
             this.showSide = true
+            this.$store.state.currentBrewery=id
             this.$store.commit('SET_EDITING_MODE',1);
         }
     },
