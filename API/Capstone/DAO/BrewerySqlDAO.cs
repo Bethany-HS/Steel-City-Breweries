@@ -26,7 +26,7 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT brewery_id, name, brewer_id, street_address1, street_address2, city, state, zip, phone, history, hours_of_operation, website, transfer_id_status FROM breweries WHERE brewery_id = @id", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM breweries WHERE brewery_id = @id", conn);
                     cmd.Parameters.AddWithValue("@id", id);
                     SqlDataReader reader = cmd.ExecuteReader();
 
@@ -115,7 +115,7 @@ namespace Capstone.DAO
                     conn.Open();
 
                     string sqlTest = "UPDATE breweries set name = @name, street_address1 = @street_address1, " +
-                        "street_address_2 = @street_address2, city = @city, state = @state, zip = @zip, phone = @phone, history = @history, " +
+                        "street_address2 = @street_address2, city = @city, state = @state, zip = @zip, phone = @phone, history = @history, " +
                         "hours_of_operation = @hours_of_operation, website = @website, brewery_status_id = @brewery_status " +
                         "where brewery_id = @breweryId;";
                     SqlCommand cmd = new SqlCommand(sqlTest, conn);
@@ -127,7 +127,12 @@ namespace Capstone.DAO
                     cmd.Parameters.AddWithValue("@zip", brewery.Zip);
                     cmd.Parameters.AddWithValue("@phone", brewery.Phone);
                     cmd.Parameters.AddWithValue("@history", brewery.History);
-                    cmd.Parameters.AddWithValue("@brewery-status", brewery.BreweryStatus);
+                    cmd.Parameters.AddWithValue("@brewery_status", brewery.BreweryStatus);
+                    cmd.Parameters.AddWithValue("@breweryId", id);
+                    cmd.Parameters.AddWithValue("@hours_of_operation", brewery.HoursOfOperation);
+                    cmd.Parameters.AddWithValue("@website", brewery.Website);
+                    cmd.ExecuteNonQuery();
+
                 }
             }
             catch (Exception e)
@@ -154,7 +159,7 @@ namespace Capstone.DAO
                 History = Convert.ToString(reader["history"]),
                 HoursOfOperation = Convert.ToString(reader["hours_of_operation"]),
                 Website = Convert.ToString(reader["website"]),
-                BreweryStatus = Convert.ToBoolean(reader["brewery_status_id"])
+                BreweryStatus = Convert.ToInt32(reader["brewery_status_id"])
 
 
             };

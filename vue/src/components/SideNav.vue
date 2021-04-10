@@ -10,8 +10,8 @@
         <!-- <button>Manage Events</button><br> -->
       </span>
       <span>
-        <button class="nav-button" @click="setPage(6)">Admin Manage Breweries</button><br>
-        <button class="nav-button" @click="setPage(7)">Manage Users</button><br>
+        <button class="nav-button" @click="setPage(7)">Admin Manage Breweries</button><br>
+        <button class="nav-button" @click="setPage(8)">Manage Users</button><br>
       </span>
   </div>
   </div>
