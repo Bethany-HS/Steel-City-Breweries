@@ -2,7 +2,6 @@ body
 {
     background-color: white;
     font-family: 'Lato', sans-serif;
-    display: flex;
 }
 
 button
@@ -23,7 +22,6 @@ button:hover
 {
     background-color: rgb(251, 169, 45);
     color: white;
-    padding: 15px 30px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -40,9 +38,10 @@ button:hover
     display: flex;
     color: white;
     background: rgb(251, 169, 45);
-    padding: .5rem;
+    padding: 1rem;
     border-radius: 5px;
-    align-items: flex-start;
+    align-items: center, flex-start; 
+    justify-content: center;
 }
 
 .sr-only {
@@ -100,13 +99,13 @@ button:hover
     width: 300px;
 }
 
-#nav-inner
+#side-nav > #nav-inner > span
 {
-    background-color: white;
+    display: flex;
+    background-color: rgb(53, 53, 53);
     width: 90%;
-}
-
-#side-nav
-{
-  background-color: rgb(53, 53, 53);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
 }
