@@ -2,8 +2,10 @@
   <div id='viewBeers' >
     <div id='beerlist'>
       <div id="beer" v-for='beer in currentBeers' :key='beer.beerId' @click='showSideMenu(beer.beerId)'>
-        <h1>{{beer.name}} {{beer.abv}}</h1>
-        <h2>{{beer.ingredients}} {{beer.description}}</h2>
+        <h1>
+          <span id='name'>{{beer.name}} </span>
+          <span id='abv'>{{beer.abv}}%</span>
+        </h1>
       </div>
     </div>
     <side-details :current-brewery='{}' :current-beer='currentBeer' v-if='showSideDetails'/>
@@ -38,6 +40,7 @@ export default {
 </script>
 
 <style scoped>
+
 #viewBeers
 {
   display: flex;
@@ -73,6 +76,8 @@ side-details
 }
 #beer > h1, h2
 {
+  display: flex;
+  justify-content: space-between;
   margin-left: 10px;
 }
 </style>

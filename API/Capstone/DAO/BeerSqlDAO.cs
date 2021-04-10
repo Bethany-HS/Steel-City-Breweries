@@ -119,6 +119,35 @@ namespace Capstone.DAO
             return beer;
         }
 
+        public Beer UpdateBeer(int id, Beer beer)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    string sqlTest = "UPDATE beers set name = @name, brewery_id = @breweryId, beer_type_id=@beer_type_id," +
+                        " abv=@abv, description=@description, ingredients = @ingredients where beer_id = @beerId;";
+                    SqlCommand cmd = new SqlCommand(sqlTest, conn);
+                    cmd.Parameters.AddWithValue("@name", beer.Name);
+                    cmd.Parameters.AddWithValue("@breweryId", beer.BreweryId);
+                    cmd.Parameters.AddWithValue("@beer_type_id", beer.BeerTypeId);
+                    cmd.Parameters.AddWithValue("@abv", beer.Abv);
+                    cmd.Parameters.AddWithValue("@description", beer.Description);
+                    cmd.Parameters.AddWithValue("@ingredients", beer.Ingredients);
+                    cmd.Parameters.AddWithValue("@beerId", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw e;
+            }
+            return beer;
+        }
+
         private Beer GetBeerFromReader(SqlDataReader reader)
             {
                 Beer beer = new Beer()
