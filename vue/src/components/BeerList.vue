@@ -43,6 +43,7 @@ export default {
 </script>
 
 <style scoped>
+
 #viewBeers
 {
   display: flex;

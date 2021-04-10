@@ -26,7 +26,7 @@
     </span>
     <span id='beerdetails' v-if='$store.state.editingMode===2'>
       <h1>{{currentBeer.name}}</h1>
-      <button>Edit Beer Info</button>
+      <edit-beer-form :beer='currentBeer'/>
     </span>
 
   </div>
@@ -38,12 +38,14 @@ import ReviewDisplay from '@/components/ReviewDisplay.vue'
 import BeerReviewForm from '@/components/BeerReviewForm.vue'
 import BreweryReviewForm from '@/components/BreweryReviewForm.vue'
 import EditBreweryForm from '@/components/EditBreweryForm.vue'
+import EditBeerForm from '@/components/EditBeerForm.vue'
 export default {
     components: {
         BeerReviewForm,
         ReviewDisplay,
         BreweryReviewForm,
-        EditBreweryForm
+        EditBreweryForm,
+        EditBeerForm
     },
     methods: {
       goToBrewery(){

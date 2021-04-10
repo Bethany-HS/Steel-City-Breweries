@@ -52,7 +52,7 @@ namespace Capstone.Controllers
 
         }
         //[Authorize(Roles = "admin, brewer")]
-        [HttpPut("{id}")]
+        [HttpPut("{id}/delete")]
         public ActionResult<Beer> DeleteBeer(int id, Beer beer)
         {
             Beer existingBeer = beerDAO.GetBeer(id);
@@ -63,5 +63,17 @@ namespace Capstone.Controllers
             Beer updateBeer = beerDAO.DeleteBeer(id, beer);
             return Ok(updateBeer);
         }
+        [HttpPut("{id}/update")]
+        public ActionResult<Beer> UpdateBeer(int id, Beer beer)
+        {
+            Beer existingBeer = beerDAO.GetBeer(id);
+            if (existingBeer == null)
+            {
+                return NotFound("Beer not found");
+            }
+            Beer updatedBeer = beerDAO.UpdateBeer(id, beer);
+            return Created($"/beer/{id}/update", updatedBeer);
+        }
+
     }
 }
