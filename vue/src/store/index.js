@@ -21,11 +21,13 @@ export default new Vuex.Store({
     token: currentToken || '',
     user: currentUser || {},
     currentDisplay : 1,
+    currentBrewery : {},
+    currentBeer : {},
     editingMode:0,
     breweries:[],
     beers:[],
     beerReviews:[],
-    breweryReviews:[]
+    breweryReviews:[],
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {

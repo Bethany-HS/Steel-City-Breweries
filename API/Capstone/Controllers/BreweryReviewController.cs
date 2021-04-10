@@ -1,5 +1,6 @@
 ﻿using Capstone.DAO;
 using Capstone.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 namespace Capstone.Controllers
 {
     [Route("[controller]")]
+    //[Authorize]
     [ApiController]
     public class BreweryReviewController : ControllerBase
     {
