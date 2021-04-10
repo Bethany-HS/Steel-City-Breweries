@@ -56,7 +56,6 @@ export default {
 #content{
   flex-grow: 5;
     display: block;
-    background: rgb(53, 53, 53);
     color: white;
     text-shadow: 3px 3px black;
 }
