@@ -2,13 +2,11 @@
   <div id="average-brewery-rating">
     <div id="rating">
         <img src="@/images/Full_Beer.png"
-        v-bind:title="review.rating"
-        id="ratingBeer" v-for=" i in review.rating" 
+        id="ratingBeer" v-for=" i in averageRating" 
         v-bind:key="i"
         />
     </div>
-    <div id="rating-amount">{{ averageRating }}</div>
-    Average Rating
+    <div id="rating-amount">{{ averageRating }} Average Rating</div>
   </div>
 </template>
 
@@ -17,14 +15,17 @@ export default {
     name: "average-rating",
     computed: {
         averageRating() {
-            let sum = this.$store.state.breweryReviews.reduce((currentSum, currentReview) => {
-                return currentSum + currentReview.rating;
-            }, 0);
+            let filteredReviews = this.$store.state.breweryReviews.filter(review => review.breweryId === this.numberOfBrewery)
+            if(filteredReviews.length === 0) {
+                return 0;
+            }
+            let sum = filteredReviews.reduce((currentSum, currentReview) =>
+                currentSum + currentReview.breweryRating, 0);
 
-            return (sum / this.$store.state.breweryReviews.length).toFixed(1);
+            return parseFloat((sum / this.$store.state.breweryReviews.length).toFixed(1));
         },
-        numberOfBeer
-    }
+    },
+    props: ["numberOfBrewery"]
 };
 </script>
 
