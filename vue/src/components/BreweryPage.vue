@@ -8,15 +8,18 @@
         <h2>View Beer List</h2>
         <p v-for='beer in beers' :key='beer.beerId'>{{beer.name}}</p>
         <h2>Ratings and Reviews</h2>
+        <average-brewery-rating :number-of-brewery="brewery.breweryId" />
         <review-display :review-id='brewery.breweryId' :review-type='false'/>
   </div>
 </template>
 
 <script>
 import ReviewDisplay from '@/components/ReviewDisplay.vue'
+import AverageBreweryRating from '@/components/AverageBreweryRating.vue'
 export default {
   components: { 
-      ReviewDisplay 
+      ReviewDisplay,
+      AverageBreweryRating
       },
   computed: {
       brewery(){
