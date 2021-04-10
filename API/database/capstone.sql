@@ -80,16 +80,22 @@ CONSTRAINT PK_beer_type PRIMARY KEY (beer_type_id)
 CREATE TABLE brewery_reviews (
 brewery_review_id int IDENTITY(1,1) NOT NULL,
 brewery_id int not null,
+user_id int not null,
+title varchar(100) NOT NULL,
 review varchar(300) NOT NULL,
-rating int NOT NULL
+rating int NOT NULL,
+is_private bit Not Null
 CONSTRAINT PK_brewery_review_id PRIMARY KEY (brewery_review_id)
 );
 
 CREATE TABLE beer_reviews(
 beerReview_id int IDENTITY (1,1) not null,
 beer_id int not null,
+user_id int not null,
 beerRating int not null,
-beerReview varchar(300) not null
+title varchar(100) NOT NULL,
+beerReview varchar(300) not null,
+is_private bit Not Null
 CONSTRAINT PK_beerReview_id PRIMARY KEY (beerReview_id)
 );
 ALTER TABLE breweries ADD CONSTRAINT fk_brewer_id FOREIGN KEY (brewer_id) REFERENCES brewer(brewer_id);
@@ -102,9 +108,11 @@ ALTER TABLE beers ADD CONSTRAINT fk_brewery_id FOREIGN KEY (brewery_id) REFERENC
 
 ALTER TABLE beers ADD CONSTRAINT fk_beer_type_id FOREIGN KEY (beer_type_id) REFERENCES beer_types(beer_type_id);
 Alter Table beer_reviews ADD CONSTRAINT fk_beerReview_beer_id FOREIGN KEY (beer_id) REFERENCES beers(beer_id);
+ALTER TABLE beer_reviews ADD CONSTRAINT fk_beerReview_user_id FOREIGN KEY (user_id) REFERENCES users(user_id);
 
 ALTER TABLE	brewer ADD CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users(user_id);
 ALTER TABLE brewery_reviews ADD CONSTRAINT fk_breweryReview_brewery_id FOREIGN KEY (brewery_id) REFERENCES breweries(brewery_id);
+ALTER TABLE brewery_reviews ADD CONSTRAINT fk_breweryReview_user_id FOREIGN KEY (user_id) REFERENCES users(user_id);
 ALTER TABLE  breweries ADD CONSTRAINT fk_brewery_status_id FOREIGN KEY (brewery_status_id) REFERENCES brewery_status_id(brewery_status_id);
 commit transaction
 --populate default data

@@ -6,7 +6,7 @@
         <h2>{{beer.ingredients}} {{beer.description}}</h2>
       </div>
     </div>
-    <side-details :current-brewery='-1' :current-beer='currentBeer[0].beerId' v-if='showSideDetails'/>
+    <side-details :current-brewery='{}' :current-beer='currentBeer' v-if='showSideDetails'/>
 
   </div>
 </template>

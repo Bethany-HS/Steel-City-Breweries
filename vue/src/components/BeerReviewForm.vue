@@ -6,11 +6,11 @@
         <form v-if="showForm === true">
             <div class="form-element">
                 <label for="title">Title</label>
-                <input id="title" type="text" v-model="reviewForm.title"/>
+                <input id="title" type="text" v-model="reviewForm.Title"/>
             </div>
             <div class="form-element">
                 <label for="rating">Rate Review:</label>
-                <select id="rating" v-model.number="reviewForm.rating">
+                <select id="rating" v-model.number="reviewForm.BeerRating">
                     <option value="1">1 Beer</option>
                     <option value="2">2 Beers</option>
                     <option value="3">3 Beers</option>
@@ -19,51 +19,70 @@
                 </select>
             </div>
             <div class="form-element">
-                <textarea id="comment" v-model="reviewForm.comment"></textarea>
+                <textarea id="comment" v-model="reviewForm.Review"></textarea>
             </div>
             <input type="button" value="Submit" @click="addBeerReview"/>
             <input type="button" value="Cancel" @click.prevent="resetForm" />
             <p>
                 Make Review Private
-                <input type="checkbox" v-bind:checked="reviewForm.private"/>
+                <input type="checkbox" v-model="isPrivate"/>
             </p>
         </form>
     </div>
 </template>
 
 <script>
+import ReviewService from '@/services/ReviewService.js'
 export default {
     name: "add-review",
     data() {
         return {
             showForm: false,
+            isPrivate:false,
             reviewForm: {
-                title: "",
-                objectId:this.beer.beerId,
-                rating: 1,
-                comment: "",
-                private: false
+                UserId: this.$store.state.user.userId,
+                BeerId: this.beer[0].beerId,
+                BeerRating: 1,
+                Title: "",
+                Review: "",
+                isPrivate: 0
             },
         };
     },
     props:['beer'],
+    computed:{
+        checkPrivate(){
+            return this.isPrivate ? 1:0
+        }
+    },
     methods: {
         addBeerReview() {
-            this.$store.commit("ADD_BEER_REVIEW", this.reviewForm);
-            this.resetForm();
+            this.reviewForm.isPrivate = this.isPrivate ? 1:0
+            ReviewService
+            .addBeerReview(this.reviewForm)
+            .then(response => {
+                if (response.status === 201) {
+                    this.showForm = false;
+                    this.resetForm();
+                    ReviewService.getBeerReviews().then(response => {
+                    this.$store.state.beerReviews =  response.data;})
+                }
+            })
+            .catch(error => {
+                console.log(error);
+            });
+            
         },
         resetForm() {
             this.showForm = false;
             this.reviewForm = {
-                title: "",
-                objectId:this.beer.beerId,
-                rating: 1,
-                comment: "",
-                private: false
+                UserId: this.$store.state.user.userId,
+                BeerId: this.beer[0].beerId,
+                BeerRating: 0,
+                Title: "",
+                Review: "",
+                isPrivate: 1
             };
-        },
-        privateReview() {
-            this.$store.commit("MAKE_REVIEW_PRIVATE", this.reviewForm);
         }
     }
 };

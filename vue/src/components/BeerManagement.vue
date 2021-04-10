@@ -1,27 +1,31 @@
 <template>
   <div>
-    <span id="contents">
+    <div id="contents">
+        <div>
         <add-beer-form></add-beer-form>
-        <span id="beerlist">
+        <div id="beerlist">
+            <h1>{{brewery.name}}</h1>
             <h1>Select Beer</h1>
-            <span v-for="beer in getBeers()" :key="beer.id">
-                <button @click='chooseBeer(beer.id)'>{{beer.name}}</button>
-            </span>
-        </span>
-        <side-details v-if='showSide'/>
-    </span>
+            <div v-for="beer in getBeers" :key="beer.beerId">
+                <h1 @click='chooseBeer(beer.beerId)'>{{beer.name}}</h1>
+            </div>
+        </div>
+        </div>
+        <side-details  :currentBeer='this.$store.state.beers.filter(x=>x.beerId === currentBeer)[0]' v-if='showSide'/>
+    </div>
   </div>
 </template>
 
 <script>
 import SideDetails from '@/components/SideDetails.vue'
 import AddBeerForm from '@/components/AddBeerForm.vue'
-import BeerService from '../services/BeerService.js'
+
 export default {
     data(){
         return{
     showSide: false,
     currentBeer : -1,
+    brewery: this.$store.state.breweries.filter(x=> x.breweryId === this.$store.state.currentBrewery)[0]
     }
     },
     components: {
@@ -29,54 +33,33 @@ export default {
         AddBeerForm
     },
     methods:{
-        getBeers(){
-            return [{id:1,name:'Drink 1'}]
-        },
         chooseBeer(id){
             this.showSide = true
             this.currentBeer = id
             this.$store.commit('SET_EDITING_MODE',2);
         },
-        addBeer(){
-            BeerService
-            .addBeer(this.beer)
-            .then(response => {
-                if (response.status === 201) {
-                    this.$router.push("/");
-                }
-            })
-            .catch(error => {
-                console.error(error);
-            });
-        },
-    cancel() {
-      this.$router.push("/");
+    },
+    computed:{
+        getBeers(){
+        return this.$store.state.beers.filter(beer =>beer.breweryId === this.brewery.breweryId)
         }
     }
 }
 </script>
 
 <style>
-#beerManagement{
+
+#contents{
     display: flex;
     flex-grow:1;
     flex-direction: row;
 }
-#MainContent{
+
+#beerlist{
     display: flex;
-    flex-grow:2;
     flex-direction: column;
+    flex-basis:60%;
 }
 
-#managebeerlist{
-    display: flex;
-    flex-grow: 1;
-    flex-basis:100%;
-}
-#managebeerlist >h1{
-    display: flex;
-    flex-grow: 1;
-    flex-basis:100%;
-}
 
 </style>
