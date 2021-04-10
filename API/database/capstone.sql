@@ -45,9 +45,9 @@ CREATE TABLE breweries (
 	zip int not null,
 	phone varchar (15) not null,
 	history nvarchar(300) not null,
-	brewery_status_id int not null,
 	hours_of_operation varchar(300) not null,
-	website varchar(30) not null
+	website varchar(30) not null,
+	brewery_status_id int not null	
 	CONSTRAINT PK_brewery PRIMARY KEY (brewery_id)
 );
 Create Table brewery_status_id (
