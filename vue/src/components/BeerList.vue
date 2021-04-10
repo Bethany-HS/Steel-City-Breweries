@@ -2,10 +2,11 @@
   <div id='viewBeers' >
     <div id='beerlist'>
       <div id="beer" v-for='beer in currentBeers' :key='beer.beerId' @click='showSideMenu(beer.beerId)'>
-        <h1>
-          <span id='name'>{{beer.name}} </span>
-          <span id='abv'>{{beer.abv}}%</span>
-        </h1>
+        <h2>
+          <span>{{beer.name}}</span>
+          <span id="abv">{{beer.abv}}%</span>
+        </h2>
+        <average-beer-rating :number-of-beer="beer.beerId"/>
       </div>
     </div>
     <side-details :current-brewery='{}' :current-beer='currentBeer' v-if='showSideDetails'/>
@@ -15,6 +16,7 @@
 
 <script>
 import SideDetails from '@/components/SideDetails.vue'
+import AverageBeerRating from '@/components/AverageBeerRating.vue'
 export default {
     data(){
       return{
@@ -24,6 +26,7 @@ export default {
     },
     components: {
         SideDetails,
+        AverageBeerRating,
     },
     computed:{
       currentBeers(){
@@ -47,15 +50,19 @@ export default {
   flex-basis: 100%;
   flex-grow: 1;
 }
+#abv {
+  display: flex;
+  margin-right: 10px;
+}
+
 #beerlist
 {
   flex-direction: column;
   flex-basis: 60%;
   margin-right: 30px;
-
 }
 
-side-details
+#side-details
 {
   flex-basis: 30%;
   justify-content: center;

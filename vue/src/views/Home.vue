@@ -54,7 +54,7 @@ export default {
   flex-basis: 20%;
 }
 #content{
-  flex-basis: 80%;
+    flex-basis: 80%;
     display: block;
     color: white;
     text-shadow: 3px 3px black;
