@@ -3,14 +3,10 @@
     <button id="add-brewery" v-if="showForm === false" @click.prevent="showForm = true">
             Add A Brewery
     </button>
-    <form class="breweryform" @submit.prevent="addNewBrewery" v-if="showForm === true">
+    <form class="breweryform" @submit.prevent v-if="showForm === true">
         <div class="form-element">
             <label for="name">Name</label>
             <input type="text" id="name" placeholder = "Name" v-model="newBrewery.Name">
-        </div>
-        <div class="form-element">
-            <label for="brewer">Brewer</label>
-            <input type="text" id="brewer" placeholder="Brewer Name" v-model.number="newBrewery.BrewerId">
         </div>
         <div class="form-element">
             <label for="streetaddress1">Street Address 1:</label>
@@ -74,7 +70,18 @@ export default {
     methods:{
         resetForm() {
             this.showForm = false;
-            this.newBrewery = {};
+            this.newBrewery = { 
+                Name: "",
+                BrewerId: this.$store.state.user.userId,
+                StreetAddress1: "",
+                StreetAddress2: "",
+                City: "",
+                State: "",
+                Zip: "",
+                Phone: "",
+                History: "",
+                BreweryStatus: 1
+            };
         },
         addBrewery(){
             BreweryService

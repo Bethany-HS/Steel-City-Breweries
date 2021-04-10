@@ -20,13 +20,13 @@ namespace Capstone.Controllers
             beerReviewDAO = _beerReviewDAO;
         }
 
-        [HttpGet("{id}")]
-        public ActionResult<List<BeerReview>> GetBeerReviews(int id)
+        [HttpGet]
+        public ActionResult<List<BeerReview>> GetBeerReviews()
         {
-            List<BeerReview> existingReview = beerReviewDAO.GetBeerReviews(id);
+            List<BeerReview> existingReview = beerReviewDAO.GetBeerReviews();
             if (existingReview != null)
             {
-                return Ok();
+                return Ok(existingReview);
             }
             else
             {

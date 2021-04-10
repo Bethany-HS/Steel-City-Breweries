@@ -14,7 +14,7 @@
     <h2 id="ratings"></h2>
     <h2 id="reviews"></h2>
     <beer-review-form :beer='currentBeer'/>
-    <review-display :review-id='currentBeer.beerId' :review-type='Object.keys(currentBeer).length !== 0'/>
+    <review-display :review-id='currentBeer[0].beerId' :review-type='Object.keys(currentBeer).length !== 0'/>
     </span>
     
     <span  id='brewerydetails' v-if='$store.state.editingMode===1'>

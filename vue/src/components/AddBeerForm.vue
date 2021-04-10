@@ -3,7 +3,7 @@
     <button id="add-beer" v-if="showForm === false" @click.prevent="showForm = true">
             Add A Beer
     </button>
-    <form class="beerform" @submit.prevent="addNewBeer" v-if="showForm === true">
+    <form class="beerform" @submit.prevent v-if="showForm === true">
         <div class="form-element">
             <label for="name">Name</label>
             <input type="text" id="name" placeholder = "Name" v-model="newBeer.Name">
