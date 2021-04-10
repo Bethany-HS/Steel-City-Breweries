@@ -20,8 +20,8 @@
     </span>
     
     <span  id='brewerydetails' v-if='$store.state.editingMode===1'>
-      <h1 >{{this.currentBrewery}}</h1>
-      <button>Edit Brewery Info</button>
+      <h1 >{{brewery.name}}</h1>
+      <edit-brewery-form :brewery='brewery'/>
       <button @click="navigateToManageBeers()">Manage Beers</button>
     </span>
     <span id='beerdetails' v-if='$store.state.editingMode===2'>
@@ -37,11 +37,13 @@
 import ReviewDisplay from '@/components/ReviewDisplay.vue'
 import BeerReviewForm from '@/components/BeerReviewForm.vue'
 import BreweryReviewForm from '@/components/BreweryReviewForm.vue'
+import EditBreweryForm from '@/components/EditBreweryForm.vue'
 export default {
     components: {
         BeerReviewForm,
         ReviewDisplay,
-        BreweryReviewForm
+        BreweryReviewForm,
+        EditBreweryForm
     },
     methods: {
       goToBrewery(){
@@ -57,7 +59,15 @@ export default {
         this.$store.commit('SET_CURRENT_PAGE', 6)
       }
     },
-    props:['currentBrewery','currentBeer']
+    props:['currentBrewery','currentBeer'],
+    computed:{
+      brewery(){
+        return this.$store.state.breweries.filter(x=>this.$store.state.currentBrewery ===x.breweryId)[0]
+      },
+      beer(){
+        return this.$store.state.beers.filter(x=>this.$store.state.currentBeer ===x.beerId)[0]
+      }
+    }
 }
 </script>
 

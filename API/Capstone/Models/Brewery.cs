@@ -19,6 +19,6 @@ namespace Capstone.Models
         public string History { get; set; }
         public string HoursOfOperation { get; set; }
         public string Website { get; set; }
-        public bool BreweryStatus { get; set; }
+        public int BreweryStatus { get; set; }
     }
 }

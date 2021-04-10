@@ -60,7 +60,7 @@ namespace Capstone.Controllers
                 return NotFound("Brewery not found");
             }
             Brewery updatedBrewery = breweryDAO.UpdateBrewery(id, brewery);
-            return Ok(updatedBrewery);
+            return Created($"/brewery/{id}",updatedBrewery);
         }
     }
 }
