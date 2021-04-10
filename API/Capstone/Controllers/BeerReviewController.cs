@@ -1,5 +1,6 @@
 ﻿using Capstone.DAO;
 using Capstone.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 namespace Capstone.Controllers
 {
     [Route("[controller]")]
+    //[Authorize]
     [ApiController]
     public class BeerReviewController : ControllerBase
     {
@@ -19,14 +21,14 @@ namespace Capstone.Controllers
         {
             beerReviewDAO = _beerReviewDAO;
         }
-
+        //[AllowAnonymous]
         [HttpGet("{id}")]
         public ActionResult<List<BeerReview>> GetBeerReviews(int id)
         {
             List<BeerReview> existingReview = beerReviewDAO.GetBeerReviews(id);
             if (existingReview != null)
             {
-                return Ok();
+                return Ok(existingReview);
             }
             else
             {
@@ -34,7 +36,7 @@ namespace Capstone.Controllers
             }
             
         }
-
+        
         [HttpPost]
         public ActionResult<Beer> AddBeerReview(BeerReview review)
         {
