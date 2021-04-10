@@ -1,7 +1,7 @@
 <template>
   <div id="login" class="text-center">
+    <h1 class="login-and-register">Please Sign In</h1>
     <form class="form-signin" @submit.prevent="login">
-      <h1 class="h3 mb-3 font-weight-normal">Please Sign In</h1>
       <div
         class="alert alert-danger"
         role="alert"
@@ -78,28 +78,13 @@ export default {
 <style>
 #login {
   background: rgb(53, 53, 53);
-  padding: 3rem;
+  padding: 6rem;
   display: flex;
   border-radius: 5px;
-}
-
-h1 {
-  display: flex;
-  color: white;
-  background: rgb(251, 169, 45);
-  padding: .5rem;
-  border-radius: 5px;
-}
-
-label {
-  display: flex;
-  padding: .5rem;
-  color: white;
 }
 
 #need-account-btn {
   display: flex;
-  justify-content: flex-start;
   color: white;
   padding: 1rem;
   text-decoration: none;
@@ -107,9 +92,6 @@ label {
 
 #need-account-btn:hover {
   color: rgb(251, 169, 45);
-}
-
-#submit-btn {
-  display: flex;
+  font-size: 103%;
 }
 </style>
