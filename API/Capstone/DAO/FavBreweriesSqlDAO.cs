@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.DAO
 {
-    public class FavBreweriesSqlDAO : IFavBreweiesDAO
+    public class FavBreweriesSqlDAO : IFavBreweriesDAO
     {
         private readonly string connectionString;
 

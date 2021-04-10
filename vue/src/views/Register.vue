@@ -1,7 +1,7 @@
 <template>
   <div id="register" class="text-center">
+    <h1 class="login-and-register">Create Account</h1>
     <form class="form-register" @submit.prevent="register">
-      <h1 class="h3 mb-3 font-weight-normal">Create Account</h1>
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
@@ -98,28 +98,12 @@ export default {
 <style>
 #register {
   background: rgb(53, 53, 53);
-  padding: 3rem;
   display: flex;
   border-radius: 5px;
-}
-
-h1 {
-  display: flex;
-  color: white;
-  background: rgb(251, 169, 45);
-  padding: .5rem;
-  border-radius: 5px;
-}
-
-label {
-  display: flex;
-  padding: .5rem;
-  color: white;
 }
 
 #have-an-accnt-btn {
   display: flex;
-  justify-content: flex-start;
   color: white;
   padding: 1rem;
   text-decoration: none;
@@ -127,5 +111,6 @@ label {
 
 #have-an-accnt-btn:hover {
   color: rgb(251, 169, 45);
+  font-size: 103%;
 }
 </style>
