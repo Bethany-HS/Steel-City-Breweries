@@ -55,6 +55,7 @@ export default {
     flex-basis: 60%;
     display: block;
     color: black;
+    margin-left: 20%;
 }
 
 </style>

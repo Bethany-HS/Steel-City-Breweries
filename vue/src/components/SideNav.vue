@@ -34,9 +34,11 @@ export default {
   border-radius: 10px;
   box-shadow: 5px 5px 3px black;
   justify-content: space-around;
-  flex-basis: 30%;
+  flex-basis: 20%;
   align-items: flex-start;
   margin-right: 20px;
+  position: fixed;
+  top: 10;
 }
 
 #nav-inner {

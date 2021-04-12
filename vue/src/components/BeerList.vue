@@ -60,7 +60,7 @@ export default {
 {
   flex-direction: column;
   flex-basis: 60%;
-  margin-right: 30px;
+  margin-left: 20%;
 }
 
 #beer
@@ -86,13 +86,4 @@ export default {
   margin-left: 10px;
 }
 
-.inner-block {
-  display: flex;
-  background-color: white;
-  border-radius: 10px;
-  padding: 1rem;
-  flex-direction: column;
-  justify-content: stretch;
-  width: 100%;
-}
 </style>
