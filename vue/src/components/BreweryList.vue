@@ -3,7 +3,7 @@
     <div id='brewerylist'>
       <div id="brewery" v-for='brewery in currentBreweries' :key='brewery.breweryId' @click='showSideMenu(brewery.breweryId)'>
         <div class="inner-block"> 
-        <h1>{{brewery.name}} </h1>
+        <h2>{{brewery.name}} </h2>
         <h2>{{brewery.city}} {{brewery.phone}}</h2>
         </div>
       </div>
