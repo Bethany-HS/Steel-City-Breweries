@@ -4,7 +4,7 @@
     <img src="../assets/logo1.png">
     </div>
     <span id='main-page'>
-    <side-nav id='sidenav'/>
+    <side-nav class='sidenav'/>
     <content-page id='content' />
     </span>
   </div>
@@ -50,17 +50,11 @@ export default {
   justify-content: stretch;
   align-items: stretch;
 }
-#sidenav{
-  flex-basis: 20%;
-}
+
 #content{
-<<<<<<< HEAD
-    flex-basis: 80%;
-=======
   flex-basis: 80%;
->>>>>>> a7c4b4cd65349ab1771b41effcfc8541cb79d395
-    display: block;
-    color: white;
-    text-shadow: 3px 3px black;
+  display: block;
+  margin-left: 20px;
 }
+
 </style>

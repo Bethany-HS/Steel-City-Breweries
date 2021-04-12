@@ -33,7 +33,7 @@
         required
       />
       <div>
-        <label for="brewer">Are you a Brewer? </label>
+        <label id="brewer" for="brewer">Are you a Brewer? </label>
         <input type="checkbox" id="brewer" true-value="brewer" false-value="user" v-model="user.role" />
       </div>
       
@@ -100,7 +100,16 @@ export default {
   background: rgb(53, 53, 53);
   display: flex;
   border-radius: 5px;
+  justify-content: space-between;
+  padding: 1rem;
+
 }
+
+#brewer {
+  color: white;
+  padding: 1rem;
+  margin-top: 10px;
+} 
 
 #have-an-accnt-btn {
   display: flex;

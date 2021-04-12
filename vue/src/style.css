@@ -6,16 +6,20 @@ body
 
 button
 { 
-    background-color: white;
+    display: flex;
+    background-color: rgb(255, 204, 0);
     color: black;
     border-width: 5px;
-    padding: 15px 30px;
+    width: 100%;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 18px;
     font-weight: bold;
     border-radius: 5px;
+    justify-content: space-around;
+    margin-top: 10px;
+    padding: 12px 30px;
 }
 
 button:hover
@@ -28,10 +32,22 @@ button:hover
     box-shadow: 5px 5px 3px black;
 }
 
-.home img
+.header
 {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
     display: block;
-    margin: auto;
+    padding: 2rem;
+    background-color: rgb(53, 53, 53);
+    border-radius: 10px;
+    margin-bottom: 25px; 
+}
+
+.home img {
+    display: flex;
+    display: block;
+    width: 100%;
 }
 
 .login-and-register {
@@ -39,37 +55,16 @@ button:hover
     color: white;
     background: rgb(251, 169, 45);
     padding: 1rem;
+    width: 50%;
     border-radius: 5px;
-    align-items: center, flex-start; 
+    align-items: center; 
     justify-content: center;
 }
 
 .sr-only {
     display: flex;
-    padding: .5rem;
+    padding: 1rem;
     color: rgb(251, 169, 45);
     justify-content: flex-start;
 }
 
-.nav-button
-{
-    border-radius: 0px;
-    color: black;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    width: 80%;
-}
-
-#side-nav > #nav-inner > span
-{
-    display: flex;
-    background-color: rgb(53, 53, 53);
-    width: 90%;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 1rem;
-}

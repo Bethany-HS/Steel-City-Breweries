@@ -1,13 +1,16 @@
 <template>
-  <div id='sidedetails' >
+  <div id='side-details' >
+    <div id="white-block">
     <span id='brewerydetails' v-if='$store.state.editingMode===0 && Object.keys(currentBeer).length === 0'>
     <h1 id="name">{{currentBrewery.name}}</h1>
     <h2 id="details"></h2>
     <h2 id="ratings"></h2>
     <h2 id="reviews"></h2>
     <button @click="goToBrewery()">View Brewery Details</button>
-    <brewery-review-form :brewery='currentBrewery'/>
-    <review-display :review-id='currentBrewery.breweryId' :review-type='Object.keys(currentBeer).length !== 0'/>
+      <span id="make-a-brewery-review-btn">
+        <brewery-review-form :brewery='currentBrewery'/>
+         <!-- <review-display :review-id='currentBrewery.breweryId' :review-type='Object.keys(currentBeer).length !== 0'/> -->
+      </span>
     </span>
     <span id='beerdetails' v-else-if='$store.state.editingMode===0 '>
     <h1 id="name">{{currentBeer.name}}</h1>
@@ -28,9 +31,8 @@
       <h1>{{currentBeer.name}}</h1>
       <button>Edit Beer Info</button>
     </span>
-
+    </div>
   </div>
-
 </template>
 
 <script>
@@ -72,13 +74,23 @@ export default {
 </script>
 
 <style>
-#sidedetails{
-flex-grow: 1;
-flex-direction:row;
-background-color: rgb(53,53,53);
-  border: 2px solid black;
+#side-details {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(53,53,53);
   border-radius: 10px;
   box-shadow: 5px 5px 3px black;
+  padding: 1rem;
+}
+
+#white-block {
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+
 }
 
 </style>

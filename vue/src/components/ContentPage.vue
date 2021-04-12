@@ -1,6 +1,8 @@
 <template>
   <div class="content">
-    <component :is='display'/>
+    <div id="inner-white-block">
+      <component :is='display'/>
+    </div>
   </div>
 </template>
 
@@ -54,6 +56,6 @@ export default {
 .content{
   display: flex;
   flex-direction: row;
-  justify-content:stretch
+  justify-content:stretch;
 }
 </style>

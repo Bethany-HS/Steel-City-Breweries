@@ -1,6 +1,6 @@
 <template>
   <div id="brewery-page">
-    <h1>{{brewery.name}}</h1>
+    <h1 id="brewery-name">{{brewery.name}}</h1>
         <h2>Location</h2>
         <p>{{brewery.streetAddress1}}</p>
         <h2>Brewery Description</h2>
