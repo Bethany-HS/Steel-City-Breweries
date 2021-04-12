@@ -7,10 +7,9 @@
           <img src="@/images/Full_Beer.png"
           v-bind:title="review.beerRating"
           id="ratingBeer" v-for=" i in review.beerRating" 
-          v-bind:key="i"
-          />
-        </div>
-        <h3 class="review-review">{{ review.review }}</h3>
+          v-bind:key="i"/>
+          </div>
+          <h3 class="review-review">{{ review.review }}</h3>
       </div>
     </div>
     <div v-else id='breweryReviewDisplay'>

@@ -1,6 +1,6 @@
 <template>
-    <div id='review-form'>
-        <button id="display-form" v-if="showForm === false" v-on:click.prevent="showForm = true">Make A Beer Review</button>
+    <div id='review-form' >
+        <button id="display-form" v-if="showForm === false && resetForm === true" @click.prevent="toggleForm()">Make A Beer Review</button>
         <form v-if="showForm === true">
             <div class="form-element">
                 <label for="title">Title</label>
@@ -47,7 +47,7 @@ export default {
             },
         };
     },
-    props:['beer'],
+    props:['beer', 'reset-form'],
     computed:{
         checkPrivate(){
             return this.isPrivate ? 1:0
@@ -81,35 +81,40 @@ export default {
                 Review: "",
                 isPrivate: 1
             };
+        },
+        toggleForm() {
+            this.showForm = true;
+            this.resetForm = false;
         }
     }
 };
 </script>
 
 <style>
+#rating {
+  width: 80%;
+}
+
 div.form-element {
   margin-top: 10px;
+  width: 80%;
 }
 div.form-element > label {
   display: block;
 }
 div.form-element > input{
   height: 30px;
-  width: 300px;
 }
 div.form-element > select{
   height: 30px;
-  width: 307.97px;
 }
-div.form-element > textarea {
-  height: 60px;
-  width: 300px;
+#comment {
+height: 60px;
 }
 form > input[type="button"] {
   width: 100px;
 }
 form > input[type="submit"] {
   width: 100px;
-  margin-right: 10px;
 }
 </style>
