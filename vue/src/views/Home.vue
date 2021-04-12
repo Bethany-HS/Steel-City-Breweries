@@ -52,16 +52,9 @@ export default {
 }
 
 #content{
-<<<<<<< HEAD
-  flex-basis: 80%;
-  display: block;
-  margin-left: 20px;
-=======
     flex-basis: 80%;
     display: block;
-    color: white;
-    text-shadow: 3px 3px black;
->>>>>>> febb4a48b3d465ea3cec9cc751304eeda28caaed
+    color: black;
 }
 
 </style>
