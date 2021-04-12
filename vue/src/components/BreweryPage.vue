@@ -1,5 +1,6 @@
 <template>
   <div id="brewery-page">
+  <div class="inner-block">
     <h1 id="brewery-name">{{brewery.name}}</h1>
         <h2>Location</h2>
         <p>{{brewery.streetAddress1}}</p>
@@ -10,6 +11,7 @@
         <h2>Ratings and Reviews</h2>
         <average-brewery-rating :number-of-brewery="brewery.breweryId" />
         <review-display :review-id='brewery.breweryId' :review-type='false'/>
+  </div>
   </div>
 </template>
 
@@ -35,10 +37,22 @@ export default {
 <style>
 #brewery-page
 {
+  display: flex;
   background-color: rgb(53,53,53);
   border: 2px solid black;
   border-radius: 10px;
   box-shadow: 5px 5px 3px black;
+  padding: 1rem;
+  justify-content: center;
+}
+
+.inner-block {
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  flex-direction: column;
+  width: 100%;
 }
 
 p
