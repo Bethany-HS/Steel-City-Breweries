@@ -83,7 +83,7 @@ export default {
   border-radius: 10px;
   box-shadow: 5px 5px 3px black;
   padding: 1rem;
-  flex-basis: 30%;
+  width: 30%;
   justify-content: flex-start;
 }
 

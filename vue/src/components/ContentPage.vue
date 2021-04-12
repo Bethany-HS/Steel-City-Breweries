@@ -57,6 +57,5 @@ export default {
   display: flex;
   flex-direction: row;
   justify-content:stretch;
-  flex-basis: 60%;
 }
 </style>
