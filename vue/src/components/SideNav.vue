@@ -39,6 +39,7 @@ export default {
   margin-right: 20px;
   position: fixed;
   top: 10;
+  flex-bASIS: 30%
 }
 
 #nav-inner {

@@ -58,9 +58,9 @@ export default {
 
 #beerlist
 {
+  display: flex;
   flex-direction: column;
-  flex-basis: 60%;
-  margin-left: 20%;
+  margin-right: 30px;
 }
 
 #beer
