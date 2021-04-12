@@ -41,7 +41,7 @@ export default {
     },
     computed:{
         getBeers(){
-        return this.$store.state.beers.filter(beer =>beer.breweryId === this.brewery.breweryId)
+        return this.$store.state.beers.filter(beer =>beer.breweryId === this.brewery.breweryId && beer.isActive === 1)
         }
     }
 }

@@ -43,12 +43,13 @@ export default {
 {
    display: flex;
    flex-basis: 100%;
-   flex-grow: 1;
+
 }
 #brewerylist
 {
   display: flex;
   flex-direction: column;
+  flex-basis: 80%;
   margin-right: 30px;
   background-color: white;
 }

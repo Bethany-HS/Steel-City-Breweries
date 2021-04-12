@@ -30,7 +30,7 @@
     <span id='beerdetails' v-if='$store.state.editingMode===2'>
       <h1>{{currentBeer.name}}</h1>
       <edit-beer-form :beer='currentBeer'/>
-      <button @click='DeleteBeer'>'Delete Beer' </button>>
+      <button @click='deleteBeer'>Delete Beer </button>
     </span>
     </div>
   </div>
@@ -42,6 +42,7 @@ import BeerReviewForm from '@/components/BeerReviewForm.vue'
 import BreweryReviewForm from '@/components/BreweryReviewForm.vue'
 import EditBreweryForm from '@/components/EditBreweryForm.vue'
 import EditBeerForm from '@/components/EditBeerForm.vue'
+import BeerService from '../services/BeerService.js'
 export default {
     components: {
         BeerReviewForm,
@@ -64,7 +65,7 @@ export default {
         this.$store.commit('SET_CURRENT_PAGE', 6)
       },
       deleteBeer(){
-
+        BeerService.deleteBeer(this.currentBeer)
       }
     },
     props:['currentBrewery','currentBeer'],
@@ -88,7 +89,7 @@ export default {
   border-radius: 10px;
   box-shadow: 5px 5px 3px black;
   padding: 1rem;
-  width: 30%;
+
   justify-content: flex-start;
 }
 

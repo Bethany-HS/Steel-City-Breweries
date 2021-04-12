@@ -9,8 +9,8 @@
           id="ratingBeer" v-for=" i in review.beerRating" 
           v-bind:key="i"
           />
-          <h3 class="review-review">{{ review.review }}</h3>
         </div>
+        <h3 class="review-review">{{ review.review }}</h3>
       </div>
     </div>
     <div v-else id='breweryReviewDisplay'>
