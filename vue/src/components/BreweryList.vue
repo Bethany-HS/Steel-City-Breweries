@@ -75,13 +75,4 @@ export default {
   display: flex;
   margin-left: 10px;
 }
-
-.inner-block {
-  display: flex;
-  background-color: white;
-  border-radius: 10px;
-  padding: 1rem;
-  flex-direction: column;
-  width: 100%;
-}
 </style>

@@ -46,15 +46,6 @@ export default {
   justify-content: center;
 }
 
-.inner-block {
-  display: flex;
-  background-color: white;
-  border-radius: 10px;
-  padding: 1rem;
-  flex-direction: column;
-  width: 100%;
-}
-
 p
 {
   padding-left: 30px;
