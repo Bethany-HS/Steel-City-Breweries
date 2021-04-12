@@ -86,35 +86,30 @@ export default {
 </script>
 
 <style>
-#display-form-btn {
-    
+#rating {
+  width: 80%;
 }
 
+div.form-element {
+  margin-top: 10px;
+  width: 80%;
+}
 div.form-element > label {
   display: block;
 }
-
 div.form-element > input{
   height: 30px;
-  width: 300px;
 }
-
 div.form-element > select{
   height: 30px;
-  width: 307.97px;
 }
-
-div.form-element > textarea {
-  height: 60px;
-  width: 300px;
+#comment {
+height: 60px;
 }
-
 form > input[type="button"] {
   width: 100px;
 }
-
 form > input[type="submit"] {
   width: 100px;
-  margin-right: 10px;
 }
 </style>

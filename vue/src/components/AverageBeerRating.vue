@@ -2,7 +2,7 @@
   <div id="average-beer-rating">
     <div id="rating">
         <img src="@/images/Full_Beer.png"
-        id="ratingBeer" v-for=" i in averageRating" 
+        id="ratingBeer" v-for="i in Math.round(averageRating)" 
         v-bind:key="i"
         />
     </div>

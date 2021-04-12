@@ -3,11 +3,12 @@
     <div class="inner-block">
     <h1>{{beer.name}}</h1>
         <h2>Location</h2>
-        <p>{{beer.beerTypeId}}</p>
+        <h4>{{$store.state.breweries.filter(brewery => {
+          return brewery.breweryId === beer.breweryId})[0].name
+          }}
+        </h4>
         <h2>Beer Description</h2>
         <p>{{beer.description}}</p>
-
-        <p></p>
         <h2>Ratings and Reviews</h2>
         <review-display :review-id='beer.beerId' :review-type='true'/>
     </div>
@@ -50,7 +51,7 @@ h1
 margin-left: 10px;
 }
 
-h2
+h2, h4
 {
   margin-left: 20px;
 }
