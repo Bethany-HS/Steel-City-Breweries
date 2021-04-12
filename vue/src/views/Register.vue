@@ -5,6 +5,16 @@
       <div class="alert alert-danger" role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
+      <label for="name" class="sr-only">Full Name</label>
+      <input
+        type="text"
+        id="name"
+        class="form-control"
+        placeholder="Name"
+        v-model="user.name"
+        required
+        autofocus
+      />
       <label for="username" class="sr-only">Username</label>
       <input
         type="text"
@@ -13,7 +23,7 @@
         placeholder="Username"
         v-model="user.username"
         required
-        autofocus
+        
       />
       <label for="password" class="sr-only">Password</label>
       <input
@@ -57,6 +67,7 @@ export default {
         password: '',
         confirmPassword: '',
         role: 'user',
+        name: ''
       },
       registrationErrors: false,
       registrationErrorMsg: 'There were problems registering this user.',

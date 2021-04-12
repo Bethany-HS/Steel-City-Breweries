@@ -22,17 +22,10 @@ CREATE TABLE users (
 	username varchar(50) NOT NULL,
 	password_hash varchar(200) NOT NULL,
 	salt varchar(200) NOT NULL,
-	user_role varchar(50) NOT NULL
+	user_role varchar(50) NOT NULL,
+	name varchar (50) not null
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
-
-CREATE TABLE brewer (
-	brewer_id int IDENTITY(1,1),
-	user_id int not null,
-	brewery_id int not null,
-	name varchar (50) not null,
-	CONSTRAINT PK_brewer_id PRIMARY KEY	 (brewer_id)
-);	
 
 CREATE TABLE breweries (
 	brewery_id int IDENTITY(1,1) NOT NULL,
@@ -100,7 +93,7 @@ beerReview varchar(300) not null,
 is_private bit Not Null
 CONSTRAINT PK_beerReview_id PRIMARY KEY (beerReview_id)
 );
-ALTER TABLE breweries ADD CONSTRAINT fk_brewer_id FOREIGN KEY (brewer_id) REFERENCES brewer(brewer_id);
+ALTER TABLE breweries ADD CONSTRAINT fk_brewer_id FOREIGN KEY (brewer_id) REFERENCES users(user_id);
 
 ALTER TABLE users_favBreweries ADD CONSTRAINT fk_users_favBreweries_users FOREIGN KEY (user_id) REFERENCES users(user_id);
 
@@ -112,16 +105,14 @@ ALTER TABLE beers ADD CONSTRAINT fk_beer_type_id FOREIGN KEY (beer_type_id) REFE
 Alter Table beer_reviews ADD CONSTRAINT fk_beerReview_beer_id FOREIGN KEY (beer_id) REFERENCES beers(beer_id);
 ALTER TABLE beer_reviews ADD CONSTRAINT fk_beerReview_user_id FOREIGN KEY (user_id) REFERENCES users(user_id);
 
-ALTER TABLE	brewer ADD CONSTRAINT fk_user_id FOREIGN KEY (user_id) REFERENCES users(user_id);
 ALTER TABLE brewery_reviews ADD CONSTRAINT fk_breweryReview_brewery_id FOREIGN KEY (brewery_id) REFERENCES breweries(brewery_id);
 ALTER TABLE brewery_reviews ADD CONSTRAINT fk_breweryReview_user_id FOREIGN KEY (user_id) REFERENCES users(user_id);
 ALTER TABLE  breweries ADD CONSTRAINT fk_brewery_status_id FOREIGN KEY (brewery_status_id) REFERENCES brewery_status_id(brewery_status_id);
 commit transaction
 --populate default data
-INSERT INTO users (username, password_hash, salt, user_role) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user');
-INSERT INTO users (username, password_hash, salt, user_role) VALUES ('admin','YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','admin');
+INSERT INTO users (username, password_hash, salt, user_role, name) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user', 'user');
+INSERT INTO users (username, password_hash, salt, user_role, name) VALUES ('admin','YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','admin', 'admin');
 
-INSERT INTO brewer (user_id, brewery_id, name) values (1,1,'testbrewer');
 
 INSERT INTO brewery_status_id (brewery_status_desc) values ('pending');
 INSERT INTO brewery_status_id (brewery_status_desc) values ('active');
