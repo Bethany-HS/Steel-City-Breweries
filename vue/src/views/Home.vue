@@ -52,7 +52,7 @@ export default {
 }
 
 #content{
-    flex-basis: 80%;
+    flex-basis: 60%;
     display: block;
     color: black;
 }

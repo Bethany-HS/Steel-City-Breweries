@@ -1,10 +1,12 @@
 <template>
   <div id='breweryManagement'>
     <div id="MainContent">
+        <div class="inner-block">
         <add-brewery-form></add-brewery-form>
         <h1>Select Brewery</h1>
         <div id='managebrewerylist' v-for="brewery in breweries" :key="brewery.breweryId">
             <h1 @click='chooseBrewery(brewery.breweryId)'>{{brewery.name}}</h1>
+        </div>
         </div>
     </div>
     <side-details :current-brewery='currentBrewery' v-if='showSide'/>
@@ -51,25 +53,25 @@ export default {
 #breweryManagement{
     display: flex;
     flex-direction: column;
-    border-radius: 15px;
+    border-radius: 10px;
+    flex-basis: 60%;
 }
 #MainContent{
     display: flex;
     flex-direction: column;
-    flex-basis: 60%;
     background-color: rgb(53,53,53);
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 1rem;
+    justify-content: center;
+    flex-basis: 60%;
 }
 
 #managebrewerylist{
     display: flex;
-    flex-basis: 60%;
     margin-right: 30px;
 }
 #managebrewerylist >h1{
     display: flex;
-    flex-basis:60%;
 }
 
 </style>
