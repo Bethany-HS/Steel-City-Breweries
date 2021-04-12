@@ -13,7 +13,7 @@
       </span>
     </span>
     <span id='beerdetails' v-else-if='$store.state.editingMode===0 '>
-    <h1 id="name">{{currentBeer.name}}</h1>
+    <h1 id="name">{{currentBeer[0].name}}</h1>
     <h2 id="details"></h2>
     <h2 id="ratings"></h2>
     <h2 id="reviews"></h2>
