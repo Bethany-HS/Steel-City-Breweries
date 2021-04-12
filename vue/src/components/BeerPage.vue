@@ -3,10 +3,10 @@
     <div class="inner-block">
     <h1>{{beer.name}}</h1>
         <h2>Location</h2>
-        <h3>{{$store.state.breweries.filter(brewery => {
+        <h4>{{$store.state.breweries.filter(brewery => {
           return brewery.breweryId === beer.breweryId})[0].name
           }}
-        </h3>
+        </h4>
         <h2>Beer Description</h2>
         <p>{{beer.description}}</p>
         <h2>Ratings and Reviews</h2>
@@ -51,7 +51,7 @@ h1
 margin-left: 10px;
 }
 
-h2, h3
+h2, h4
 {
   margin-left: 20px;
 }
