@@ -1,5 +1,6 @@
 <template>
   <div id="beer-page">
+    <div class="inner-block">
     <h1>{{beer.name}}</h1>
         <h2>Location</h2>
         <p>{{beer.beerTypeId}}</p>
@@ -9,6 +10,7 @@
         <p></p>
         <h2>Ratings and Reviews</h2>
         <review-display :review-id='beer.beerId' :review-type='true'/>
+    </div>
   </div>
 </template>
 
@@ -29,6 +31,9 @@ export default {
 <style>
 #beer-page
 {
+  display: flex;
+  padding: 1rem;
+  justify-content: center;
   background-color: rgb(53,53,53);
   border: 2px solid black;
   border-radius: 10px;

@@ -1,5 +1,5 @@
 <template>
-  <div id="side-nav">
+  <div class="side-nav">
     <div id="nav-inner">
       <button class="nav-button" @click="setPage(0)">Home</button><br>
       <button class="nav-button" @click="setPage(1)">Brewery List</button><br>
@@ -30,8 +30,23 @@ export default {
 </script>
 
 <style>
-#side-nav
+.side-nav
 {
+  display: flex;
   background-color: rgb(53, 53, 53);
+  padding: 1.3rem;
+  border-radius: 10px;
+  box-shadow: 5px 5px 3px black;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+#nav-inner {
+  display: flex;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  flex-direction: column;
+  justify-content: space-around;
 }
 </style>

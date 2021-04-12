@@ -1,6 +1,6 @@
 <template>
   <div id="user-profile">
-      <form>
+      <form class="inner-block">
           <h1>Name</h1><br>
           <h1>Photo</h1><br>
           <h1>Email</h1><br>
@@ -18,6 +18,9 @@ export default {
 <style>
 #user-profile
 {
+  display: flex;
+  padding: 1rem;
+  justify-content: center;
   background-color: rgb(53,53,53);
   border-radius: 15px;
 }

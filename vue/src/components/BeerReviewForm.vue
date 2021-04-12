@@ -1,8 +1,6 @@
 <template>
     <div id='review-form'>
-        <button id="display-form" v-if="showForm === false" v-on:click.prevent="showForm = true">
-            Make A Beer Review
-        </button>
+        <button id="display-form" v-if="showForm === false" v-on:click.prevent="showForm = true">Make A Beer Review</button>
         <form v-if="showForm === true">
             <div class="form-element">
                 <label for="title">Title</label>
@@ -89,14 +87,6 @@ export default {
 </script>
 
 <style>
-#review-form{
-    display:flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-#display-form{
-    width:50%;
-}
 div.form-element {
   margin-top: 10px;
 }

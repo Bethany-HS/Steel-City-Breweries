@@ -78,9 +78,10 @@ export default {
 <style>
 #login {
   background: rgb(53, 53, 53);
-  padding: 6rem;
   display: flex;
   border-radius: 5px;
+  justify-content: space-between;
+  padding: 1rem;
 }
 
 #need-account-btn {

@@ -2,15 +2,16 @@
   <div id='viewBeers' >
     <div id='beerlist'>
       <div id="beer" v-for='beer in currentBeers' :key='beer.beerId' @click='showSideMenu(beer.beerId)'>
+        <div class="inner-block">
         <h2>
           <span>{{beer.name}}</span>
           <span id="abv">{{beer.abv}}%</span>
         </h2>
         <average-beer-rating :number-of-beer="beer.beerId"/>
+        </div>
       </div>
     </div>
     <side-details :current-brewery='{}' :current-beer='currentBeer' v-if='showSideDetails'/>
-
   </div>
 </template>
 
@@ -62,19 +63,16 @@ export default {
   margin-right: 30px;
 }
 
-#side-details
-{
-  flex-basis: 30%;
-  justify-content: center;
-}
-
 #beer
 {
+  display: flex;
   margin-bottom: 10px;
   background-color: rgb(53,53,53);
   border: 2px solid black;
   border-radius: 10px;
   box-shadow: 5px 5px 3px black;
+  padding: 1rem;
+  justify-content: center;
 }
 
 #beer:hover
@@ -86,5 +84,15 @@ export default {
   display: flex;
   justify-content: space-between;
   margin-left: 10px;
+}
+
+.inner-block {
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  flex-direction: column;
+  justify-content: stretch;
+  width: 100%;
 }
 </style>
