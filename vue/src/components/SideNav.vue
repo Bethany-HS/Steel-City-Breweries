@@ -36,10 +36,6 @@ export default {
   justify-content: space-around;
   flex-basis: 20%;
   align-items: flex-start;
-  margin-right: 20px;
-  position: fixed;
-  top: 10;
-  flex-bASIS: 30%
 }
 
 #nav-inner {
@@ -50,5 +46,6 @@ export default {
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
+  flex-basis: 100%;
 }
 </style>

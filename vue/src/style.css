@@ -32,22 +32,19 @@ button:hover
     box-shadow: 5px 5px 3px black;
 }
 
-.header
+#header
 {
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    display: block;
     padding: 2rem;
     background-color: rgb(53, 53, 53);
     border-radius: 10px;
-    margin-bottom: 25px; 
+    margin-bottom: 25px;
+    justify-content: center;
 }
 
-.home img {
+#header img {
     display: flex;
-    display: block;
-    width: 100%;
+    width: 65%;
 }
 
 .inner-block {

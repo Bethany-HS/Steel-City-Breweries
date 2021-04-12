@@ -84,6 +84,7 @@ export default {
   box-shadow: 5px 5px 3px black;
   padding: 1rem;
   flex-basis: 30%;
+  justify-content: flex-start;
 }
 
 #white-block {
@@ -93,7 +94,6 @@ export default {
   padding: 1rem;
   justify-content: center;
   align-items: center;
-
 }
 
 </style>

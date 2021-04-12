@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <div class="header">
+    <div id="header">
     <img src="../assets/logo1.png">
     </div>
     <span id='main-page'>
@@ -55,7 +55,8 @@ export default {
     flex-basis: 60%;
     display: block;
     color: black;
-    margin-left: 20%;
+    margin-left: 25px;
 }
+
 
 </style>
