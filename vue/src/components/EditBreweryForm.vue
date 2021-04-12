@@ -46,7 +46,7 @@
         </div>
         <div class="form-element">
             <input type="submit" value="Submit" @click ="editBrewery"/>
-            <input type="button" value="Cancel" @click.prevent="resetForm" />
+            <input type="button" value="Cancel" @click.prevent="cancel" />
         </div>
        
         
@@ -82,6 +82,11 @@ export default {
             .catch(error => {
                 console.log(error);
             });
+        },
+        cancel(){
+            this.showForm = false
+            BreweryService.getBreweries().then(response => {
+            this.$store.state.breweries =  response.data;})
         }
     }
 }

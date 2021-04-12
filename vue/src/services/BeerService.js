@@ -8,6 +8,12 @@ export default {
 
   addBeer(beer){
     return axios.post('/beer', beer)
+  },
+  editBeer(beer){
+    return axios.put('/beer/'+beer.beerId+'/update', beer)
+  },
+  deleteBeer(beer){
+      return axios.put('/beer/'+beer.beerId+'/delete')
   }
 
 }
