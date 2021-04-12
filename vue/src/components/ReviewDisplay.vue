@@ -9,8 +9,8 @@
           id="ratingBeer" v-for=" i in review.beerRating" 
           v-bind:key="i"
           />
+          <h3 class="review-review">{{ review.review }}</h3>
         </div>
-        <h3>{{ review.review }}</h3>
       </div>
     </div>
     <div v-else id='breweryReviewDisplay'>
@@ -23,7 +23,7 @@
           v-bind:key="i"
           />
         </div>
-        <h3>{{ review.review }}</h3>
+        <h3 class="review-review">{{ review.review }}</h3>
       </div>
     </div>
   </div>
@@ -52,21 +52,29 @@ export default {
 </script>
 
 <style>
-
+.review {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    overflow: scroll;
+}
 
 #reviewpart{
   flex-direction: column;
+  
 }
 
 #rating { 
 display: flex;  
 height:50px;
 width:50px;
-vertical-align: top;
 }
 
 #ratingBeer {
 height: 100%;
 margin-right: 10px;
 }
+
+
 </style>
+

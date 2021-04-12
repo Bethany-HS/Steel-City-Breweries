@@ -40,9 +40,8 @@ export default {
   border-radius: 10px;
   box-shadow: 5px 5px 3px black;
   justify-content: space-around;
-  flex-basis: 30%;
+  flex-basis: 20%;
   align-items: flex-start;
-  margin-right: 20px;
 }
 
 #nav-inner {
@@ -53,5 +52,6 @@ export default {
   flex-direction: column;
   justify-content: space-around;
   align-items: flex-start;
+  flex-basis: 100%;
 }
 </style>
