@@ -95,4 +95,10 @@ export default {
   justify-content: stretch;
   width: 100%;
 }
+
+side-details{
+  display: flex;
+  flex-basis: 60%;
+  margin-right: 30px;
+}
 </style>

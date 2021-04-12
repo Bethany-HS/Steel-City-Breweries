@@ -39,10 +39,10 @@ export default {
     computed:{
       reviews(){
         if(this.reviewType === true){
-         return this.$store.state.beerReviews.filter(x => x.beerId === this.reviewId)
+         return this.$store.state.beerReviews.filter(x => (x.beerId === this.reviewId && x.isPrivate===0))
         }
         else{
-         return this.$store.state.breweryReviews.filter(x => x.breweryId === this.reviewId)
+         return this.$store.state.breweryReviews.filter(x => (x.breweryId === this.reviewId&& x.isPrivate===0))
         }
       }
     },
@@ -52,15 +52,12 @@ export default {
 </script>
 
 <style>
-.review {
-    display: flex;
-    flex-direction: column;
-}
+
 
 #reviewpart{
-  display: flex;
   flex-direction: column;
 }
+
 #rating { 
 display: flex;  
 height:50px;

@@ -9,7 +9,7 @@
     <button @click="goToBrewery()">View Brewery Details</button>
       <span id="make-a-brewery-review-btn">
         <brewery-review-form :brewery='currentBrewery'/>
-         <!-- <review-display :review-id='currentBrewery.breweryId' :review-type='Object.keys(currentBeer).length !== 0'/> -->
+         <review-display :review-id='currentBrewery.breweryId' :review-type='Object.keys(currentBeer).length !== 0'/>
       </span>
     </span>
     <span id='beerdetails' v-else-if='$store.state.editingMode===0 '>
@@ -30,6 +30,7 @@
     <span id='beerdetails' v-if='$store.state.editingMode===2'>
       <h1>{{currentBeer.name}}</h1>
       <edit-beer-form :beer='currentBeer'/>
+      <button @click='DeleteBeer'>'Delete Beer' </button>>
     </span>
     </div>
   </div>
@@ -61,6 +62,9 @@ export default {
       goToBeer(){
         this.$store.state.currentBeer = this.currentBeer[0];
         this.$store.commit('SET_CURRENT_PAGE', 6)
+      },
+      deleteBeer(){
+
       }
     },
     props:['currentBrewery','currentBeer'],
@@ -79,6 +83,7 @@ export default {
 #side-details {
   display: flex;
   flex-direction: column;
+  flex-basis: 30%;
   background-color: rgb(53,53,53);
   border-radius: 10px;
   box-shadow: 5px 5px 3px black;
@@ -93,6 +98,10 @@ export default {
   justify-content: center;
   align-items: center;
 
+}
+review-display{
+  display: flex;
+  width : 20%
 }
 
 </style>
