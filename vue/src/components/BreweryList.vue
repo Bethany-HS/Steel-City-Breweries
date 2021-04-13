@@ -55,14 +55,13 @@ export default {
   flex-direction: column;
   flex-basis: 60%;
   margin-right: 30px;
-  background-color: white;
 }
 
 #brewery
 {
   display: flex;
   margin-bottom: 10px;
-  background-color: rgb(53,53,53);
+    background-color: rgba(53, 53, 53, 0.8);
   border: 2px solid black;
   border-radius: 10px;
   box-shadow: 5px 5px 3px black;

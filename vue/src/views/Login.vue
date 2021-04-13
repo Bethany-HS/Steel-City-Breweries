@@ -79,9 +79,22 @@ export default {
 #login {
   background: rgb(53, 53, 53);
   display: flex;
-  border-radius: 5px;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
+  width: 50%;
   padding: 1rem;
+  border-radius: 5px;
+}
+
+.form-signin {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#username, #password {
+  width: 30%;
+  margin-left: 35%;
 }
 
 #need-account-btn {
@@ -94,5 +107,11 @@ export default {
 #need-account-btn:hover {
   color: rgb(251, 169, 45);
   font-size: 103%;
+}
+
+#submit-btn {
+  padding: 15px;
+  width: 50%;
+  margin-left: 25%;
 }
 </style>

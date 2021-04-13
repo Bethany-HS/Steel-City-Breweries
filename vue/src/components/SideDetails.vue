@@ -97,7 +97,7 @@ export default {
   display: flex;
   flex-direction: column;
   flex-basis: 30%;
-  background-color: rgb(53,53,53);
+  background-color: rgba(53, 53, 53, 0.8);
   border-radius: 10px;
   box-shadow: 5px 5px 3px black;
   padding: 1rem;
