@@ -15,9 +15,9 @@ namespace Capstone.DAO
         {
             connectionString = dbConnectionString;
         }
-        public BreweryImages GetBreweryImages(int id)
+        public List<BreweryImages> GetBreweryImages(int id)
         {
-            BreweryImages returnBreweryImages = null;
+            List<BreweryImages> BreweryImages = new List<BreweryImages>();
 
             try
             {
@@ -31,7 +31,10 @@ namespace Capstone.DAO
 
                     if (reader.Read())
                     {
+                        BreweryImages returnBreweryImages = new BreweryImages();
                         returnBreweryImages.BreweryImgPath = Convert.ToString(reader["brewery_img_path"]);
+
+                        BreweryImages.Add(returnBreweryImages);
                     }
                 }
             }
@@ -40,7 +43,7 @@ namespace Capstone.DAO
                 throw;
             }
 
-            return returnBreweryImages;
+            return BreweryImages;
         }
     }
 }
