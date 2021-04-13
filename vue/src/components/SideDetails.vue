@@ -26,6 +26,10 @@
       <h1 v-if='$store.state.showEditForm === false' >{{brewery.name}}</h1>
       <edit-brewery-form :brewery='brewery'/>
       <button @click="navigateToManageBeers()">Manage Beers</button>
+      <label for="myfile">Upload a picture:</label>
+      <input type="file" id="myfile" name="myfile">
+      <output id ="picture" />
+      <button @click='savePicture'> Save</button>/> 
     </span>
     <span id='beerdetails' v-if='$store.state.editingMode===2'>
       <h1>{{currentBeer.name}}</h1>
@@ -44,6 +48,12 @@ import EditBreweryForm from '@/components/EditBreweryForm.vue'
 import EditBeerForm from '@/components/EditBeerForm.vue'
 import BeerService from '../services/BeerService.js'
 export default {
+    data(){
+      return{
+        test:'',
+        picture:''
+      }
+    },
     components: {
         BeerReviewForm,
         ReviewDisplay,
@@ -66,6 +76,8 @@ export default {
       },
       deleteBeer(){
         BeerService.deleteBeer(this.currentBeer)
+      },
+      savePicture(){
       }
     },
     props:['currentBrewery','currentBeer'],
