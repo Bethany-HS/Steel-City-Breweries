@@ -63,12 +63,14 @@ export default {
 {
   display: flex;
   flex-direction: column;
+    flex-basis: 60%;
   margin-right: 30px;
 }
 
 #beer
 {
   display: flex;
+
   margin-bottom: 10px;
   background-color: rgb(53,53,53);
   border: 2px solid black;

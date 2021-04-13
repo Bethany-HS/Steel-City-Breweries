@@ -29,7 +29,7 @@
       <label for="myfile">Upload a picture:</label>
       <input type="file" id="myfile" name="myfile">
       <output id ="picture" />
-      <button @click='savePicture'> Save</button>/> 
+      <button @click='savePicture'> Save</button>
     </span>
     <span id='beerdetails' v-if='$store.state.editingMode===2'>
       <h1>{{currentBeer.name}}</h1>
