@@ -1,6 +1,6 @@
 <template>
 <div>
-    <button id="edit-beer" v-if="showForm === false" @click.prevent="showForm = true">
+    <button id="edit-beer" on:cle v-if="showForm === false" @click.prevent="showForm = true">
             Edit Beer
     </button>
     <form class="beerform" @submit.prevent v-if="showForm === true">

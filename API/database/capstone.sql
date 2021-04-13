@@ -126,7 +126,7 @@ ALTER TABLE brewery_reviews ADD CONSTRAINT fk_breweryReview_user_id FOREIGN KEY 
 ALTER TABLE  breweries ADD CONSTRAINT fk_brewery_status_id FOREIGN KEY (brewery_status_id) REFERENCES brewery_status_id(brewery_status_id);
 commit transaction
 --populate default data
-INSERT INTO users (username, password_hash, salt, user_role, name) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','user', 'user');
+INSERT INTO users (username, password_hash, salt, user_role, name) VALUES ('user','Jg45HuwT7PZkfuKTz6IB90CtWY4=','LHxP4Xh7bN0=','brewer', 'user');
 INSERT INTO users (username, password_hash, salt, user_role, name) VALUES ('admin','YhyGVQ+Ch69n4JMBncM4lNF/i9s=', 'Ar/aB2thQTI=','admin', 'admin');
 
 

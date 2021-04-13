@@ -22,7 +22,8 @@ export default {
     data(){
       return{
         showSideDetails:false,
-        currentBeer: {}
+        currentBeer: {},
+        test:''
       }
     },
     components: {
@@ -31,25 +32,27 @@ export default {
     },
     computed:{
       currentBeers(){
-        return this.$store.state.beers;
+        return this.$store.state.beers.filter(x=>x.isActive === 1);
       }
     },
     methods: {
         showSideMenu(id){
+        this.$store.state.showReviewForm = false;
         this.currentBeer  = this.currentBeers.filter(x => x.beerId === id)
         this.showSideDetails = true
+        this.test = document.getElementsByTagName("side-details")[0]
       }
     }
 }
 </script>
 
-<style scoped>
+<style >
 
 #viewBeers
 {
   display: flex;
   flex-basis: 100%;
-  flex-grow: 1;
+
 }
 #abv {
   display: flex;
@@ -86,4 +89,19 @@ export default {
   margin-left: 10px;
 }
 
+.inner-block {
+  display: flex;
+  background-color: white;
+  border-radius: 10px;
+  padding: 1rem;
+  flex-direction: column;
+  justify-content: stretch;
+  flex-basis:100%
+}
+
+side-details{
+  display: flex;
+  flex-basis: 60%;
+  margin-right: 30px;
+}
 </style>

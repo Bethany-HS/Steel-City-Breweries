@@ -1,12 +1,12 @@
 <template>
   <div class="home">
     <div id="header">
-    <img src="../assets/logo1.png">
+      <img src="../assets/logo1.png">
     </div>
-    <span id='main-page'>
-    <side-nav class='sidenav'/>
-    <content-page id='content' />
-    </span>
+    <div id='main-page'>
+      <side-nav class='sidenav'/>
+      <content-page id='content' />
+    </div>
   </div>
 </template>
 
@@ -45,15 +45,20 @@ export default {
 </script>
 
 <style>
+.home{
+  height:100%;
+}
 #main-page{
   display: flex;
   justify-content: stretch;
   align-items: stretch;
+  height:77%
+
 }
 
 #content{
-    flex-basis: 60%;
-    display: block;
+    flex-basis: 100%;
+    display: flex;
     color: black;
     margin-left: 25px;
 }

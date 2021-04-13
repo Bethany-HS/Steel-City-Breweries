@@ -15,5 +15,7 @@ namespace Capstone.Models
         public string Description { get; set; }
         public string Ingredients { get; set; }
 
+        public int IsActive { get; set; }
+
     }
 }
