@@ -38,6 +38,7 @@ export default {
 #brewery-page
 {
   display: flex;
+  flex-grow: 1;
   background-color: rgb(53,53,53);
   border: 2px solid black;
   border-radius: 10px;
@@ -59,6 +60,9 @@ margin-left: 10px;
 h2
 {
   margin-left: 20px;
+}
+review-display{
+  padding-left: 30px;
 }
 
 </style>

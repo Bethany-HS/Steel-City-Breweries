@@ -58,6 +58,12 @@ export default {
 .content{
   display: flex;
   flex-direction: row;
+  
   justify-content:stretch;
+}
+
+#inner-white-block{
+  display: flex;
+  flex-basis:100%;
 }
 </style>

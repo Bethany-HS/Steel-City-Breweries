@@ -1,9 +1,9 @@
 <template>
 <div>
-    <button id="add-brewery" v-if="showForm === false" @click.prevent="showForm = true">
+    <button id="add-brewery" v-if="!$store.state.showAddForm" @click.prevent="spawnForm">
             Add A Brewery
     </button>
-    <form class="breweryform" @submit.prevent v-if="showForm === true">
+    <form class="breweryform" @submit.prevent v-if="$store.state.showAddForm">
         <div class="form-element">
             <label for="name">Name</label>
             <input type="text" id="name" placeholder = "Name" v-model="newBrewery.Name">
@@ -60,7 +60,6 @@ export default {
     name:"add-brewery",
     data(){
         return{
-            showForm: false,
             newBrewery:{
                 Name: "",
                 BrewerId: this.$store.state.user.userId,
@@ -79,7 +78,7 @@ export default {
     },
     methods:{
         resetForm() {
-            this.showForm = false;
+            this.$store.state.showAddForm = false;
             this.newBrewery = { 
                 Name: "",
                 BrewerId: this.$store.state.user.userId,
@@ -100,7 +99,7 @@ export default {
             .addBrewery(this.newBrewery)
             .then(response => {
                 if (response.status === 201) {
-                    this.showForm = false;
+                    this.$store.state.showAddForm = false;
                     BreweryService.getBreweries().then(response => {
                     this.$store.state.breweries =  response.data;})
                 }
@@ -108,6 +107,11 @@ export default {
             .catch(error => {
                 console.log(error);
             });
+        },
+        spawnForm(){
+            this.showForm = true
+            this.$store.state.showAddForm = true;
+            this.$store.state.showEditForm = false
         }
     }
 }

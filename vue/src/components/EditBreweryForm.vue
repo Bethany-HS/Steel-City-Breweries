@@ -1,6 +1,6 @@
 <template>
 <div>
-    <button id="edit-brewery" v-if="showForm === false" @click.prevent="showForm = true">
+    <button id="edit-brewery" v-if="showForm === false" @click.prevent="spawnForm">
             Edit A Brewery
     </button>
     <form class="breweryform" @submit.prevent v-if="showForm === true">
@@ -46,7 +46,7 @@
         </div>
         <div class="form-element">
             <input type="submit" value="Submit" @click ="editBrewery"/>
-            <input type="button" value="Cancel" @click.prevent="cancel" />
+            <input id='target' type="button" value="Cancel" @click.prevent="cancel" />
         </div>
        
         
@@ -58,14 +58,9 @@
 import BreweryService from '../services/BreweryService.js'
 export default {
     name:"edit-brewery",
-    data(){
-        return{
-            showForm: false,
-            
-        };
-    },
     computed:{
-        newBrewery(){return this.brewery}
+        newBrewery(){return this.brewery},
+        showForm(){return this.$store.state.showEditForm}
     },
     props: ['brewery'],
     methods:{
@@ -74,7 +69,7 @@ export default {
             .editBrewery(this.newBrewery)
             .then(response => {
                 if (response.status === 201) {
-                    this.showForm = false;
+                    this.$store.state.showEditForm = false;
                     BreweryService.getBreweries().then(response => {
                     this.$store.state.breweries =  response.data;})
                 }
@@ -84,14 +79,38 @@ export default {
             });
         },
         cancel(){
-            this.showForm = false
+            this.$store.state.showEditForm = false
             BreweryService.getBreweries().then(response => {
             this.$store.state.breweries =  response.data;})
+        },
+        spawnForm(){
+            this.$store.state.showEditForm = true
+            this.$store.state.showAddForm = false
         }
     }
 }
 </script>
 
 <style>
+.breweryform{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    flex-basis:100%;
+    
+}
+
+.form-element{
+    display:flex;
+    flex-direction: column;
+}
+#hours{
+    height:80px;
+
+}
+
+textarea{
+    resize:none;
+}
 
 </style>

@@ -46,8 +46,6 @@ export default {
 <style>
 .home {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-gap: 50px;
   justify-items: center;
   align-items: center;
@@ -55,16 +53,9 @@ export default {
 
 #header {
   display: grid;
-  grid-column-start: 1;
-  grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 1;
 }
 
 #content{
-    grid-column-start: 2;
-    grid-column-end: 4;
-    grid-row-start: 2;
     color: black;
     margin-left: 25px;
 }

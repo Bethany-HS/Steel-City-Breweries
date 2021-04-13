@@ -1,6 +1,10 @@
 <template>
     <div id='review-form' >
+<<<<<<< HEAD
         <button id="display-form" v-if="showForm === false" @click.prevent="showForm = true">Make A Beer Review</button>
+=======
+        <button id="display-form" v-if="!showForm" @click.prevent="spawnForm">Make A Beer Review</button>
+>>>>>>> 56970acc02166da059b59911cc79187439c646d0
         <form v-if="showForm === true">
             <div class="form-element">
                 <label for="title">Title</label>
@@ -35,7 +39,6 @@ export default {
     name: "add-review",
     data() {
         return {
-            showForm: false,
             isPrivate:false,
             reviewForm: {
                 UserId: this.$store.state.user.userId,
@@ -51,6 +54,9 @@ export default {
     computed:{
         checkPrivate(){
             return this.isPrivate ? 1:0
+        },
+        showForm(){
+            return this.$store.state.showReviewForm
         }
     },
     methods: {
@@ -60,7 +66,7 @@ export default {
             .addBeerReview(this.reviewForm)
             .then(response => {
                 if (response.status === 201) {
-                    this.showForm = false;
+                    this.$store.state.showReviewForm = false;
                     this.resetForm();
                     ReviewService.getBeerReviews().then(response => {
                     this.$store.state.beerReviews =  response.data;})
@@ -72,7 +78,7 @@ export default {
             
         },
         resetForm() {
-            this.showForm = false;
+            this.$store.state.showReviewForm = false
             this.reviewForm = {
                 UserId: this.$store.state.user.userId,
                 BeerId: this.beer[0].beerId,
@@ -81,6 +87,13 @@ export default {
                 Review: "",
                 isPrivate: 1
             };
+<<<<<<< HEAD
+=======
+        },
+        spawnForm(){
+            this.resetForm(); 
+            this.$store.state.showReviewForm = true;
+>>>>>>> 56970acc02166da059b59911cc79187439c646d0
         }
     }
 };

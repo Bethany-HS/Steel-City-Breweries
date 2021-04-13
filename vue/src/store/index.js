@@ -32,6 +32,9 @@ export default new Vuex.Store({
     beers:[],
     beerReviews:[],
     breweryReviews:[],
+    showReviewForm:false,
+    showEditForm:false,
+    showAddForm:false,
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {

@@ -159,7 +159,7 @@ namespace Capstone.DAO
                     Abv = Convert.ToDecimal(reader["abv"]),
                     Description = Convert.ToString(reader["description"]),
                     Ingredients = Convert.ToString(reader["ingredients"]),
-
+                    IsActive = Convert.ToInt32(reader["isActive"])
                 };
 
                 return beer;

@@ -1,6 +1,6 @@
 <template>
     <div id='review-form'>
-        <button id="display-form-btn" v-if="showForm === false" v-on:click.prevent="showForm = true">Make a Brewery Review</button>
+        <button id="display-form-btn" v-if="showForm === false" v-on:click.prevent="spawnForm">Make a Brewery Review</button>
         <form v-if="showForm === true">
             <div class="form-element">
                 <label for="title">Title</label>
@@ -35,7 +35,6 @@ export default {
     name: "add-review",
     data() {
         return {
-            showForm: false,
             isPrivate:false,
             reviewForm: {
                 UserId: this.$store.state.user.userId,
@@ -51,6 +50,9 @@ export default {
     computed:{
         checkPrivate(){
             return this.isPrivate ? 1:0
+        },
+        showForm(){
+            return this.$store.state.showReviewForm
         }
     },
     methods: {
@@ -71,7 +73,7 @@ export default {
             });
         },
          resetForm() {
-            this.showForm = false;
+            this.$store.state.showReviewForm = false
             this.reviewForm = {
                 UserId:this.$store.state.user.userId,
                 BreweryId: this.brewery.breweryId,
@@ -80,6 +82,10 @@ export default {
                 Review: "",
                 isPrivate: 1    
             };
+        },
+        spawnForm(){
+            this.resetForm(); 
+            this.$store.state.showReviewForm = true;
         }
     }
 };

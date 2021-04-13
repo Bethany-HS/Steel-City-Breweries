@@ -1,14 +1,14 @@
 <template>
     <div id='viewBreweries'>
-    <div id='brewerylist'>
-      <div id="brewery" v-for='brewery in currentBreweries' :key='brewery.breweryId' @click='showSideMenu(brewery.breweryId)'>
-        <div class="inner-block"> 
-        <h2>{{brewery.name}} </h2>
-        <h2>{{brewery.city}} {{brewery.phone}}</h2>
+      <div id='brewerylist'>
+        <div id="brewery" v-for='brewery in currentBreweries' :key='brewery.breweryId' @click='showSideMenu(brewery.breweryId)'>
+          <div class="inner-block"> 
+            <h2>{{brewery.name}} </h2>
+            <h2>{{brewery.city}} {{brewery.phone}}</h2>
+          </div>
         </div>
       </div>
-    </div>
-    <side-details :current-brewery='currentBrewery[0]' :current-beer='{}' v-if='showSideDetails'/>
+      <side-details :current-brewery='currentBrewery[0]' :current-beer='{}' v-if='showSideDetails'/>
     </div>
 </template>
 
@@ -31,6 +31,7 @@ export default {
     },
     methods: {
       showSideMenu(id){
+        this.$store.state.showReviewForm = false;
         this.currentBrewery  = this.currentBreweries.filter(x => x.breweryId === id)
         this.showSideDetails = true
       }
@@ -43,13 +44,14 @@ export default {
 {
    display: flex;
    flex-basis: 100%;
-   flex-grow: 1;
+
 }
 
 #brewerylist
 {
   display: flex;
   flex-direction: column;
+  flex-basis: 60%;
   margin-right: 30px;
   background-color: white;
 }
