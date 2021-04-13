@@ -38,13 +38,14 @@ export default {
 }
 </script>
 
-<style >
+<style>
 #viewBreweries
 {
    display: flex;
    flex-basis: 100%;
    flex-grow: 1;
 }
+
 #brewerylist
 {
   display: flex;

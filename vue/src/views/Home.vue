@@ -14,11 +14,10 @@
 import breweryService from "@/services/BreweryService.js";
 import beerService from "@/services/BeerService.js";
 import reviewService from "@/services/ReviewService.js";
-
 import SideNav from '@/components/SideNav.vue';
 import ContentPage from '@/components/ContentPage.vue';
 
-export default {
+export default { 
   name: "home",
   components: {
     SideNav,
@@ -45,15 +44,27 @@ export default {
 </script>
 
 <style>
-#main-page{
-  display: flex;
-  justify-content: stretch;
-  align-items: stretch;
+.home {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-gap: 50px;
+  justify-items: center;
+  align-items: center;
+}
+
+#header {
+  display: grid;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 1;
 }
 
 #content{
-    flex-basis: 60%;
-    display: block;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row-start: 2;
     color: black;
     margin-left: 25px;
 }

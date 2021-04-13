@@ -14,6 +14,7 @@ import BreweryManagement from '@/components/BreweryManagement.vue';
 import BeerManagement from '@/components/BeerManagement.vue';
 import BreweryPage from '@/components/BreweryPage.vue';
 import BeerPage from '@/components/BeerPage.vue';
+import AnonymousUserPage from '@/components/AnonymousUserPage.vue'
 
 export default {
   data(){
@@ -27,7 +28,8 @@ export default {
     BreweryManagement,
     BeerManagement,
     BreweryPage,
-    BeerPage
+    BeerPage,
+    AnonymousUserPage
   },
   computed:{
     display(){
@@ -45,7 +47,7 @@ export default {
           case 6:
             return "BeerPage"
         default:
-          return "UserProfile"
+          return "AnonymousUserPage"
       }
     }
   }
