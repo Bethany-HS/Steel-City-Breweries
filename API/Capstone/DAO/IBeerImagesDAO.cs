@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Capstone.DAO
 {
-    interface IBeerImagesDAO
+    public interface IBeerImagesDAO
     {
-        BeerImages GetBeerImages(int id);
+       List<BeerImages> GetBeerImages(int id);
     }
 }
