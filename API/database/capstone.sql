@@ -43,6 +43,13 @@ CREATE TABLE breweries (
 	brewery_status_id int not null	
 	CONSTRAINT PK_brewery PRIMARY KEY (brewery_id)
 );
+CREATE TABLE brewery_images(
+	brewery_img_id int IDENTITY(1,1),
+	brewery_id int not null,
+	brewery_img_path varchar(50),
+	Constraint PK_brewery_images PRIMARY KEY (brewery_img_id)
+);
+
 Create Table brewery_status_id (
 	brewery_status_id int IDENTITY(1,1),
 	brewery_status_desc varchar(10) not null
@@ -64,6 +71,13 @@ CREATE TABLE beers (
 	ingredients varchar(200) NOT NULL,
 	isActive bit not null
 	CONSTRAINT PK_beer_id PRIMARY KEY (beer_id)
+);
+
+CREATE TABLE beer_images(
+	beer_img_id int IDENTITY (1,1),
+	beer_id int not null,
+	beer_img_path varchar(50) not null
+	CONSTRAINT PK_beer_images PRIMARY KEY (beer_img_id)
 );
 
 CREATE TABLE beer_types (
@@ -94,12 +108,14 @@ is_private bit Not Null
 CONSTRAINT PK_beerReview_id PRIMARY KEY (beerReview_id)
 );
 ALTER TABLE breweries ADD CONSTRAINT fk_brewer_id FOREIGN KEY (brewer_id) REFERENCES users(user_id);
+ALTER TABLE brewery_images ADD CONSTRAINT fk_brewery_img_id FOREIGN KEY (brewery_id) REFERENCES breweries(brewery_id);
 
 ALTER TABLE users_favBreweries ADD CONSTRAINT fk_users_favBreweries_users FOREIGN KEY (user_id) REFERENCES users(user_id);
 
 ALTER TABLE users_favBreweries ADD CONSTRAINT fk_users_favBreweries_brewery FOREIGN KEY (brewery_id) REFERENCES breweries(brewery_id);
 
 ALTER TABLE beers ADD CONSTRAINT fk_brewery_id FOREIGN KEY (brewery_id) REFERENCES breweries(brewery_id);
+ALTER TABLE beer_images ADD CONSTRAINT fk_beer_id FOREIGN KEY (beer_id) REFERENCES beers(beer_id);
 
 ALTER TABLE beers ADD CONSTRAINT fk_beer_type_id FOREIGN KEY (beer_type_id) REFERENCES beer_types(beer_type_id);
 Alter Table beer_reviews ADD CONSTRAINT fk_beerReview_beer_id FOREIGN KEY (beer_id) REFERENCES beers(beer_id);
