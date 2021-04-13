@@ -1,10 +1,6 @@
 <template>
     <div id='review-form' >
-<<<<<<< HEAD
-        <button id="display-form" v-if="showForm === false" @click.prevent="showForm = true">Make A Beer Review</button>
-=======
         <button id="display-form" v-if="!showForm" @click.prevent="spawnForm">Make A Beer Review</button>
->>>>>>> 56970acc02166da059b59911cc79187439c646d0
         <form v-if="showForm === true">
             <div class="form-element">
                 <label for="title">Title</label>
@@ -87,13 +83,10 @@ export default {
                 Review: "",
                 isPrivate: 1
             };
-<<<<<<< HEAD
-=======
         },
         spawnForm(){
             this.resetForm(); 
             this.$store.state.showReviewForm = true;
->>>>>>> 56970acc02166da059b59911cc79187439c646d0
         }
     }
 };

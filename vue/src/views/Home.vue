@@ -44,21 +44,19 @@ export default {
 </script>
 
 <style>
-.home {
-  display: grid;
-  grid-gap: 50px;
-  justify-items: center;
-  align-items: center;
+.home{
+  height:100%;
 }
-
-#header {
-  display: grid;
+#main-page{
+  display: flex;
+  justify-content: stretch;
+  align-items: stretch;
+  height:77%
 }
-
 #content{
+    flex-basis: 100%;
+    display: flex;
     color: black;
     margin-left: 25px;
 }
-
-
 </style>
