@@ -37,7 +37,7 @@ export default {
     },
     methods: {
         showSideMenu(id){
-        
+        this.$store.state.showReviewForm = false;
         this.currentBeer  = this.currentBeers.filter(x => x.beerId === id)
         this.showSideDetails = true
         this.test = document.getElementsByTagName("side-details")[0]

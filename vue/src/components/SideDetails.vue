@@ -23,7 +23,7 @@
     </span>
     
     <span  id='brewerydetails' v-if='$store.state.editingMode===1'>
-      <h1 >{{brewery.name}}</h1>
+      <h1 v-if='$store.state.showEditForm === false' >{{brewery.name}}</h1>
       <edit-brewery-form :brewery='brewery'/>
       <button @click="navigateToManageBeers()">Manage Beers</button>
     </span>
@@ -98,11 +98,20 @@ export default {
   border-radius: 10px;
   padding: 1rem;
   justify-content: center;
-  align-items: center;
+
+  height:97%
 }
 review-display{
   display: flex;
   width : 20%
+}
+#white-block>span{
+  display: flex;
+  flex-direction: column;
+  flex-basis:90%;
+  text-align: left;
+  align-items:center;
+  overflow: auto;
 }
 
 </style>

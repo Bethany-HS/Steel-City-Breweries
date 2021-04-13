@@ -1,6 +1,6 @@
 <template>
     <div id='review-form' >
-        <button id="display-form" v-if="showForm === false && resetForm === true" @click.prevent="toggleForm()">Make A Beer Review</button>
+        <button id="display-form" v-if="!showForm" @click.prevent="spawnForm">Make A Beer Review</button>
         <form v-if="showForm === true">
             <div class="form-element">
                 <label for="title">Title</label>
@@ -35,7 +35,6 @@ export default {
     name: "add-review",
     data() {
         return {
-            showForm: false,
             isPrivate:false,
             reviewForm: {
                 UserId: this.$store.state.user.userId,
@@ -47,10 +46,13 @@ export default {
             },
         };
     },
-    props:['beer', 'reset-form'],
+    props:['beer'],
     computed:{
         checkPrivate(){
             return this.isPrivate ? 1:0
+        },
+        showForm(){
+            return this.$store.state.showReviewForm
         }
     },
     methods: {
@@ -60,7 +62,7 @@ export default {
             .addBeerReview(this.reviewForm)
             .then(response => {
                 if (response.status === 201) {
-                    this.showForm = false;
+                    this.$store.state.showReviewForm = false;
                     this.resetForm();
                     ReviewService.getBeerReviews().then(response => {
                     this.$store.state.beerReviews =  response.data;})
@@ -72,7 +74,7 @@ export default {
             
         },
         resetForm() {
-            this.showForm = false;
+            this.$store.state.showReviewForm = false
             this.reviewForm = {
                 UserId: this.$store.state.user.userId,
                 BeerId: this.beer[0].beerId,
@@ -82,9 +84,9 @@ export default {
                 isPrivate: 1
             };
         },
-        toggleForm() {
-            this.showForm = true;
-            this.resetForm = false;
+        spawnForm(){
+            this.resetForm(); 
+            this.$store.state.showReviewForm = true;
         }
     }
 };
