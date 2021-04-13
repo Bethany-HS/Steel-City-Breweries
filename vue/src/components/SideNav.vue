@@ -34,18 +34,24 @@ export default {
 <style>
 .side-nav
 {
-  display: grid;
-  grid-template-columns: 1fr;
-  background-color: rgb(53, 53, 53);
+  display: flex;
+  background-color: rgba(53, 53, 53, 0.8);
   padding: 1.3rem;
   border-radius: 10px;
   box-shadow: 5px 5px 3px black;
-  
+  justify-content: space-around;
+  flex-basis: 20%;
+  align-items: flex-start;
 }
 
 #nav-inner {
-  background-color: white;
+  display: flex;
+  background-color: rgb(255, 255, 255);
   padding: 1rem;
   border-radius: 10px;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-basis: 100%;
 }
 </style>

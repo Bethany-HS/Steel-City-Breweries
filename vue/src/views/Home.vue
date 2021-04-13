@@ -1,12 +1,12 @@
 <template>
   <div class="home">
     <div id="header">
-    <img src="../assets/logo1.png">
+      <img src="../assets/logo1.png">
     </div>
-    <span id='main-page'>
-    <side-nav class='sidenav'/>
-    <content-page id='content' />
-    </span>
+    <div id='main-page'>
+      <side-nav class='sidenav'/>
+      <content-page id='content' />
+    </div>
   </div>
 </template>
 
@@ -17,7 +17,7 @@ import reviewService from "@/services/ReviewService.js";
 import SideNav from '@/components/SideNav.vue';
 import ContentPage from '@/components/ContentPage.vue';
 
-export default { 
+export default {
   name: "home",
   components: {
     SideNav,
@@ -51,8 +51,9 @@ export default {
   display: flex;
   justify-content: stretch;
   align-items: stretch;
-  height:77%
+  height: 77%;
 }
+
 #content{
     flex-basis: 100%;
     display: flex;

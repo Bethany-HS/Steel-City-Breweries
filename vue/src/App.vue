@@ -9,9 +9,13 @@
 </template>
 
 <style>
-#app{
-  display: flex;
+
+@media (max-width: 800px) {
+  #app{
+  flex: 100%;
   flex-direction: column;
-  height:100%;
+  box-sizing: border-box;
+  
+}
 }
 </style>

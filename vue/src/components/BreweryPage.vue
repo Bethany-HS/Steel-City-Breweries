@@ -39,7 +39,7 @@ export default {
 {
   display: flex;
   flex-grow: 1;
-  background-color: rgb(53,53,53);
+    background-color: rgba(53, 53, 53, 0.8);
   border: 2px solid black;
   border-radius: 10px;
   box-shadow: 5px 5px 3px black;
