@@ -1,6 +1,6 @@
 <template>
 <div>
-    <button id="edit-beer" on:cle v-if="showForm === false" @click.prevent="showForm = true">
+    <button id="edit-beer"  v-if="showForm === false" @click.prevent="showForm = true">
             Edit Beer
     </button>
     <form class="beerform" @submit.prevent v-if="showForm === true">
@@ -78,5 +78,22 @@ export default {
 </script>
 
 <style>
+#edit-beer{
+    display: flex;
+    flex-basis: 100%;
+}
+.beerform{
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    flex-basis:100%;
+}
 
+.form-element{
+    display:flex;
+    flex-direction: column;
+}
+textarea{
+    resize:none;
+}
 </style>

@@ -5,7 +5,7 @@
             <add-beer-form></add-beer-form>
             <h1>{{brewery.name}}</h1>
             <h1>Select Beer</h1>
-            <div id="beerlist" v-for="beer in getBeers" :key="beer.beerId" @click='chooseBeer(beer.beerId)'>
+            <div id="beermanagelist" v-for="beer in getBeers" :key="beer.beerId" @click='chooseBeer(beer.beerId)'>
                 <h1>{{beer.name}}</h1>
             </div>
         </div>
@@ -65,7 +65,7 @@ export default {
     margin-right: 20px;
     flex-basis: 60%;
 }
-#beerlist{
+#beermanagelist{
     display: flex;
     border: 2px solid black;
     border-radius: 10px;
