@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace Capstone.DAO
 {
-    public class BeerImageSqlDAO : IBeerImagesDAO
+    public class BreweryImagesSqlDAO : IBreweryImagesDAO
     {
         private readonly string connectionString;
 
-        public BeerImageSqlDAO(string dbConnectionString)
+        public BreweryImagesSqlDAO(string dbConnectionString)
         {
             connectionString = dbConnectionString;
         }
-        public BeerImages GetImages(int id)
+        public BreweryImages GetBreweryImages(int id)
         {
-            BeerImages returnBeerImages = null;
+            BreweryImages returnBreweryImages = null;
 
             try
             {
@@ -25,13 +25,13 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT beer_img_path FROM beer_images WHERE brewery_id = @id", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT brewery_img_path FROM brewery_images WHERE brewery_id = @id", conn);
                     cmd.Parameters.AddWithValue("@id", id);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     if (reader.Read())
                     {
-                        returnBeerImages.BeerImgPath = Convert.ToString(reader["beer_img_path"]);
+                        returnBreweryImages.BreweryImgPath = Convert.ToString(reader["brewery_img_path"]);
                     }
                 }
             }
@@ -40,8 +40,7 @@ namespace Capstone.DAO
                 throw;
             }
 
-            return returnBeerImages;
+            return returnBreweryImages;
         }
-
     }
 }
