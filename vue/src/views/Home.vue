@@ -14,7 +14,6 @@
 import breweryService from "@/services/BreweryService.js";
 import beerService from "@/services/BeerService.js";
 import reviewService from "@/services/ReviewService.js";
-
 import SideNav from '@/components/SideNav.vue';
 import ContentPage from '@/components/ContentPage.vue';
 
@@ -52,8 +51,7 @@ export default {
   display: flex;
   justify-content: stretch;
   align-items: stretch;
-  height:77%
-
+  height: 77%;
 }
 
 #content{
@@ -62,6 +60,4 @@ export default {
     color: black;
     margin-left: 25px;
 }
-
-
 </style>

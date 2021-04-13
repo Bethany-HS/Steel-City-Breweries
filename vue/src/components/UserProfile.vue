@@ -21,7 +21,7 @@ export default {
   display: flex;
   padding: 1rem;
   justify-content: center;
-  background-color: rgb(53,53,53);
+    background-color: rgba(53, 53, 53, 0.8);
   border-radius: 15px;
 }
 
