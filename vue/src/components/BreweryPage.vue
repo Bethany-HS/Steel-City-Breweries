@@ -113,6 +113,8 @@ h1, h2, h3, p
   background-color: pink;
   width: 100%;
   text-align: center;
+  margin-left: 6px;
+  margin-right: 0px;
 }
 
 .mark-unfavorited
@@ -120,6 +122,8 @@ h1, h2, h3, p
   background-color: grey;
   width: 100%;
   text-align: center;
+  margin-left: 6px;
+  margin-right: 0px;
 }
 .inner-block-brewery {
   display: flex;

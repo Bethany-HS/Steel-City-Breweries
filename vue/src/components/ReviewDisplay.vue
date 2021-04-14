@@ -68,7 +68,7 @@ export default {
 }
 
 #rating { 
-  display:flex;
+display:flex;
 height:50px;
 width:50px;
 }
@@ -77,6 +77,10 @@ width:50px;
 height: 100%;
 margin-right: 5px;
 margin-left: 5px;
+}
+
+h3 {
+  text-align: left;
 }
 
 

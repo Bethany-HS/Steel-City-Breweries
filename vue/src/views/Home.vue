@@ -1,7 +1,8 @@
 <template>
   <div class="home">
-    <div id="header">
-      <img src="../assets/logo1.png">
+    <div id="header" >
+      <img v-if='!hover' src="../assets/logo1.png" @click='hover = true'>
+      <img v-if='hover' src="../assets/logo2.png" @click='hover = false'>
     </div>
     <div id='main-page'>
       <side-nav class='sidenav'/>
@@ -21,6 +22,12 @@ import ContentPage from '@/components/ContentPage.vue';
 
 export default {
   name: "home",
+  data() {
+  return {
+    hover: false,
+  }
+  },
+  
   components: {
     SideNav,
     ContentPage
@@ -55,6 +62,12 @@ export default {
   computed:{
     loggedOn(){
       return localStorage.getItem("user")!==null
+    },
+    logo(){
+      if(this.hover){
+        return "../assets/logo2.png";
+      }
+        return "../assets/logo1.png";
     }
   }
 }

@@ -57,7 +57,7 @@ export default {
     box-shadow: 6px 6px 3px black;
 }
 
-#main > h1 {
+#text > h1 {
   font-size: 3rem;
 
 }
@@ -65,11 +65,11 @@ export default {
 color: white;
 }
 
-#main > h2 {
+#text > h2 {
   font-size: 1.2rem;
 }
 
-#main > p {
+#text > p {
     font-size: 1.5rem;
 }
 
