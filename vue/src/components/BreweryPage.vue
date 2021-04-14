@@ -1,14 +1,17 @@
 <template>
   <div id="brewery-page">
-  <div class="inner-block">
+  <div class="inner-block-brewery">
+    <img :src='picture'/>
     <h1 id="brewery-name">{{brewery.name}}</h1>
+
         <h2>Location</h2>
         <p>{{brewery.streetAddress1}}</p>
         <h2>Brewery Description</h2>
-        <p>{{brewery.description}}</p>
+        <p>{{brewery.history}}</p>
         <h2>View Beer List</h2>
         <p v-for='beer in beers' :key='beer.beerId'>{{beer.name}}</p>
         <h2>Ratings and Reviews</h2>
+
         <average-brewery-rating :number-of-brewery="brewery.breweryId" />
         <review-display :review-id='brewery.breweryId' :review-type='false'/>
   </div>
@@ -19,11 +22,19 @@
 import ReviewDisplay from '@/components/ReviewDisplay.vue'
 import AverageBreweryRating from '@/components/AverageBreweryRating.vue'
 export default {
+  data(){
+    return{
+      
+    }
+  },
   components: { 
       ReviewDisplay,
       AverageBreweryRating
       },
   computed: {
+      picture(){ 
+        return localStorage.breweryPicture
+      },
       brewery(){
         return this.$store.state.currentBrewery
       },
@@ -35,18 +46,23 @@ export default {
 </script>
 
 <style>
+
 #brewery-page
 {
   display: flex;
-  flex-grow: 1;
+  flex-basis: 100%;
   background-color: rgb(53,53,53);
   border: 2px solid black;
   border-radius: 10px;
   box-shadow: 5px 5px 3px black;
   padding: 1rem;
   justify-content: center;
+  overflow: auto;
 }
-
+img{
+  width:50%;
+  height:300px
+}
 p
 {
   padding-left: 30px;
@@ -63,6 +79,13 @@ h2
 }
 review-display{
   padding-left: 30px;
+}
+.inner-block-brewery {
+  display: flex;
+  flex-basis: 100%;
+  align-items:center;
+  flex-direction: column;
+  background-color: white;
 }
 
 </style>

@@ -81,7 +81,7 @@ namespace Capstone.DAO
                     conn.Open();
 
                     SqlCommand cmd = new SqlCommand("INSERT INTO breweries (name, brewer_id, street_address1, street_address2, city, state, zip, phone, history, hours_of_operation, website, brewery_status_id) " +
-                        "VALUES (@name, @brewer_id, @street_address1, @street_address2, @city, @state, @zip, @phone, @history, @hours_of_operation, @website, 1)", conn);
+                        "VALUES (@name, @brewer_id, @street_address1, @street_address2, @city, @state, @zip, @phone, @history, @hours_of_operation, @website, 1); Select SCOPE_IDENTITY()", conn);
                     cmd.Parameters.AddWithValue("@name", brewery.Name);
                     cmd.Parameters.AddWithValue("@brewer_id", brewery.BrewerId);
                     cmd.Parameters.AddWithValue("@street_address1", brewery.StreetAddress1);
@@ -93,8 +93,10 @@ namespace Capstone.DAO
                     cmd.Parameters.AddWithValue("@history", brewery.History);
                     cmd.Parameters.AddWithValue("@hours_of_operation", brewery.HoursOfOperation);
                     cmd.Parameters.AddWithValue("@website", brewery.Website);
-                    
+                    decimal new_id = (Decimal)cmd.ExecuteScalar();
 
+                    cmd = new SqlCommand("insert into brewery_images(brewery_id, brewery_img_path) values(@id, 'temp')", conn);
+                    cmd.Parameters.AddWithValue("@id", new_id);
                     cmd.ExecuteNonQuery();
                 }
             }

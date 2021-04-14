@@ -8,6 +8,7 @@ namespace Capstone.DAO
 {
     public interface IBreweryImagesDAO
     {
-        List<BreweryImages> GetBreweryImages(int id);
+        BreweryImages GetBreweryImages(int id);
+        void UpdateBreweryImage(BreweryImages img);
     }
 }
