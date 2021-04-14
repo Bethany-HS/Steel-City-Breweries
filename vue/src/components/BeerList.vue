@@ -5,6 +5,7 @@
         <div class="inner-block">
         <h2>
           <span>{{beer.name}}</span>
+          <span>{{$store.state.beerTypeIdList[beer.beerTypeId]}}</span>
           <span id="abv">{{beer.abv}}%</span>
         </h2>
         <average-beer-rating class="avgRating" :number-of-beer="beer.beerId"/>

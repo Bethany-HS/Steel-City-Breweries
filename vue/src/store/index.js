@@ -35,7 +35,8 @@ export default new Vuex.Store({
     showReviewForm:false,
     showEditForm:false,
     showAddForm:false,
-    userFavorites: []
+    userFavorites: [],
+    beerTypeIdList:["NA","Ale","Lager","IPA","Stout","Pilsner","Porter","Wheat"]
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
