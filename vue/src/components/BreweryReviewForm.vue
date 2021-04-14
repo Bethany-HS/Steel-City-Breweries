@@ -1,5 +1,5 @@
 <template>
-    <div id='review-form'>
+    <div id='review-form' v-if='localStorage.getItem("user")!==null'>
         <button id="display-form-btn" v-if="showForm === false" v-on:click.prevent="spawnForm">Make a Brewery Review</button>
         <form v-if="showForm === true">
             <div class="form-element">

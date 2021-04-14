@@ -4,8 +4,8 @@
       <button class="nav-button" @click="setPage(0)">Home</button><br>
       <button class="nav-button" @click="setPage(1)">Brewery List</button><br>
       <button class="nav-button" @click="setPage(2)">Beer List</button><br>
-      <!-- <button>Favorites</button><br> -->
-      <button class="nav-button" @click="setPage(3)" v-if="$store.state.user.role !== 'user'">Manage Breweries</button><br>
+        <button class="nav-button" @click="setPage(3)" v-if="$store.state.user.role !== 'user' && loggedOn">Manage Breweries</button><br>
+
   </div>
   </div>
 </template>
@@ -14,7 +14,7 @@
 export default {
   data(){
     return{
-      user : this.$store.state.user,
+      loggedOn : localStorage.getItem("user")!==null
     }
   },
   

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Capstone.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("images")]
     [ApiController]
     public class BreweryImagesController : ControllerBase
     {
@@ -19,11 +19,18 @@ namespace Capstone.Controllers
         {
             breweryImagesDAO = _breweryImagesDAO;
         }
-        [HttpGet]
-        public List<BreweryImages> GetBreweryImages(int id)
+        [HttpGet("{id}")]
+        public BreweryImages GetBreweryImages(int id)
         {
-            List<BreweryImages> breweryImagesList = breweryImagesDAO.GetBreweryImages(id);
-            return breweryImagesList;
+            BreweryImages breweryImage = breweryImagesDAO.GetBreweryImages(id);
+            return breweryImage;
+        }
+
+        [HttpPut]
+        public ActionResult UpdateBreweryImages(BreweryImages img)
+        {
+            breweryImagesDAO.UpdateBreweryImage(img);
+            return Ok();
         }
     }
 }
