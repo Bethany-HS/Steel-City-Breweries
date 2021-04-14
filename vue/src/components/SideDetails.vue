@@ -77,8 +77,13 @@ export default {
         this.$store.commit('SET_CURRENT_PAGE', 6)
       },
       deleteBeer(){
-        BeerService.deleteBeer(this.currentBeer)
-        
+        BeerService.deleteBeer(this.currentBeer).then(x=>{ 
+        if(x.status ===200){
+          BeerService.getBeers().then(response => {
+            this.$store.state.beers =  response.data;
+            })
+          }
+        })
       },
       savePicture(){
         let pic = {"BreweryId":this.currentBrewery,"BreweryImgPath":localStorage.getItem("breweryPicture")}
@@ -109,7 +114,7 @@ export default {
 
 </script>
 
-<style>
+<style >
 #side-details {
   display: flex;
   background-color: rgba(53, 53, 53, 0.8);
@@ -139,7 +144,7 @@ review-display{
 #white-block>span{
   display: flex;
   flex-direction: column;
-  flex-basis:90%;
+  flex-basis:100%;
   text-align: left;
   align-items:center;
   overflow: auto;

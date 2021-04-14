@@ -38,6 +38,7 @@ export default {
     reviewService.getBreweryReviews().then(response => {
       this.$store.state.breweryReviews = response.data;
     })
+    if(this.loggedOn){
     FavService.getFavorites(this.$store.state.user.userId)
     .then(response =>{
       let array = [];
@@ -46,9 +47,15 @@ export default {
       })
       this.$store.state.userFavorites= array;
     })
+    }
   },
   methods:{
     
+  },
+  computed:{
+    loggedOn(){
+      return localStorage.getItem("user")!==null
+    }
   }
 }
 </script>

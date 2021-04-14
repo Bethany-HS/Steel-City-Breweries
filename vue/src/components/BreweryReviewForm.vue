@@ -1,7 +1,6 @@
 <template>
-    <div id='review-form' v-if="$store.state.user !== {}">
-    <div id='review-form' v-if='localStorage.getItem("user")!==null'>
-        <button id="display-form-btn" v-if="showForm === false" v-on:click.prevent="spawnForm">Make a Brewery Review</button>
+    <div id='review-form'>
+        <button id="display-form-btn" v-if='showForm === false && loggedOn' v-on:click.prevent="spawnForm">Make a Brewery Review</button>
         <form v-if="showForm === true">
             <div class="form-element">
                 <label for="title">Title</label>
@@ -20,12 +19,13 @@
             <div class="form-element">
                 <textarea id="comment" v-model="reviewForm.Review" required></textarea>
             </div>
-            <input type="button" value="Submit" @click="addBreweryReview()"/>
-            <input type="button" value="Cancel" @click.prevent="resetForm" />
             <p>
                 Make Review Private
                  <input type="checkbox" v-model="isPrivate"/>
             </p>
+            <input type="button" value="Submit" @click="addBreweryReview()"/>
+            <input type="button" value="Cancel" @click.prevent="resetForm" />
+
         </form>
     </div>
     </div>
@@ -55,6 +55,9 @@ export default {
         },
         showForm(){
             return this.$store.state.showReviewForm
+        },
+        loggedOn(){
+            return localStorage.getItem("user")!==null
         }
     },
     methods: {
@@ -64,7 +67,6 @@ export default {
             .addBreweryReview(this.reviewForm)
             .then(response => {
                 if (response.status === 201) {
-                    this.showForm = false;
                     this.resetForm();
                     ReviewService.getBreweryReviews().then(response => {
                     this.$store.state.breweryReviews =  response.data;})
@@ -119,5 +121,8 @@ form > input[type="button"] {
 }
 form > input[type="submit"] {
   width: 100px;
+}
+p{
+    text-align: left;
 }
 </style>
