@@ -2,6 +2,7 @@ ANONYMOUS USER PAGE
 
 <template>
   <div id="main">
+    <div id="text">
       <h1>Find the right brew for you!</h1>
       <h2>Search our list of breweries in the Pittsburgh area</h2>
       <p>
@@ -21,7 +22,9 @@ ANONYMOUS USER PAGE
         Add some breweries to your favorites list that they can enjoy too! 
         Don’t forget to leave a review.
       </p>
-  <div v-if="loggedOn">
+    </div>
+  <div class="fav-list" v-if="loggedOn">
+    <h2>Favorited Breweries</h2>
     <favorite-breweries/>
   </div>
   </div>
@@ -43,7 +46,7 @@ export default {
 </script>
 
 <style>
-#main {
+#text {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
@@ -54,19 +57,22 @@ export default {
     box-shadow: 6px 6px 3px black;
 }
 
-
-
-#main > h1 {
+#text > h1 {
   font-size: 3rem;
 
 }
+.fav-list > h2 {
+color: white;
+}
 
-#main > h2 {
+#text > h2 {
   font-size: 1.2rem;
 }
 
-#main > p {
+#text > p {
     font-size: 1.5rem;
-
 }
+
+
+
 </style>

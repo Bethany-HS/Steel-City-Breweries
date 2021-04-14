@@ -61,7 +61,7 @@ export default {
 {
   display: flex;
   margin-bottom: 10px;
-    background-color: rgba(53, 53, 53, 0.8);
+  background-color: rgba(53, 53, 53, 0.8);
   border: 2px solid black;
   border-radius: 10px;
   box-shadow: 5px 5px 3px black;

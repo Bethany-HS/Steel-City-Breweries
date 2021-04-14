@@ -60,6 +60,7 @@ export default {
   flex-direction: column;
   justify-content: stretch;
   justify-content: center;
+  height: 100%;
 }
 
 #inner-white-block{

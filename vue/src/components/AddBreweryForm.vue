@@ -6,7 +6,7 @@
     <form class="breweryform" @submit.prevent v-if="$store.state.showAddForm">
         <div class="form-element">
             <label for="name">Name</label>
-            <input type="text" id="name" placeholder = "Name" v-model="newBrewery.Name" required>
+            <input type="text" id="nameEntry" placeholder = "Name" v-model="newBrewery.Name" required>
         </div>
         <div class="form-element">
             <label for="streetaddress1">Street Address 1:</label>
