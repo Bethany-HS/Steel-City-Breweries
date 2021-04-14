@@ -168,4 +168,38 @@ INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients
 
 insert into brewery_images(brewery_id,brewery_img_path) values (1,'temp')
 insert into brewery_images(brewery_id,brewery_img_path) values (2,'temp')
+
+INSERT INTO breweries (name, brewer_id, street_address1, city, state, zip, phone, history, hours_of_operation, website, brewery_status_id) 
+values ('Hitchhiker', 2, '190 Castle Shannon Blvd', 'Pittsburgh', 'PA', '15228', '412-343-1950', 'Paste your text here :)hitchhiker brewing co. Is devoted to refining time-honored styles and discovering new ones. We are focused on the evolution of our craft, exploring the unknown, and the excitement of introducing people to our beer.', 
+'Tuesday-Friday: 4-9, Saturday: 12-9, Sunday, 12-6, Monday: Closed', 'https://hitchhiker.beer/', 1);
+
+INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients, isActive) VALUES ('2XIPA', 8.2, 2, 3, 
+'With our 2XIPA, a massive dry hop brings a feverishly hoppy and well-balanced Double IPA. Citrusy hops tease the senses with big aromatics and certifiable bitterness. An enormous haul of hops, including Simcoe and Citra, deliver notes of grapefruit, lemon and doughy sweetness. Double your expectations because this is an ale that demands reverence.', 'Five Varieties of hops and three varieties of malts', 1);
+
+INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients, isActive) VALUES ('NU JUICE IPA', 6.0, 2, 3, 
+'Sometimes evolution is observed in real time. Case in point: Nu Juice IPA. Over the course of more than a year of development, our R&D team uncovered the ultimate balance of hops and malts. This process involves adding Mosaic, Ekuanot, and Simcoe hops over a multi-day period, creating a refreshingly juicy and approachable IPA. As an added bonus, bitterness has been reduced to a low 30 for what could be the smoothest IPA ever brewed.', 'Mosaic, Ekuanot, and Simcoe hops', 1);
+
+INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients, isActive) VALUES ('LIVE SESSION', 5.5, 2, 3, 
+'Live Session is bright, refreshingly loud, and cracked up to 11 by adding generous amounts of Citra hops to reflect the feeling of live music. Live Session pairs great with toe-tapping or head-banging to your favorite band on stage.0', 'Citra hops', 1);
+
+INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients, isActive) VALUES ('Penn Gold', 5.0, 1, 2, 
+'Our Munich Helles.Malty, bready, and sweet flavors come together with just enough hops to round out this beer. Pale golden in color, this lager is delicate and delicious.', 'Hops: Perle', 1);
+
+INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients, isActive) VALUES ('Penn Kaiser Pils', 5.0, 1, 5, 
+'A Northern German Pils. A clean, crisp, light-bodied lager featuring a very healthy dose of Noble hops. Kaiser Pils uses pale two-row barley malt as a backbone and has a fine level of carbonation that produces a lovely white foam head.', 'Two row barley malt', 1);
+
+INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients, isActive) VALUES ('The Barbarian', 7.5, 3, 3, 
+'Brewed with Oats and Spelt. Hopped with Mosaic and El Dorado.', 'Oats and Spelt', 1);
+
+INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients, isActive) VALUES ('Bane of Existence', 6.6, 3, 3, 
+'Brewed with oats. Hopped with Citra, and Simcoe. Notes of passion fruit, melon, stone fruit, and mango.', 'Oats, Cirta, Simcoe', 1);
+
+INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients, isActive) VALUES ('Fruit Rush - Blackberry', 4.8, 3, 5, 
+'Brewed with Oats and Wheat. Conditioned on Lemon, Blackberry', 'Oats, wheat', 1);
+
+INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients, isActive) VALUES ('Mystic Delusion', 7.2, 3, 3, 
+'Brewed with Oats, Wheat and Electrolyte Salt. Conditioned on Tangerine and Blood Orange. Hopped with Amarillo, Citra, and Mosaic.', 'Oats, Wheat, Electrolyte salt', 1);
+
+
+
 GO

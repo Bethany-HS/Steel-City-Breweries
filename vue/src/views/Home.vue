@@ -6,7 +6,7 @@
     </div>
     <div id='main-page'>
       <side-nav class='sidenav'/>
-      <content-page id='content' />
+      <content-page id='content'/>
     </div>
   </div>
 </template>
@@ -89,5 +89,7 @@ export default {
     display: flex;
     color: black;
     margin-left: 25px;
+    height: 100%;
+    overflow: auto;
 }
 </style>
