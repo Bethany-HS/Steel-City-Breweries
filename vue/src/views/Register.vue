@@ -42,13 +42,13 @@
         v-model="user.confirmPassword"
         required
       />
-      <div>
-        <label id="brewer" for="brewer">Are you a Brewer? </label>
+      <div id="are-you-brewer">
+        <label for="brewer">Are you a Brewer? </label>
         <input type="checkbox" id="brewer" true-value="brewer" false-value="user" v-model="user.role" />
       </div>
       
       <router-link id="have-an-accnt-btn" :to="{ name: 'login' }">Have an account?</router-link>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">
+      <button id="create-accnt-btn" class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
     </form>
@@ -110,27 +110,49 @@ export default {
 #register {
   background: rgb(53, 53, 53);
   display: flex;
-  border-radius: 5px;
-  justify-content: space-between;
+  flex-direction: column;
+  width: 50%;
   padding: 1rem;
+  border-radius: 5px;
 
 }
 
-#brewer {
+#are-you-brewer {
+  display: flex;
   color: white;
   padding: 1rem;
   margin-top: 10px;
-} 
+  margin-left: 40%;
+}
+
+#name, #username {
+  display: flex;
+  width: 30%;
+  margin-left: 35%;
+}
+
+#confirmPassword {
+  display: flex;
+  width: 30%;
+  margin-left: 35%;
+}
 
 #have-an-accnt-btn {
   display: flex;
   color: white;
   padding: 1rem;
   text-decoration: none;
+  margin-left: 40%;
 }
 
 #have-an-accnt-btn:hover {
   color: rgb(251, 169, 45);
   font-size: 103%;
+}
+
+#create-accnt-btn {
+  padding: 15px;
+  width: 50%;
+  margin-left: 25%;
 }
 </style>

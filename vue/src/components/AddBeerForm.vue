@@ -30,7 +30,7 @@
         </div>
         <div class="form-element">  
             <label for="description">Description</label>
-            <textarea name="description" id="description" cols="30" rows="10" placeholder="Describe Beer here" v-model="newBeer.description"></textarea>
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Describe Beer here" v-model="newBeer.description" required></textarea>
         </div>
         <div class="form-element">
             <input type="submit" value="Submit" @click ="addBeer"/>

@@ -1,7 +1,7 @@
 <template>
   <div id="brewery-page">
   <div class="inner-block-brewery">
-    <img :src='picture'/>
+    <img class="upload" :src='picture'/>
     <h1 id="brewery-name">{{brewery.name}}</h1>
 
         <h2>Location</h2>
@@ -94,7 +94,7 @@ export default {
   justify-content: center;
   overflow: auto;
 }
-img{
+.upload{
   width:50%;
   height:300px
 }
