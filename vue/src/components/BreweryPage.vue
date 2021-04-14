@@ -1,7 +1,6 @@
 <template>
   <div id="brewery-page">
   <div class="inner-block">
-    <img src="../images/banner1.png" class="banner">
     <h1 id="brewery-name">{{brewery.name}}</h1>
         <h2>Location</h2>
         <p>{{brewery.streetAddress1}}</p>
@@ -66,8 +65,4 @@ review-display{
   padding-left: 30px;
 }
 
-.banner
-{
-  width: 100%
-}
 </style>
