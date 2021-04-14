@@ -22,9 +22,9 @@
       <h1 v-if='$store.state.showEditForm === false' >{{brewery.name}}</h1>
       <edit-brewery-form :brewery='brewery'/>
       <button @click="navigateToManageBeers()">Manage Beers</button>
-      <label for="myfile">Upload a picture:</label>
-      <input type="file" id="myfile" name="myfile">
-      <output id ="picture" />
+      <form id="form1" runat="server">
+        <input @change="readURL($event)" type='file' id="imgInp" />
+      </form>
       <button @click='savePicture'> Save</button>
     </span>
     <span id='beerdetails' v-if='$store.state.editingMode===2'>
@@ -43,12 +43,12 @@ import BreweryReviewForm from '@/components/BreweryReviewForm.vue'
 import EditBreweryForm from '@/components/EditBreweryForm.vue'
 import EditBeerForm from '@/components/EditBeerForm.vue'
 import BeerService from '../services/BeerService.js'
+import ImageService from '../services/ImageService.js'
 
 export default {
     data(){
       return{
-        test:'',
-        picture:''
+        input:''
       }
     },
     components: {
@@ -62,7 +62,11 @@ export default {
     methods: {
       goToBrewery(){
         this.$store.state.currentBrewery = this.currentBrewery;
+        ImageService.getImage(this.currentBrewery.breweryId).then( response=> {
+          localStorage.setItem("breweryPicture",response.data.breweryImgPath)
+        })
         this.$store.commit('SET_CURRENT_PAGE', 5)
+        
       },
       navigateToManageBeers(){
         this.$store.state.currentBrewery = this.currentBrewery;
@@ -74,9 +78,23 @@ export default {
       },
       deleteBeer(){
         BeerService.deleteBeer(this.currentBeer)
+        
       },
       savePicture(){
-      }
+        let pic = {"BreweryId":this.currentBrewery,"BreweryImgPath":localStorage.getItem("breweryPicture")}
+        ImageService.updateImage(pic)
+      },
+      readURL(inputEvent) {
+        this.input = inputEvent.currentTarget
+        if (this.input.files && this.input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                localStorage.setItem("breweryPicture",e.target.result)
+            }
+            reader.readAsDataURL(this.input.files[0]);
+        }
+    }
     },
     props:['currentBrewery','currentBeer'],
     computed:{
@@ -88,6 +106,7 @@ export default {
       }
     }
 }
+
 </script>
 
 <style>

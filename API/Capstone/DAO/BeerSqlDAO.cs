@@ -26,7 +26,7 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT beer_id, brewery_id, beer_type_id, name, abv, description, ingredients FROM beers WHERE beer_id = @id", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT beer_id, brewery_id, beer_type_id, name, abv, description, ingredients, isActive FROM beers WHERE beer_id = @id", conn);
                     cmd.Parameters.AddWithValue("@id", id);
                     SqlDataReader reader = cmd.ExecuteReader();
 

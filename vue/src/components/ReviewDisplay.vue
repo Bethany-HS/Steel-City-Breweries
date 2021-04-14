@@ -1,5 +1,5 @@
 <template>
-  <div class="review">
+  <div class="review" v-if="reviews.length>0">
     <div v-if='reviewType' id='beerReviewDisplay'>
       <div  id='reviewpart'  v-for="review in reviews" :key='review.beerReviewId'>
         <h3>{{review.title}} </h3>
@@ -12,7 +12,7 @@
           <h3 class="review-review">{{ review.review }}</h3>
       </div>
     </div>
-    <div v-else id='breweryReviewDisplay'>
+    <div v-else-if="!reviewType " id='breweryReviewDisplay'>
       <div id='reviewpart'  v-for="review in reviews" :key='review.breweryReviewId'>
         <h3>{{ review.title }}</h3>
         <div id="rating">
@@ -67,7 +67,7 @@ export default {
 }
 
 #rating { 
-display: flex;  
+  display:flex;
 height:50px;
 width:50px;
 }

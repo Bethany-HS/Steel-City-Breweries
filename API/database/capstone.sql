@@ -46,7 +46,7 @@ CREATE TABLE breweries (
 CREATE TABLE brewery_images(
 	brewery_img_id int IDENTITY(1,1),
 	brewery_id int not null,
-	brewery_img_path varchar(50),
+	brewery_img_path varchar(max),
 	Constraint PK_brewery_images PRIMARY KEY (brewery_img_id)
 );
 
@@ -166,4 +166,6 @@ INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients
 INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients, isActive) VALUES ('Pink Guava Milkshake IPA', 6.5, 2, 3, 
 'IPA sweetened with lactose milk sugar and pink guava puree','hops, lactose milk sugar, pink guava puree', 1);
 
+insert into brewery_images(brewery_id,brewery_img_path) values (1,'temp')
+insert into brewery_images(brewery_id,brewery_img_path) values (2,'temp')
 GO

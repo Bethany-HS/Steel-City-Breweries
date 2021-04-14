@@ -15,9 +15,9 @@ namespace Capstone.DAO
         {
             connectionString = dbConnectionString;
         }
-        public List<BreweryImages> GetBreweryImages(int id)
+        public BreweryImages GetBreweryImages(int id)
         {
-            List<BreweryImages> BreweryImages = new List<BreweryImages>();
+            BreweryImages returnBreweryImages = new BreweryImages();
 
             try
             {
@@ -25,25 +25,43 @@ namespace Capstone.DAO
                 {
                     conn.Open();
 
-                    SqlCommand cmd = new SqlCommand("SELECT brewery_img_path FROM brewery_images WHERE brewery_id = @id", conn);
+                    SqlCommand cmd = new SqlCommand("SELECT * FROM brewery_images WHERE brewery_id = @id", conn);
                     cmd.Parameters.AddWithValue("@id", id);
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     if (reader.Read())
                     {
-                        BreweryImages returnBreweryImages = new BreweryImages();
+                        returnBreweryImages.BreweryImageId = Convert.ToInt32(reader["brewery_img_id"]);
+                        returnBreweryImages.BreweryId = id;
                         returnBreweryImages.BreweryImgPath = Convert.ToString(reader["brewery_img_path"]);
-
-                        BreweryImages.Add(returnBreweryImages);
                     }
                 }
             }
-            catch (SqlException)
+            catch (SqlException e)
             {
-                throw;
+                throw e;
             }
+            return returnBreweryImages;
+        }
+        public void UpdateBreweryImage(BreweryImages img)
+        {
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
 
-            return BreweryImages;
+                    SqlCommand cmd = new SqlCommand("UPDATE brewery_images set brewery_img_path=@img where brewery_id = @id ", conn);
+                    cmd.Parameters.AddWithValue("@id", img.BreweryId);
+                    cmd.Parameters.AddWithValue("@img", img.BreweryImgPath);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException e)
+            {
+                throw e;
+            }
         }
     }
 }
+

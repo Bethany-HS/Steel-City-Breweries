@@ -1,16 +1,19 @@
 <template>
   <div id="brewery-page">
-  <div class="inner-block">
-        <h1 id="brewery-name">{{brewery.name}}</h1>
+  <div class="inner-block-brewery">
+    <img :src='picture'/>
+    <h1 id="brewery-name">{{brewery.name}}</h1>
+
         <h2>Location</h2>
         <p>{{brewery.streetAddress1}}</p>
         <h2>Brewery Description</h2>
-        <p>{{brewery.description}}</p>
+        <p>{{brewery.history}}</p>
         <h2>View Beer List</h2>
         <p v-for='beer in beers' :key='beer.beerId'>{{beer.name}}</p>
-        <button class="fav-btn" v-bind:class="{'mark-favorited': !FavBrewery}" v-if="!FavBrewery" v-on:click="addFavorite">Favorite</button>
-        <button class="fav-btn" v-bind:class="{'mark-unfavorited': FavBrewery}" v-if="FavBrewery" v-on:click="deleteFavorite">UnFavorite</button> 
+        <button class="fav-btn" v-bind:class="{'mark-favorited': !FavBrewery}" v-if='!FavBrewery' v-on:click="addFavorite">Favorite</button>
+        <button class="fav-btn" v-bind:class="{'mark-unfavorited': FavBrewery}" v-if='FavBrewery' v-on:click="deleteFavorite">UnFavorite</button> 
         <h2>Ratings and Reviews</h2>
+
         <average-brewery-rating :number-of-brewery="brewery.breweryId" />
         <review-display :review-id='brewery.breweryId' :review-type='false'/>
         
@@ -57,6 +60,9 @@ export default {
       AverageBreweryRating
       },
   computed: {
+      picture(){ 
+        return localStorage.breweryPicture
+      },
       brewery(){
         return this.$store.state.currentBrewery
       },
@@ -77,6 +83,7 @@ export default {
 </script>
 
 <style>
+
 #brewery-page
 {
   display: flex;
@@ -87,6 +94,11 @@ export default {
   box-shadow: 5px 5px 3px black;
   padding: 1rem;
   justify-content: center;
+  overflow: auto;
+}
+img{
+  width:50%;
+  height:300px
 }
 
 review-display{
@@ -110,6 +122,13 @@ h1, h2, h3, p
   background-color: grey;
   width: 15%;
   text-align: center;
+}
+.inner-block-brewery {
+  display: flex;
+  flex-basis: 100%;
+  align-items:center;
+  flex-direction: column;
+  background-color: white;
 }
 
 </style>
