@@ -35,16 +35,22 @@ namespace Capstone.Controllers
             }
             
         }
-
-        [HttpDelete("{id}")]
-        public ActionResult<FavBreweries> DeleteFav(int id)
+        [HttpPost]
+        public ActionResult<FavBreweries> AddFavoriteBrewrey(FavBreweries favBrewery)
         {
-            FavBreweries favBreweries = favBreweryDAO.GetFav(id);
+            FavBreweries newFave = favBreweryDAO.AddFavoriteBrewery(favBrewery);
+            return Created($"/beer/{newFave}", newFave);
+        }
+
+        [HttpDelete("{id}/{breweryId}")]
+        public ActionResult<FavBreweries> DeleteFav(int id, int breweryId)
+        {
+            FavBreweries favBreweries = favBreweryDAO.GetFav(id, breweryId);
             if (favBreweries == null)
             {
                 return NotFound("Id does not exist");
             }
-            favBreweryDAO.DeleteFav(id);
+            favBreweryDAO.DeleteFav(id, breweryId);
             return NoContent();
         }
 

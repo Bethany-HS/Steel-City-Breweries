@@ -14,6 +14,7 @@
 import breweryService from "@/services/BreweryService.js";
 import beerService from "@/services/BeerService.js";
 import reviewService from "@/services/ReviewService.js";
+import FavService from '@/services/FavService.js';
 
 import SideNav from '@/components/SideNav.vue';
 import ContentPage from '@/components/ContentPage.vue';
@@ -36,6 +37,14 @@ export default {
     })
     reviewService.getBreweryReviews().then(response => {
       this.$store.state.breweryReviews = response.data;
+    })
+    FavService.getFavorites(this.$store.state.user.userId)
+    .then(response =>{
+      let array = [];
+      response.data.forEach((favorite)=>{
+        array.push(favorite.breweryID)
+      })
+      this.$store.state.userFavorites= array;
     })
   },
   methods:{

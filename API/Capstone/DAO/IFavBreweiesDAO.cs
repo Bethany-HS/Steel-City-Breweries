@@ -9,7 +9,8 @@ namespace Capstone.DAO
     public interface IFavBreweriesDAO
     {
         List<FavBreweries> GetFavoriteBreweries(int id);
-        void DeleteFav(int id);
-        FavBreweries GetFav(int id);
+        void DeleteFav(int id, int breweryId);
+        FavBreweries GetFav(int id, int breweryId);
+        FavBreweries AddFavoriteBrewery(FavBreweries favBrewery);
     }
 }
