@@ -11,6 +11,8 @@
         <h2>Ratings and Reviews</h2>
         <average-brewery-rating :number-of-brewery="brewery.breweryId" />
         <review-display :review-id='brewery.breweryId' :review-type='false'/>
+        <button v-bind:class="{'mark-favorited': !FavBrewery}" v-if="!FavBrewery" v-on:click="addFavorite">Favorite</button>
+        <button v-bind:class="{'mark-unfavorited': FavBrewery}" v-if="FavBrewery" v-on:click="deleteFavorite">UnFavorite</button> 
   </div>
   </div>
 </template>
@@ -18,7 +20,37 @@
 <script>
 import ReviewDisplay from '@/components/ReviewDisplay.vue'
 import AverageBreweryRating from '@/components/AverageBreweryRating.vue'
+import FavService from '@/services/FavService.js'
+
 export default {
+  data(){
+    return{
+      
+     
+    }
+
+  },
+  methods:{
+      addFavorite(){
+          FavService.addFavorites(this.newFav)
+          .then(response =>{
+            if(response.status ===201){
+              this.$store.commit('ADD_USER_FAVORITE', this.brewery.breweryId);
+              
+            }
+          
+          })
+      },
+      deleteFavorite(){
+        FavService.deleteFavorite(this.newFav)
+        .then(response =>{
+          if (response.status === 204){
+            this.$store.commit('DELETE_USER_FAVORITE', this.brewery.breweryId);
+            
+          }
+        })
+      }
+  },
   components: { 
       ReviewDisplay,
       AverageBreweryRating
@@ -29,7 +61,16 @@ export default {
       },
       beers(){
         return this.$store.state.beers.filter(beer =>beer.breweryId === this.brewery.breweryId)
-    }
+    },
+     newFav(){
+       return {
+          UserId: this.$store.state.user.userId,
+          BreweryId: this.brewery.breweryId
+          }
+      },
+      FavBrewery(){
+        return this.$store.state.userFavorites.includes(this.brewery.breweryId);
+      } 
   }
 }
 </script>
