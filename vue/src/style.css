@@ -3,6 +3,9 @@ html, body
     background-color: rgb(255, 255, 255);
     font-family: 'Lato', sans-serif;
     height:100%;
+    background-image: url("../src/images/background.jpg");
+    background-size: cover;
+
 }
 
 button
@@ -37,9 +40,9 @@ button:hover
 {
     display: flex;
     padding: 2rem;
-    background-color: rgb(53, 53, 53);
+    background-color: rgba(53, 53, 53, 0.8);
     border-radius: 10px;
-    margin-bottom: 25px;
+    margin-bottom: 10px;
     justify-content: center;
 }
 
@@ -62,9 +65,7 @@ button:hover
     color: white;
     background: rgb(251, 169, 45);
     padding: 1rem;
-    width: 50%;
     border-radius: 5px;
-    align-items: center; 
     justify-content: center;
 }
 
@@ -72,6 +73,6 @@ button:hover
     display: flex;
     padding: 1rem;
     color: rgb(251, 169, 45);
-    justify-content: flex-start;
+    justify-content: center;
 }
 

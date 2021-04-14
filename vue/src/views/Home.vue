@@ -61,8 +61,7 @@ export default {
   display: flex;
   justify-content: stretch;
   align-items: stretch;
-  height:77%
-
+  height: 77%;
 }
 
 #content{
@@ -71,6 +70,4 @@ export default {
     color: black;
     margin-left: 25px;
 }
-
-
 </style>

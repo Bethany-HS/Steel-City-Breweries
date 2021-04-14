@@ -35,7 +35,7 @@ export default {
 .side-nav
 {
   display: flex;
-  background-color: rgb(53, 53, 53);
+  background-color: rgba(53, 53, 53, 0.8);
   padding: 1.3rem;
   border-radius: 10px;
   box-shadow: 5px 5px 3px black;
@@ -46,7 +46,7 @@ export default {
 
 #nav-inner {
   display: flex;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   padding: 1rem;
   border-radius: 10px;
   flex-direction: column;
