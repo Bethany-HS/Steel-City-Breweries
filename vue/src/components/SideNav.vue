@@ -5,10 +5,7 @@
       <button class="nav-button" @click="setPage(1)">Brewery List</button><br>
       <button class="nav-button" @click="setPage(2)">Beer List</button><br>
       <!-- <button>Favorites</button><br> -->
-        <button class="nav-button" @click="setPage(3)" v-if="$store.state.user.role !== 'user'">Manage Breweries</button><br>
-        <!-- <button>Manage Events</button><br> -->
-        <button class="nav-button" @click="setPage(7)" v-if="$store.state.user.role  === 'admin'">Admin Manage Breweries</button><br>
-        <button class="nav-button" @click="setPage(8)" v-if="$store.state.user.role === 'admin'">Manage Users</button><br>
+      <button class="nav-button" @click="setPage(3)" v-if="$store.state.user.role !== 'user'">Manage Breweries</button><br>
   </div>
   </div>
 </template>
@@ -42,6 +39,7 @@ export default {
   justify-content: space-around;
   flex-basis: 20%;
   align-items: flex-start;
+  height: 100%
 }
 
 #nav-inner {

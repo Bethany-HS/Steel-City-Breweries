@@ -1,18 +1,19 @@
 <template>
   <div id="brewery-page">
   <div class="inner-block">
-    <h1 id="brewery-name">{{brewery.name}}</h1>
+        <h1 id="brewery-name">{{brewery.name}}</h1>
         <h2>Location</h2>
         <p>{{brewery.streetAddress1}}</p>
         <h2>Brewery Description</h2>
         <p>{{brewery.description}}</p>
         <h2>View Beer List</h2>
         <p v-for='beer in beers' :key='beer.beerId'>{{beer.name}}</p>
+        <button class="fav-btn" v-bind:class="{'mark-favorited': !FavBrewery}" v-if="!FavBrewery" v-on:click="addFavorite">Favorite</button>
+        <button class="fav-btn" v-bind:class="{'mark-unfavorited': FavBrewery}" v-if="FavBrewery" v-on:click="deleteFavorite">UnFavorite</button> 
         <h2>Ratings and Reviews</h2>
         <average-brewery-rating :number-of-brewery="brewery.breweryId" />
         <review-display :review-id='brewery.breweryId' :review-type='false'/>
-        <button v-bind:class="{'mark-favorited': !FavBrewery}" v-if="!FavBrewery" v-on:click="addFavorite">Favorite</button>
-        <button v-bind:class="{'mark-unfavorited': FavBrewery}" v-if="FavBrewery" v-on:click="deleteFavorite">UnFavorite</button> 
+        
   </div>
   </div>
 </template>
@@ -80,7 +81,7 @@ export default {
 {
   display: flex;
   flex-grow: 1;
-    background-color: rgba(53, 53, 53, 0.8);
+  background-color: rgba(53, 53, 53, 0.8);
   border: 2px solid black;
   border-radius: 10px;
   box-shadow: 5px 5px 3px black;
@@ -88,22 +89,27 @@ export default {
   justify-content: center;
 }
 
-p
-{
-  padding-left: 30px;
-}
-
-h1
-{
-margin-left: 10px;
-}
-
-h2
-{
-  margin-left: 20px;
-}
 review-display{
   padding-left: 30px;
+}
+
+h1, h2, h3, p
+{
+  text-align: center;
+}
+
+.mark-favorited
+{
+  background-color: pink;
+  width: 15%;
+  text-align: center;
+}
+
+.mark-unfavorited
+{
+  background-color: grey;
+  width: 15%;
+  text-align: center;
 }
 
 </style>

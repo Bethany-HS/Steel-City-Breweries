@@ -1,7 +1,7 @@
 <template>
   <div id="average-beer-rating">
     <div id="rating">
-        <img src="@/images/Full_Beer.png"
+        <img src="@/images/FullBeer.png"
         id="ratingBeer" v-for="i in Math.round(averageRating)" 
         v-bind:key="i"
         />
