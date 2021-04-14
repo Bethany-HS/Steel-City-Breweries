@@ -31,7 +31,7 @@ namespace Capstone.DAO
                     SqlDataReader reader = cmd.ExecuteReader();
 
                     if (reader.Read())
-                    {
+                    { 
                         returnBrewery = GetBreweryFromReader(reader);
                     }
                 }

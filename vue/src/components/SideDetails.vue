@@ -3,9 +3,7 @@
     <div id="white-block">
     <span id='brewerydetails' v-if='$store.state.editingMode===0 && Object.keys(currentBeer).length === 0'>
     <h1 id="name">{{currentBrewery.name}}</h1>
-    <h2 id="details"></h2>
-    <h2 id="ratings"></h2>
-    <h2 id="reviews"></h2>
+    <h2 id="details">{{currentBrewery.history}}</h2>
     <button @click="goToBrewery()">View Brewery Details</button>
       <span id="make-a-brewery-review-btn">
         <brewery-review-form :brewery='currentBrewery'/>
@@ -14,9 +12,7 @@
     </span>
     <span id='beerdetails' v-else-if='$store.state.editingMode===0 '>
     <h1 id="name">{{currentBeer[0].name}}</h1>
-    <h2 id="details"></h2>
-    <h2 id="ratings"></h2>
-    <h2 id="reviews"></h2>
+    <h2 id="details">{{currentBeer[0].description}}</h2>
     <button @click="goToBeer()">View Beer Details</button>
     <beer-review-form :beer='currentBeer'/>
     <review-display :review-id='currentBeer[0].beerId' :review-type='Object.keys(currentBeer).length !== 0'/>
@@ -60,7 +56,8 @@ export default {
         ReviewDisplay,
         BreweryReviewForm,
         EditBreweryForm,
-        EditBeerForm
+        EditBeerForm,
+
     },
     methods: {
       goToBrewery(){
@@ -117,11 +114,13 @@ export default {
   display: flex;
   flex-direction: column;
   flex-basis: 30%;
-  background-color: rgb(53,53,53);
+  background-color: rgba(53, 53, 53, 0.8);
   border-radius: 10px;
   box-shadow: 5px 5px 3px black;
   padding: 1rem;
   justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
 }
 
 #white-block {
@@ -130,8 +129,8 @@ export default {
   border-radius: 10px;
   padding: 1rem;
   justify-content: center;
-
-  height:97%
+  flex-basis: 100%;
+  align-items: flex-start;
 }
 review-display{
   display: flex;

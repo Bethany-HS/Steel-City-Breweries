@@ -1,8 +1,8 @@
 <template>
   <div id="average-brewery-rating">
     <div id="rating">
-        <img src="@/images/Full_Beer.png"
-        id="ratingBeer" v-for=" i in averageRating" 
+        <img src="@/images/FullBeer.png"
+        id="ratingBeer" v-for="i in Math.round(averageRating)" 
         v-bind:key="i"
         />
     </div>
@@ -22,7 +22,7 @@ export default {
             let sum = filteredReviews.reduce((currentSum, currentReview) =>
                 currentSum + currentReview.breweryRating, 0);
 
-            return parseFloat((sum / this.$store.state.breweryReviews.length).toFixed(1));
+            return parseFloat((sum / filteredReviews.length).toFixed(1));
         },
     },
     props: ["numberOfBrewery"]
@@ -30,5 +30,4 @@ export default {
 </script>
 
 <style>
-
 </style>

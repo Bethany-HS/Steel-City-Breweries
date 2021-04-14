@@ -7,7 +7,7 @@
           <span>{{beer.name}}</span>
           <span id="abv">{{beer.abv}}%</span>
         </h2>
-        <average-beer-rating :number-of-beer="beer.beerId"/>
+        <average-beer-rating class="avgRating" :number-of-beer="beer.beerId"/>
         </div>
       </div>
     </div>
@@ -72,7 +72,7 @@ export default {
   display: flex;
 
   margin-bottom: 10px;
-  background-color: rgb(53,53,53);
+    background-color: rgba(53, 53, 53, 0.8);
   border: 2px solid black;
   border-radius: 10px;
   box-shadow: 5px 5px 3px black;

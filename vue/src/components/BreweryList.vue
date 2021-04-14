@@ -5,6 +5,7 @@
           <div class="inner-block"> 
             <h2>{{brewery.name}} </h2>
             <h2>{{brewery.city}} {{brewery.phone}}</h2>
+            <average-brewery-rating class="avgRating" :number-of-brewery="brewery.breweryId"/>
           </div>
         </div>
       </div>
@@ -14,6 +15,7 @@
 
 <script>
 import SideDetails from '@/components/SideDetails.vue'
+import AverageBreweryRating from '@/components/AverageBreweryRating.vue'
 export default {
   data(){
     return{
@@ -22,7 +24,8 @@ export default {
     }
   },
     components: {
-        SideDetails
+        SideDetails,
+        AverageBreweryRating
     },
     computed:{
       currentBreweries(){
@@ -52,14 +55,13 @@ export default {
   flex-direction: column;
   flex-basis: 60%;
   margin-right: 30px;
-  background-color: white;
 }
 
 #brewery
 {
   display: flex;
   margin-bottom: 10px;
-  background-color: rgb(53,53,53);
+    background-color: rgba(53, 53, 53, 0.8);
   border: 2px solid black;
   border-radius: 10px;
   box-shadow: 5px 5px 3px black;

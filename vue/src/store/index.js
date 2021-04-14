@@ -24,7 +24,7 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    currentDisplay : 1,
+    currentDisplay : 0,
     currentBrewery : {},
     currentBeer : {},
     editingMode:0,
@@ -35,6 +35,7 @@ export default new Vuex.Store({
     showReviewForm:false,
     showEditForm:false,
     showAddForm:false,
+    userFavorites: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -73,6 +74,12 @@ export default new Vuex.Store({
     },
     MAKE_REVIEW_PRIVATE(state, reviewToPrivate) {
       reviewToPrivate.private = ! reviewToPrivate.private;
+    },
+    ADD_USER_FAVORITE(state, favorite){
+      state.userFavorites.unshift(favorite);
+    },
+    DELETE_USER_FAVORITE(state, favorite){
+      state.userFavorites = state.userFavorites.filter(x=>x!==favorite);
     }
   }
 })

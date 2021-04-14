@@ -63,7 +63,7 @@ export default {
 #MainContent{
     display: flex;
     flex-direction: column;
-    background-color: rgb(53,53,53);
+    background-color: rgba(53, 53, 53, 0.8);
     border-radius: 10px;
     padding: 1rem;
     justify-content: center;
@@ -90,4 +90,8 @@ export default {
     overflow: auto;
 }
 
+h1 :hover
+{
+ color: yellow;
+}
 </style>
