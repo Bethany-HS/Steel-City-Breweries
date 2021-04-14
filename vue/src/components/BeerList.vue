@@ -7,7 +7,7 @@
           <span>{{beer.name}}</span>
           <span id="abv">{{beer.abv}}%</span>
         </h2>
-        <average-beer-rating :number-of-beer="beer.beerId"/>
+        <average-beer-rating class="avgRating" :number-of-beer="beer.beerId"/>
         </div>
       </div>
     </div>

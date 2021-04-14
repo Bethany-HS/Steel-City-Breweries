@@ -100,6 +100,8 @@ export default {
   box-shadow: 5px 5px 3px black;
   padding: 1rem;
   justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
 }
 
 #white-block {
@@ -108,8 +110,8 @@ export default {
   border-radius: 10px;
   padding: 1rem;
   justify-content: center;
-
-  height:97%
+  flex-basis: 100%;
+  align-items: flex-start;
 }
 review-display{
   display: flex;
