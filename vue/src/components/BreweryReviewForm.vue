@@ -28,6 +28,7 @@
             </p>
         </form>
     </div>
+    </div>
 </template>
 
 <script>
