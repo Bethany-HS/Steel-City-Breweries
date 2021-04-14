@@ -6,11 +6,11 @@
     <form class="breweryform" @submit.prevent v-if="$store.state.showAddForm">
         <div class="form-element">
             <label for="name">Name</label>
-            <input type="text" id="name" placeholder = "Name" v-model="newBrewery.Name">
+            <input type="text" id="name" placeholder = "Name" v-model="newBrewery.Name" required>
         </div>
         <div class="form-element">
             <label for="streetaddress1">Street Address 1:</label>
-            <input type="text" id="streetaddress1" placeholder="Street Address 1" v-model="newBrewery.StreetAddress1">
+            <input type="text" id="streetaddress1" placeholder="Street Address 1" v-model="newBrewery.StreetAddress1" required>
         </div>
         <div class="form-element">  
             <label for="streetaddress2">Street Address 2:</label>
@@ -18,31 +18,31 @@
         </div>
         <div class="form-element">
             <label for="city">City</label>
-            <input type="text" id="city" placeholder="City" v-model="newBrewery.City">
+            <input type="text" id="city" placeholder="City" v-model="newBrewery.City" required>
         </div>
         <div class="form-element">
             <label for="state">State</label>
-            <input type="text" id="state" placeholder="State" v-model="newBrewery.State">
+            <input type="text" id="state" placeholder="State" v-model="newBrewery.State" required>
         </div>
         <div class="form-element">
             <label for="zip">Zip Code</label>
-            <input type="text" id="zip" placeholder="Zip" v-model.number="newBrewery.Zip">
+            <input type="text" id="zip" placeholder="Zip" v-model.number="newBrewery.Zip" required>
         </div>
         <div class="form-element">
             <label for="phone">Phone</label>
-            <input type="text" id="phone" placeholder="Phone" v-model="newBrewery.Phone">
+            <input type="text" id="phone" placeholder="Phone" v-model="newBrewery.Phone" required>
         </div>
          <div class="form-element">  
             <label for="history">History</label>
-            <textarea name="history" id="history" cols="30" rows="10" placeholder="Add Brewery History" v-model="newBrewery.History"></textarea>
+            <textarea name="history" id="history" cols="30" rows="10" placeholder="Add Brewery History" v-model="newBrewery.History" required></textarea>
         </div>
         <div class="form-element">  
             <label for="hours">Hours of Operation</label>
-            <textarea name="hours" id="hours" cols="30" rows="10" placeholder="Add Hours of Operation" v-model="newBrewery.HoursOfOperation"></textarea>
+            <textarea name="hours" id="hours" cols="30" rows="10" placeholder="Add Hours of Operation" v-model="newBrewery.HoursOfOperation" required></textarea>
         </div>
         <div class="form-element">
             <label for="website">Website</label>
-            <input type="text" id="website" placeholder="URL" v-model="newBrewery.Website">
+            <input type="text" id="website" placeholder="URL" v-model="newBrewery.Website" required>
         </div>
         <div class="form-element">
             <input type="submit" value="Submit" @click ="addBrewery"/>
@@ -109,7 +109,6 @@ export default {
             });
         },
         spawnForm(){
-            this.showForm = true
             this.$store.state.showAddForm = true;
             this.$store.state.showEditForm = false
         }

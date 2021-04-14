@@ -93,6 +93,7 @@ export default {
 }
 
 #username, #password {
+  display: flex;
   width: 30%;
   margin-left: 35%;
 }
@@ -102,6 +103,7 @@ export default {
   color: white;
   padding: 1rem;
   text-decoration: none;
+  justify-content: center;
 }
 
 #need-account-btn:hover {

@@ -6,11 +6,11 @@
     <form class="beerform" @submit.prevent v-if="showForm === true">
         <div class="form-element">
             <label for="name">Name</label>
-            <input type="text" id="name" placeholder = "Name" v-model="newBeer.name">
+            <input type="text" id="name" placeholder = "Name" v-model="newBeer.name" required>
         </div>
         <div class="form-element">
             <label for="type">Select Beer Type</label>
-            <select name="beer-type" id="type" v-model.number="newBeer.beerTypeId">
+            <select name="beer-type" id="type" v-model.number="newBeer.beerTypeId" required>
                 <option value="1">Ale</option>
                 <option value="2">Lager</option>
                 <option value="3">IPA</option>
@@ -22,15 +22,15 @@
         </div>
         <div class="form-element">
             <label for="abv">ABV</label>
-            <input type="text" id="abv" placeholder="ABV" v-model.number="newBeer.abv">
+            <input type="text" id="abv" placeholder="ABV" v-model.number="newBeer.abv" required>
         </div>
         <div class="form-element">
             <label for="ingredients">Ingredients</label>
-            <input type="text" id="ingredients" placeholder="Ingredients" v-model="newBeer.ingredients">
+            <input type="text" id="ingredients" placeholder="Ingredients" v-model="newBeer.ingredients" required>
         </div>
         <div class="form-element">  
             <label for="description">Description</label>
-            <textarea name="description" id="description" cols="30" rows="10" placeholder="Describe Beer here" v-model="newBeer.description"></textarea>
+            <textarea name="description" id="description" cols="30" rows="10" placeholder="Describe Beer here" v-model="newBeer.description" required></textarea>
         </div>
         <div class="form-element">
             <input type="submit" value="Submit" @click ="editBeer"/>

@@ -69,11 +69,15 @@ export default {
     display: flex;
     border: 2px solid black;
     border-radius: 10px;
-    box-shadow: 5px 5px 3px black;
     padding: 1rem;
     margin-bottom:10px;
      justify-content: center;
 
+}
+
+#beermanagelist:hover{
+    background-color: rgb(176, 179, 182);
+    box-shadow: 5px 5px 3px black;
 }
 #beerlist>h1{
     display: flex;
