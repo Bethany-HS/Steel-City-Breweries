@@ -32,6 +32,7 @@ export default {
         chooseBrewery(id){
             this.$store.state.showEditForm = false
             this.$store.state.showAddForm = false
+            this.$store.state.showPictureForm = false
             this.currentBrewery = id
             this.showSide = true
             this.$store.state.currentBrewery = id

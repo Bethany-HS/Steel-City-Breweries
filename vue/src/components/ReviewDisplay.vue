@@ -56,6 +56,7 @@ export default {
     flex-direction: column;
     justify-content: space-around;
     overflow: scroll;
+    width:100%;
     margin-top: 15px;
 }
 

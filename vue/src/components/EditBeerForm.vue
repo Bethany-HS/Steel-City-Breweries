@@ -1,12 +1,12 @@
 <template>
-<div>
-    <button id="edit-beer"  v-if="showForm === false" @click.prevent="showForm = true">
+<div id="edit-beer">
+    <button   v-if="showForm === false" @click.prevent="showForm = true">
             Edit Beer
     </button>
     <form class="beerform" @submit.prevent v-if="showForm === true">
         <div class="form-element">
-            <label for="name">Name</label>
-            <input type="text" id="name" placeholder = "Name" v-model="newBeer.name" required>
+            <label for="nameEntry">Name</label>
+            <input type="text" id="nameEntry" placeholder = "Name" v-model="newBeer.name" required>
         </div>
         <div class="form-element">
             <label for="type">Select Beer Type</label>
@@ -81,6 +81,7 @@ export default {
 #edit-beer{
     display: flex;
     flex-basis: 100%;
+    width:100%;
 }
 .beerform{
     display: flex;
