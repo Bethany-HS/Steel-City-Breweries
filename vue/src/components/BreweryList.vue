@@ -5,6 +5,7 @@
           <div class="inner-block"> 
             <h2>{{brewery.name}} </h2>
             <h2>{{brewery.city}} {{brewery.phone}}</h2>
+            <average-brewery-rating :number-of-brewery="brewery.breweryId"/>
           </div>
         </div>
       </div>
@@ -14,6 +15,7 @@
 
 <script>
 import SideDetails from '@/components/SideDetails.vue'
+import AverageBreweryRating from '@/components/AverageBreweryRating.vue'
 export default {
   data(){
     return{
@@ -22,7 +24,8 @@ export default {
     }
   },
     components: {
-        SideDetails
+        SideDetails,
+        AverageBreweryRating
     },
     computed:{
       currentBreweries(){
