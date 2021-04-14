@@ -102,6 +102,7 @@ export default {
   color: white;
   padding: 1rem;
   text-decoration: none;
+  
 }
 
 #need-account-btn:hover {
