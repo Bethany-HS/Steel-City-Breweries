@@ -4,11 +4,11 @@
         <form v-if="showForm === true">
             <div class="form-element">
                 <label for="title">Title</label>
-                <input id="title" type="text" v-model="reviewForm.Title"/>
+                <input id="title" type="text" v-model="reviewForm.Title" required/>
             </div>
             <div class="form-element">
                 <label for="rating">Rate Review:</label>
-                <select id="rating" v-model.number="reviewForm.BreweryRating">
+                <select id="rating" v-model.number="reviewForm.BreweryRating" required>
                     <option value="1">1 Beer</option>
                     <option value="2">2 Beers</option>
                     <option value="3">3 Beers</option>
@@ -17,7 +17,7 @@
                 </select>
             </div>
             <div class="form-element">
-                <textarea id="comment" v-model="reviewForm.Review"></textarea>
+                <textarea id="comment" v-model="reviewForm.Review" required></textarea>
             </div>
             <input type="button" value="Submit" @click="addBreweryReview()"/>
             <input type="button" value="Cancel" @click.prevent="resetForm" />
