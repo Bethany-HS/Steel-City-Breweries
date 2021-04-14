@@ -94,6 +94,9 @@ export default {
 </script>
 
 <style>
+#review-form{
+    width:100%
+}
 #rating {
   width: 80%;
 }

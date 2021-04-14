@@ -1,12 +1,12 @@
 <template>
-<div>
-    <button id="edit-brewery" v-if="showForm === false" @click.prevent="spawnForm">
+<div id="edit-brewery" >
+    <button v-if="showForm === false" @click.prevent="spawnForm">
             Edit A Brewery
     </button>
     <form class="breweryform" @submit.prevent v-if="showForm === true">
         <div class="form-element">
-            <label for="name">Name</label>
-            <input type="text" id="name" placeholder = "Name" v-model="newBrewery.name">
+            <label for="nameEntry">Name</label>
+            <input type="text" id="nameEntry" placeholder = "Name" v-model="newBrewery.name">
         </div>
         <div class="form-element">
             <label for="streetaddress1">Street Address 1:</label>
@@ -92,11 +92,15 @@ export default {
 </script>
 
 <style>
+#edit-brewery{
+    width:100%
+}
 .breweryform{
     display: flex;
     flex-direction: column;
     align-items:center;
     flex-basis:100%;
+    width:100%;
     
 }
 

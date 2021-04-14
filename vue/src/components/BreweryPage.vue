@@ -12,7 +12,7 @@
         <p v-for='beer in beers' :key='beer.beerId'>{{beer.name}}</p>
         <div v-if="loggedOn">
         <button class="fav-btn" v-bind:class="{'mark-favorited': !FavBrewery}" v-if='!FavBrewery' v-on:click="addFavorite">Favorite</button>
-        <button class="fav-btn" v-bind:class="{'mark-unfavorited': FavBrewery}" v-if='FavBrewery' v-on:click="deleteFavorite">UnFavorite</button>
+        <button class="fav-btn" v-bind:class="{'mark-unfavorited': FavBrewery}" v-if='FavBrewery' v-on:click="deleteFavorite">Unfavorite</button>
         </div>
         <h2>Ratings and Reviews</h2>
 
