@@ -5,10 +5,8 @@
     <h1 id="name">{{currentBrewery.name}}</h1>
     <h2 id="details">{{currentBrewery.history}}</h2>
     <button @click="goToBrewery()">View Brewery Details</button>
-      <span id="make-a-brewery-review-btn">
         <brewery-review-form :brewery='currentBrewery'/>
          <review-display :review-id='currentBrewery.breweryId' :review-type='Object.keys(currentBeer).length !== 0'/>
-      </span>
     </span>
     <span id='beerdetails' v-else-if='$store.state.editingMode===0 '>
     <h1 id="name">{{currentBeer[0].name}}</h1>
@@ -22,10 +20,9 @@
       <h1 v-if='$store.state.showEditForm === false' >{{brewery.name}}</h1>
       <edit-brewery-form :brewery='brewery'/>
       <button @click="navigateToManageBeers()">Manage Beers</button>
-      <form id="form1" runat="server">
-        <input @change="readURL($event)" type='file' id="imgInp" />
-      </form>
-      <button @click='savePicture'> Save</button>
+      <button v-if="!$store.state.showPictureForm" @click="$store.state.showPictureForm =true"> Edit Picture </button>
+      <input  v-if="$store.state.showPictureForm" @change="readURL($event)" type='file' id="imgInp" />
+      <button  v-if="$store.state.showPictureForm" @click='savePicture'> Save</button>
     </span>
     <span id='beerdetails' v-if='$store.state.editingMode===2'>
       <h1>{{currentBeer.name}}</h1>
@@ -64,8 +61,8 @@ export default {
         this.$store.state.currentBrewery = this.currentBrewery;
         ImageService.getImage(this.currentBrewery.breweryId).then( response=> {
           localStorage.setItem("breweryPicture",response.data.breweryImgPath)
+          this.$store.commit('SET_CURRENT_PAGE', 5)
         })
-        this.$store.commit('SET_CURRENT_PAGE', 5)
         
       },
       navigateToManageBeers(){
@@ -87,6 +84,7 @@ export default {
       },
       savePicture(){
         let pic = {"BreweryId":this.currentBrewery,"BreweryImgPath":localStorage.getItem("breweryPicture")}
+        this.$store.state.showPictureForm = false
         ImageService.updateImage(pic)
       },
       readURL(inputEvent) {
@@ -108,7 +106,7 @@ export default {
       },
       beer(){
         return this.$store.state.beers.filter(x=>this.$store.state.currentBeer ===x.beerId)[0]
-      }
+      },
     }
 }
 
@@ -132,9 +130,9 @@ export default {
   display: flex;
   background-color: white;
   border-radius: 10px;
-  padding: 1rem;
   justify-content: center;
   flex-basis: 100%;
+  width: 100%;
   align-items: flex-start;
 }
 review-display{
@@ -144,10 +142,20 @@ review-display{
 #white-block>span{
   display: flex;
   flex-direction: column;
-  flex-basis:100%;
-  text-align: left;
+  flex-basis:95%;
+  text-align: center;
   align-items:center;
   overflow: auto;
 }
+
+#white-block>span>h1{
+  display: flex;
+  text-align: center;
+  width: 100%;
+  margin-left: 0px;
+  justify-content: center;
+
+}
+
 
 </style>

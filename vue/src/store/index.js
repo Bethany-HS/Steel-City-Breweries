@@ -35,6 +35,7 @@ export default new Vuex.Store({
     showReviewForm:false,
     showEditForm:false,
     showAddForm:false,
+    showPictureForm:false,
     userFavorites: [],
     beerTypeIdList:["NA","Ale","Lager","IPA","Stout","Pilsner","Porter","Wheat"]
   },
