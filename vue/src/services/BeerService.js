@@ -13,7 +13,7 @@ export default {
     return axios.put('/beer/'+beer.beerId+'/update', beer)
   },
   deleteBeer(beer){
-      return axios.put('/beer/'+beer.beerId+'/delete')
+      return axios.put('/beer/'+beer.beerId+'/delete', beer)
   }
 
 }

@@ -109,7 +109,6 @@ export default {
             });
         },
         spawnForm(){
-            this.showForm = true
             this.$store.state.showAddForm = true;
             this.$store.state.showEditForm = false
         }

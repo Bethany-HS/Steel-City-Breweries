@@ -1,5 +1,5 @@
 <template>
-    <div id='review-form' v-if='localStorage.getItem("user")!==null'>
+    <div id='review-form' v-if='loggedOn'>
         <button id="display-form" v-if="!showForm" @click.prevent="spawnForm">Make A Beer Review</button>
         <form v-if="showForm === true">
             <div class="form-element">
@@ -53,6 +53,9 @@ export default {
         },
         showForm(){
             return this.$store.state.showReviewForm
+        },
+        loggedOn(){
+            return localStorage.getItem("user")!==null
         }
     },
     methods: {

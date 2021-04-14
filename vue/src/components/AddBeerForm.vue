@@ -6,11 +6,11 @@
     <form class="beerform" @submit.prevent v-if="showForm === true">
         <div class="form-element">
             <label for="name">Name</label>
-            <input type="text" id="name" placeholder = "Name" v-model="newBeer.Name">
+            <input type="text" id="name" placeholder = "Name" v-model="newBeer.name">
         </div>
         <div class="form-element">
             <label for="type">Select Beer Type</label>
-            <select name="beer-type" id="type" v-model.number="newBeer.type">
+            <select name="beer-type" id="type" v-model.number="newBeer.beerTypeId">
                 <option value="1">Ale</option>
                 <option value="2">Lager</option>
                 <option value="3">IPA</option>
@@ -22,11 +22,11 @@
         </div>
         <div class="form-element">
             <label for="abv">ABV</label>
-            <input type="text" id="abv" placeholder="ABV" v-model.number="newBeer.Abv">
+            <input type="text" id="abv" placeholder="ABV" v-model.number="newBeer.abv">
         </div>
         <div class="form-element">
             <label for="ingredients">Ingredients</label>
-            <input type="text" id="ingredients" placeholder="Ingredients" v-model="newBeer.Ingredients">
+            <input type="text" id="ingredients" placeholder="Ingredients" v-model="newBeer.ingredients">
         </div>
         <div class="form-element">  
             <label for="description">Description</label>
@@ -49,13 +49,13 @@ export default {
         return{
             showForm: false,
             newBeer:{
-                BeerTypeId: 1,
-                BreweryId: this.$store.state.currentBrewery,
-                Name: "",
-                Abv: "",
-                Description: "",
-                Ingredients: "",
-                IsActive: true
+                beerTypeId: 1,
+                breweryId: this.$store.state.currentBrewery,
+                name: "",
+                abv: "",
+                description: "",
+                ingredients: "",
+                isActive: 1
             }
         };
     },
@@ -63,13 +63,13 @@ export default {
         resetForm() {
             this.showForm = false;
             this.newBeer = {
-                BeerTypeId: 1,
-                BreweryId: this.$store.state.currentBrewery,
-                Name: "",
-                Abv: "",
-                Description: "",
-                Ingredients: "",
-                IsActive: true};
+                beerTypeId: 1,
+                breweryId: this.$store.state.currentBrewery,
+                name: "",
+                abv: "",
+                description: "",
+                ingredients: "",
+                isActive: 1};
         },
         addBeer(){
             BeerService
@@ -77,6 +77,7 @@ export default {
             .then(response => {
                 if (response.status === 201) {
                     this.showForm = false;
+                    this.resetForm()
                     BeerService.getBeers().then(response => {
                     this.$store.state.beers =  response.data;})
                 }
