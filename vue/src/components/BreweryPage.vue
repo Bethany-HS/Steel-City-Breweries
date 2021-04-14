@@ -10,8 +10,10 @@
         <p>{{brewery.history}}</p>
         <h2>View Beer List</h2>
         <p v-for='beer in beers' :key='beer.beerId'>{{beer.name}}</p>
+        <div v-if="loggedOn">
         <button class="fav-btn" v-bind:class="{'mark-favorited': !FavBrewery}" v-if='!FavBrewery' v-on:click="addFavorite">Favorite</button>
-        <button class="fav-btn" v-bind:class="{'mark-unfavorited': FavBrewery}" v-if='FavBrewery' v-on:click="deleteFavorite">UnFavorite</button> 
+        <button class="fav-btn" v-bind:class="{'mark-unfavorited': FavBrewery}" v-if='FavBrewery' v-on:click="deleteFavorite">UnFavorite</button>
+        </div>
         <h2>Ratings and Reviews</h2>
 
         <average-brewery-rating :number-of-brewery="brewery.breweryId" />
@@ -27,13 +29,6 @@ import AverageBreweryRating from '@/components/AverageBreweryRating.vue'
 import FavService from '@/services/FavService.js'
 
 export default {
-  data(){
-    return{
-      
-     
-    }
-
-  },
   methods:{
       addFavorite(){
           FavService.addFavorites(this.newFav)
@@ -77,7 +72,10 @@ export default {
       },
       FavBrewery(){
         return this.$store.state.userFavorites.includes(this.brewery.breweryId);
-      } 
+      },
+      loggedOn(){
+       return localStorage.getItem("user")!==null
+    }
   }
 }
 </script>
