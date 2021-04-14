@@ -21,12 +21,24 @@ ANONYMOUS USER PAGE
         Add some breweries to your favorites list that they can enjoy too! 
         Don’t forget to leave a review.
       </p>
+  <div v-if="loggedOn">
+    <favorite-breweries/>
+  </div>
   </div>
 </template>
 
 <script>
+import FavoriteBreweries from '@/components/FavoriteBreweries.vue'
 export default {
     name: "anonymous-user-page",
+    components: {
+      FavoriteBreweries
+    },
+    data(){
+    return{
+      loggedOn : localStorage.getItem("user")!==null
+    }
+  }
 }
 </script>
 
