@@ -62,7 +62,7 @@ export default {
         return this.$store.state.currentBrewery
       },
       beers(){
-        return this.$store.state.beers.filter(beer =>beer.breweryId === this.brewery.breweryId)
+        return this.$store.state.beers.filter(beer =>beer.breweryId === this.brewery.breweryId && beer.isActive ===1 )
     },
      newFav(){
        return {
@@ -111,14 +111,14 @@ h1, h2, h3, p
 .mark-favorited
 {
   background-color: pink;
-  width: 15%;
+  width: 100%;
   text-align: center;
 }
 
 .mark-unfavorited
 {
   background-color: grey;
-  width: 15%;
+  width: 100%;
   text-align: center;
 }
 .inner-block-brewery {
