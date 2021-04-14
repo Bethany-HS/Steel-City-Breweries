@@ -5,7 +5,7 @@
           <div class="inner-block"> 
             <h2>{{brewery.name}} </h2>
             <h2>{{brewery.city}} {{brewery.phone}}</h2>
-            <average-brewery-rating :number-of-brewery="brewery.breweryId"/>
+            <average-brewery-rating class="avgRating" :number-of-brewery="brewery.breweryId"/>
           </div>
         </div>
       </div>

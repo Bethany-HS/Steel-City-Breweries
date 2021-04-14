@@ -4,7 +4,7 @@
       <div  id='reviewpart'  v-for="review in reviews" :key='review.beerReviewId'>
         <h3>{{review.title}} </h3>
         <div id="rating">
-          <img src="@/images/Full_Beer.png"
+          <img src="@/images/FullBeer.png"
           v-bind:title="review.beerRating"
           id="ratingBeer" v-for=" i in review.beerRating" 
           v-bind:key="i"/>
@@ -16,7 +16,7 @@
       <div id='reviewpart'  v-for="review in reviews" :key='review.breweryReviewId'>
         <h3>{{ review.title }}</h3>
         <div id="rating">
-          <img src="@/images/Full_Beer.png"
+          <img src="@/images/FullBeer.png"
           v-bind:title="review.breweryRating"
           id="ratingBeer" v-for=" i in review.breweryRating" 
           v-bind:key="i"
@@ -56,11 +56,14 @@ export default {
     flex-direction: column;
     justify-content: space-around;
     overflow: scroll;
+    margin-top: 15px;
 }
 
 #reviewpart{
   flex-direction: column;
-  
+  border: 2px solid black;
+  margin-top: 6px;
+  border-radius: 5px;
 }
 
 #rating { 
@@ -71,7 +74,8 @@ width:50px;
 
 #ratingBeer {
 height: 100%;
-margin-right: 10px;
+margin-right: 5px;
+margin-left: 5px;
 }
 
 

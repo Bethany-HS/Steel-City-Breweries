@@ -2,12 +2,8 @@ ANONYMOUS USER PAGE
 
 <template>
   <div id="main">
-      <h1 id="intro-txt">
-        Find the right brew for you!
-      </h1>
-      <h2 id="search-our-list-txt">
-        - Search our list of breweries in the Pittsburgh area
-      </h2>
+      <h1>Find the right brew for you!</h1>
+      <h2>Search our list of breweries in the Pittsburgh area</h2>
       <p>
         Steel City Brews is your one stop for that bubbly hop pop.
         <br>
@@ -39,18 +35,17 @@ export default {
     display: flex;
     align-items: flex-start;
     flex-direction: column;
+    background-color: rgba(53, 53, 53, 0.8);
+    color: white;
+    border-radius: 10px;
+    flex-basis: 70%;
+    box-shadow: 6px 6px 3px black;
 }
 
-#main > h1, h2, p {
-    color: white;
-    background-color: rgba(53, 53, 53, 0.8);
-    padding: 1rem;
-    border-radius: 10px;
-}
+
 
 #main > h1 {
   font-size: 3rem;
-  margin-top: 10%;
 
 }
 
@@ -60,6 +55,6 @@ export default {
 
 #main > p {
     font-size: 1.5rem;
-    margin-top: 7%;
+
 }
 </style>
