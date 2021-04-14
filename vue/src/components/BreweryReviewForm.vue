@@ -25,9 +25,7 @@
             </p>
             <input type="button" value="Submit" @click="addBreweryReview()"/>
             <input type="button" value="Cancel" @click.prevent="resetForm" />
-
         </form>
-    </div>
     </div>
 </template>
 

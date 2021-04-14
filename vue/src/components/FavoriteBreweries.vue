@@ -1,9 +1,9 @@
 <template>
 <div>
-  <div id="fav-breweries" v-for='favorite in favoriteBrewery' :key='favorite.userId'>
-      <h2>{{brewery.name}}</h2>
-      <h2>{{brewery.city}} {{brewery.phone}}</h2>
-    <average-brewery-rating class="avgRating" :number-of-brewery="brewery.breweryId"/>
+  <div id="fav-breweries" v-for='favorite in favoriteBrewery' :key='favorite.breweryId'>
+      <h2>{{favorite.name}}</h2>
+      <h2>{{favorite.city}} {{favorite.phone}}</h2>
+    <average-brewery-rating class="avgRating" :number-of-brewery="favorite.breweryId"/>
   </div>
 </div>
 </template>
@@ -17,7 +17,11 @@ export default {
     },
     computed: {
         favoriteBrewery() {
-            return this.$store.state.userFavorites;
+
+            return this.$store.state.breweries.filter(brewery => {
+                return this.$store.state.userFavorites.includes(brewery.breweryId);
+            }) 
+
         }
     }
 }
