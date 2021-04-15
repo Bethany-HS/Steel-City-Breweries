@@ -71,6 +71,8 @@ export default {
 display:flex;
 height:50px;
 width:50px;
+justify-content: center;
+margin-left: 30px;
 }
 
 #ratingBeer {

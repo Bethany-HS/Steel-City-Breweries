@@ -91,4 +91,5 @@ export default {
 .side-nav{
   height: 95%;
 }
+
 </style>

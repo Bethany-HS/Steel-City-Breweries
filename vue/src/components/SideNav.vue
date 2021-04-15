@@ -39,7 +39,7 @@ export default {
   justify-content: space-around;
   flex-basis: 20%;
   align-items: flex-start;
-  height: 100%
+  height: 100%;
 }
 
 #nav-inner {
