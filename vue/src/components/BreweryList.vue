@@ -34,7 +34,7 @@ export default {
     },
     computed:{
       currentBreweries(){
-        return this.$store.state.breweries.filter(x=>x.name.includes(this.filterString));
+        return this.$store.state.breweries.filter(x=>x.name.toLowerCase().includes(this.filterString.toLowerCase()));
       }
     },
     methods: {

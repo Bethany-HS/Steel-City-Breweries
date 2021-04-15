@@ -36,7 +36,7 @@ export default {
     },
     computed:{
       currentBeers(){
-        return this.$store.state.beers.filter(x=>x.isActive === 1 && x.name.includes(this.filterString));
+        return this.$store.state.beers.filter(x=>x.isActive === 1 && x.name.toLowerCase().includes(this.filterString.toLowerCase()));
       }
     },
     methods: {
