@@ -10,13 +10,15 @@
 </template>
 
 <style>
-@media (max-width: 800px) {
+@media (min-width: 600px) {
   #app{
   flex: 100%;
   flex-direction: column;
   box-sizing: border-box;
+  width: 100%;
 }
 }
+
 
 #home-link, #logout-link, #login-link  {
   text-decoration: none;

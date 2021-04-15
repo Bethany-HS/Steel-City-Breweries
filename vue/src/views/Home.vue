@@ -4,9 +4,9 @@
       <img v-if='!hover' src="../assets/logo1.png" @click='hover = true'>
       <img v-if='hover' src="../assets/logo2.png" @click='hover = false'>
     </div>
-    <div id='main-page'>
+    <div class='main-page'>
       <side-nav class='sidenav'/>
-      <content-page id='content'/>
+      <content-page class='content'/>
     </div>
   </div>
 </template>
@@ -77,19 +77,34 @@ export default {
 .home{
   height:100%;
 }
-#main-page{
+.main-page{
   display: flex;
   justify-content: stretch;
   align-items: stretch;
   height: 77%;
 }
 
-#content{
+.content{
     flex-basis: 100%;
     display: flex;
     color: black;
-    margin-left: 25px;
     height: 100%;
     overflow: auto;
+}
+
+@media only screen and (max-width: 800px) {
+  .home {
+    flex: 100%;
+    width: 100%;
+    flex-direction: column;
+    box-sizing: border-box;
+  }
+  .main-page {
+    flex: 100%;
+    width: 100%;
+    flex-direction: column;
+    box-sizing: border-box;
+    font-size: 75%;
+  }
 }
 </style>
