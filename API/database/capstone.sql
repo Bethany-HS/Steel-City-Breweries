@@ -208,6 +208,10 @@ INSERT INTO beer_reviews (beer_id, user_id, beerRating, title, beerReview, is_pr
 
 INSERT INTO beer_reviews (beer_id, user_id, beerRating, title, beerReview, is_private) VALUES (7, 2, 4, 'pretty good', 'Not Southern Tiers best drink but I still keep coming back to it. Reminds me of summers as a teen in New Jersey.', 0)
 
+INSERT INTO beer_reviews (beer_id, user_id, beerRating, title, beerReview, is_private) VALUES (8, 1, 3, 'meh', 'Not great not horrible. Just kind of meh', 0)
+
+INSERT INTO beer_reviews (beer_id, user_id, beerRating, title, beerReview, is_private) VALUES (9, 1, 4, 'Thumbs Up', 'Pretty good for a Pilsner', 0)
+
 select * from beer_reviews
 select * from beers
 
