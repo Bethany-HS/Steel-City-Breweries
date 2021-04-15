@@ -74,14 +74,12 @@ export default {
 </script>
 
 <style>
-.home{
-  height:100%;
-}
+
 #main-page{
   display: flex;
   justify-content: stretch;
   align-items: stretch;
-  height: 77%;
+  height: 73vh;
 }
 
 #content{
@@ -89,7 +87,8 @@ export default {
     display: flex;
     color: black;
     margin-left: 25px;
-    height: 100%;
-    overflow: auto;
+}
+.side-nav{
+  height: 95%;
 }
 </style>

@@ -37,7 +37,8 @@ export default new Vuex.Store({
     showAddForm:false,
     showPictureForm:false,
     userFavorites: [],
-    beerTypeIdList:["NA","Ale","Lager","IPA","Stout","Pilsner","Porter","Wheat"]
+    beerTypeIdList:["NA","Ale","Lager","IPA","Stout","Pilsner","Porter","Wheat"],
+    beerPictures:["penn_pilsner.jpeg", "penn_dark.jpeg", "southern-tier.png","southern-tier.png","2XIPA.jpg","nu_juice_ipa.png","southern-tier.png", "penn_gold.png", "penn_kaiser_pils.png","barbarian_brewing", "bane_of_existence","fruit_rush.jpg","hitchhiker_mystic_delusion.jpg"]
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {

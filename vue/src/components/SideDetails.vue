@@ -123,7 +123,7 @@ export default {
   padding: 1rem;
   justify-content: flex-start;
   align-items: flex-start;
-  height: 100%;
+  height: 95%;
 }
 
 #white-block {
@@ -134,6 +134,7 @@ export default {
   flex-basis: 100%;
   width: 100%;
   align-items: flex-start;
+  overflow: auto;
 }
 review-display{
   display: flex;
