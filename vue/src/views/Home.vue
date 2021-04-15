@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <div id="header" >
-      <img v-if='!hover' src="../assets/logo1.png" @click='hover = true'>
-      <img v-if='hover' src="../assets/logo2.png" @click='hover = false'>
+      <img v-if='!hover' src="../assets/newLogo1.png" @click='hover = true'>
+      <img v-if='hover' src="../assets/newLogo2.png" @click='hover = false'>
     </div>
     <div id='main-page'>
       <side-nav class='sidenav'/>
@@ -65,9 +65,9 @@ export default {
     },
     logo(){
       if(this.hover){
-        return "../assets/logo2.png";
+        return "../assets/newLogo2.png";
       }
-        return "../assets/logo1.png";
+        return "../assets/newLogo1.png";
     }
   }
 }
@@ -91,4 +91,5 @@ export default {
 .side-nav{
   height: 95%;
 }
+
 </style>

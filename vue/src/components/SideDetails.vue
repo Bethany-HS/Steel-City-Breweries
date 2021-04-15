@@ -155,8 +155,6 @@ review-display{
   width: 100%;
   margin-left: 0px;
   justify-content: center;
-
 }
-
 
 </style>
