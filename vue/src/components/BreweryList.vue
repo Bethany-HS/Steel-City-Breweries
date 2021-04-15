@@ -90,7 +90,7 @@ export default {
 #top-card{
   display: flex;
   flex-direction: row;
-  justify-content: left;
+  justify-content: center;
 }
 .favorite{
   color:gold;

@@ -7,8 +7,8 @@
                 <input id="title" type="text" v-model="reviewForm.Title" required/>
             </div>
             <div class="form-element">
-                <label for="rating">Rate Review:</label>
-                <select id="rating" v-model.number="reviewForm.BeerRating" required>
+                <label for="ratingSelect">Rate Review:</label>
+                <select id="ratingSelect" v-model.number="reviewForm.BeerRating" required>
                     <option value="1">1 Beer</option>
                     <option value="2">2 Beers</option>
                     <option value="3">3 Beers</option>
@@ -96,7 +96,7 @@ export default {
 </script>
 
 <style>
-#rating {
+#ratingSelect{
   width: 80%;
 }
 

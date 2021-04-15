@@ -55,7 +55,6 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    overflow: scroll;
     width:100%;
     margin-top: 15px;
 }
@@ -70,7 +69,7 @@ export default {
 #rating { 
 display:flex;
 height:50px;
-width:50px;
+width:100%;
 justify-content: center;
 margin-left: 30px;
 }
