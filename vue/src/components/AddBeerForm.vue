@@ -80,6 +80,7 @@ export default {
                     this.resetForm()
                     BeerService.getBeers().then(response => {
                     this.$store.state.beers =  response.data;})
+                    this.$store.state.beerPictures.push('FullBeer.png')
                 }
             })
             .catch(error => {
