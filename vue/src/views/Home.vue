@@ -4,9 +4,9 @@
       <img v-if='!hover' src="../assets/newLogo1.png" @click='hover = true'>
       <img v-if='hover' src="../assets/newLogo2.png" @click='hover = false'>
     </div>
-    <div class='main-page'>
+    <div id='main-page'>
       <side-nav class='sidenav'/>
-      <content-page class='content'/>
+      <content-page id='content'/>
     </div>
   </div>
 </template>
@@ -82,7 +82,7 @@ export default {
   height: 73vh;
 }
 
-.content{
+#content{
     flex-basis: 100%;
     display: flex;
     color: black;
@@ -92,12 +92,4 @@ export default {
   height: 95%;
 }
 
-@media only screen and (max-width: 800px) {
-  .main-page {
-    flex: 100%;
-    flex-direction: column;
-    box-sizing: border-box;
-    font-size: 75%;
-  }
-}
 </style>

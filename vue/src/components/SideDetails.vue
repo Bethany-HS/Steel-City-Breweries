@@ -157,5 +157,4 @@ review-display{
   justify-content: center;
 }
 
-
 </style>
