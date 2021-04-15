@@ -1,6 +1,7 @@
 <template>
     <div id='viewBreweries'>
       <div id='brewerylist'>
+        <input id='search' type='text' v-model="filterString" placeholder="Search"/>
         <div id="brewery" v-for='brewery in currentBreweries' :key='brewery.breweryId' @click='showSideMenu(brewery.breweryId)'>
           <div class="inner-block"> 
             <span id="top-card">
@@ -23,7 +24,8 @@ export default {
   data(){
     return{
       showSideDetails:false,
-      currentBrewery: {}
+      currentBrewery: {},
+      filterString:""
     }
   },
     components: {
@@ -32,7 +34,7 @@ export default {
     },
     computed:{
       currentBreweries(){
-        return this.$store.state.breweries;
+        return this.$store.state.breweries.filter(x=>x.name.includes(this.filterString));
       }
     },
     methods: {
