@@ -1,6 +1,7 @@
 <template>
   <div id='viewBeers' >
     <div id='beerlist'>
+      <input id='search' type='text' v-model="filterString" placeholder="Search"/>
       <div id="beer" v-for='beer in currentBeers' :key='beer.beerId' @click='showSideMenu(beer.beerId)'>
         <div class="inner-block">
         <h2 id="beer-list-text">
@@ -25,7 +26,8 @@ export default {
       return{
         showSideDetails:false,
         currentBeer: {},
-        test:''
+        test:'',
+        filterString:""
       }
     },
     components: {
@@ -34,7 +36,7 @@ export default {
     },
     computed:{
       currentBeers(){
-        return this.$store.state.beers.filter(x=>x.isActive === 1);
+        return this.$store.state.beers.filter(x=>x.isActive === 1 && x.name.toLowerCase().includes(this.filterString.toLowerCase()));
       }
     },
     methods: {
@@ -100,6 +102,14 @@ export default {
   margin-left: 10px;
 }
 
+#search{
+  width:60%;
+  padding:20px 10px;
+  margin-bottom: 10px;
+  line-height:28px;
+  font-size: 24px;
+  align-self: center;
+}
 
 .inner-block {
   display: flex;
