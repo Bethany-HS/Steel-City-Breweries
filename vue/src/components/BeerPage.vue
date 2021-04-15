@@ -55,5 +55,8 @@ h2, h4
 {
   margin-left: 20px;
 }
-
+.inner-block{
+  height:auto;
+  overflow: auto;
+}
 </style>

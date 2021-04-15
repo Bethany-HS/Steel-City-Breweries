@@ -23,10 +23,10 @@ ANONYMOUS USER PAGE
         Don’t forget to leave a review.
       </p>
     </div>
-  <div class="fav-list" v-if="loggedOn">
-    <h2>Favorited Breweries</h2>
-    <favorite-breweries/>
-  </div>
+    <div class="fav-list" v-if="loggedOn">
+      <h2>Favorited Breweries</h2>
+      <favorite-breweries/>
+    </div>
   </div>
 </template>
 
@@ -46,9 +46,13 @@ export default {
 </script>
 
 <style>
+#main{
+  display: flex;
+
+}
 #text {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     background-color: rgba(53, 53, 53, 0.8);
     color: white;
@@ -61,16 +65,36 @@ export default {
   font-size: 3rem;
 
 }
+
+.fav-list{
+  display: flex;
+  flex-basis:30%;
+  flex-direction: column;
+  margin-left:10px;
+  text-align: center;
+  overflow: auto;
+}
 .fav-list > h2 {
-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+background-color: rgba(53, 53, 53, 0.8);
+    color: white;
+    border-radius: 10px;
+    box-shadow: 6px 6px 3px black;
+    font-size:2.5em;
+    margin-right: 10px;
+    height: 4rem;
+    margin-left: 10px;
 }
 
 #text > h2 {
-  font-size: 1.2rem;
+  font-size: 2rem;
 }
 
 #text > p {
     font-size: 1.5rem;
+    padding-right:30px;
 }
 
 

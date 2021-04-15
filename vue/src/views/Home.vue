@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <div id="header" >
-      <img v-if='!hover' src="../assets/logo1.png" @click='hover = true'>
-      <img v-if='hover' src="../assets/logo2.png" @click='hover = false'>
+      <img v-if='!hover' src="../assets/newLogo1.png" @click='hover = true'>
+      <img v-if='hover' src="../assets/newLogo2.png" @click='hover = false'>
     </div>
     <div class='main-page'>
       <side-nav class='sidenav'/>
@@ -65,31 +65,31 @@ export default {
     },
     logo(){
       if(this.hover){
-        return "../assets/logo2.png";
+        return "../assets/newLogo2.png";
       }
-        return "../assets/logo1.png";
+        return "../assets/newLogo1.png";
     }
   }
 }
 </script>
 
 <style>
-.home{
-  height:100%;
-}
-.main-page{
+
+#main-page{
   display: flex;
   justify-content: stretch;
   align-items: stretch;
-  height: 77%;
+  height: 73vh;
 }
 
 .content{
     flex-basis: 100%;
     display: flex;
     color: black;
-    height: 100%;
-    overflow: auto;
+    margin-left: 25px;
+}
+.side-nav{
+  height: 95%;
 }
 
 @media only screen and (max-width: 800px) {
