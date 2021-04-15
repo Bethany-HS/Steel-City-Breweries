@@ -93,15 +93,8 @@ export default {
 }
 
 @media only screen and (max-width: 800px) {
-  .home {
-    flex: 100%;
-    width: 100%;
-    flex-direction: column;
-    box-sizing: border-box;
-  }
   .main-page {
     flex: 100%;
-    width: 100%;
     flex-direction: column;
     box-sizing: border-box;
     font-size: 75%;

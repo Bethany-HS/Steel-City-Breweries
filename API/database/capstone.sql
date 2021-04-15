@@ -200,6 +200,7 @@ INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients
 INSERT INTO beers (name, abv, brewery_id, beer_type_id, description, ingredients, isActive) VALUES ('Mystic Delusion', 7.2, 3, 3, 
 'Brewed with Oats, Wheat and Electrolyte Salt. Conditioned on Tangerine and Blood Orange. Hopped with Amarillo, Citra, and Mosaic.', 'Oats, Wheat, Electrolyte salt', 1);
 
+insert into brewery_images(brewery_id,brewery_img_path) values (3,'temp')
 
 
 GO
