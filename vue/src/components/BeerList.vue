@@ -3,7 +3,7 @@
     <div id='beerlist'>
       <div id="beer" v-for='beer in currentBeers' :key='beer.beerId' @click='showSideMenu(beer.beerId)'>
         <div class="inner-block">
-        <h2>
+        <h2 id="beer-list-text">
           <img class="beer-picture" :src="getPicture(beer.beerId - 1)"/>
           <span>{{beer.name}}</span>
           <span>{{$store.state.beerTypeIdList[beer.beerTypeId]}}</span>
@@ -45,7 +45,8 @@ export default {
         this.test = document.getElementsByTagName("side-details")[0]
       },
       getPicture(id){
-        return '../images/'+ this.$store.state.beerPictures[id]
+        let images = require.context("../images/",false)
+        return images('./'+this.$store.state.beerPictures[id])
       }
     }
 }
@@ -99,6 +100,7 @@ export default {
   margin-left: 10px;
 }
 
+
 .inner-block {
   display: flex;
   background-color: white;
@@ -115,7 +117,11 @@ side-details{
   margin-right: 30px;
 }
 .beer-picture{
-  height: 50px;
-  width: 50px;
+  height: 150px;
+  width: 150px;
+}
+
+#beer-list-text{
+  justify-content: space-around;
 }
 </style>
