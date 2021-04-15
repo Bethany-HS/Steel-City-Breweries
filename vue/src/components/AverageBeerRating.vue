@@ -30,4 +30,7 @@ export default {
 </script>
 
 <style>
+#average-beer-rating{
+    width:100%;
+}
 </style>

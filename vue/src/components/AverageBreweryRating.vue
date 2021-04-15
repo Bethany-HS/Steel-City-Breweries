@@ -30,4 +30,14 @@ export default {
 </script>
 
 <style>
+#average-brewery-rating{
+
+    width:100%;
+}
+#rating-amount{
+    text-align: center;
+}
+#rating{
+        margin-left: 0px;
+}
 </style>
