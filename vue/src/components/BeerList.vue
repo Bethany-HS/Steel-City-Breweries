@@ -4,6 +4,7 @@
       <div id="beer" v-for='beer in currentBeers' :key='beer.beerId' @click='showSideMenu(beer.beerId)'>
         <div class="inner-block">
         <h2>
+          <img class="beer-picture" :src="getPicture(beer.beerId - 1)"/>
           <span>{{beer.name}}</span>
           <span>{{$store.state.beerTypeIdList[beer.beerTypeId]}}</span>
           <span id="abv">{{beer.abv}}%</span>
@@ -42,6 +43,9 @@ export default {
         this.currentBeer  = this.currentBeers.filter(x => x.beerId === id)
         this.showSideDetails = true
         this.test = document.getElementsByTagName("side-details")[0]
+      },
+      getPicture(id){
+        return require('@/images/'+ this.$store.state.beerPictures[id])
       }
     }
 }
@@ -109,5 +113,9 @@ side-details{
   display: flex;
   flex-basis: 60%;
   margin-right: 30px;
+}
+.beer-picture{
+  height: 50px;
+  width: 50px;
 }
 </style>
