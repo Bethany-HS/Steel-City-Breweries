@@ -58,13 +58,13 @@ export default {
 .content{
   display: flex;
   flex-direction: column;
-  justify-content: stretch;
+  max-height: 100%;
   justify-content: center;
-  height: 100%;
 }
 
 #inner-white-block{
   display: flex;
   flex-basis: 100%;
+  height: 100%;
 }
 </style>

@@ -55,6 +55,7 @@ export default {
   flex-direction: column;
   flex-basis: 60%;
   margin-right: 30px;
+  overflow:auto;
 }
 
 #brewery
@@ -66,6 +67,7 @@ export default {
   border-radius: 10px;
   box-shadow: 5px 5px 3px black;
   padding: 1rem;
+  margin-right:10px;
   justify-content: center;
 }
 

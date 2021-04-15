@@ -128,6 +128,7 @@ h1, h2, h3, p
 .inner-block-brewery {
   display: flex;
   flex-basis: 100%;
+  height:fit-content;
   align-items:center;
   flex-direction: column;
   background-color: white;

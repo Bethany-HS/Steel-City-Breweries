@@ -53,6 +53,7 @@ export default {
 {
   display: flex;
   flex-basis: 100%;
+  height :100%;
 
 }
 #abv {
@@ -66,6 +67,7 @@ export default {
   flex-direction: column;
     flex-basis: 60%;
   margin-right: 30px;
+    overflow:auto;
 }
 
 #beer
@@ -73,6 +75,7 @@ export default {
   display: flex;
 
   margin-bottom: 10px;
+  margin-right:10px;
     background-color: rgba(53, 53, 53, 0.8);
   border: 2px solid black;
   border-radius: 10px;
