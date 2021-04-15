@@ -45,7 +45,7 @@ export default {
         this.test = document.getElementsByTagName("side-details")[0]
       },
       getPicture(id){
-        return require('@/images/'+ this.$store.state.beerPictures[id])
+        return '../images/'+ this.$store.state.beerPictures[id]
       }
     }
 }
