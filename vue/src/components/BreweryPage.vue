@@ -3,6 +3,12 @@
   <div class="inner-block-brewery">
     <img class="upload" :src='picture'/>
     <h1 id="brewery-name">{{brewery.name}}</h1>
+    <div v-if="loggedOn">
+        <!-- <button class="fav-btn" v-bind:class="{'mark-favorited': !FavBrewery}" v-if='!FavBrewery' v-on:click="addFavorite">Favorite</button>
+        <button class="fav-btn" v-bind:class="{'mark-unfavorited': FavBrewery}" v-if='FavBrewery' v-on:click="deleteFavorite">Unfavorite</button> -->
+        <span v-bind:class="{'mark-favorited': !FavBrewery}" v-if='!FavBrewery' v-on:click="addFavorite">Favorite<font-awesome-icon :icon="['fas', 'star']"  class= 'favorite' ></font-awesome-icon></span>
+        <span v-bind:class="{'mark-unfavorited': FavBrewery}" v-if='FavBrewery' v-on:click="deleteFavorite">Favorite<font-awesome-icon :icon="['fas', 'star']" class="not-favorite" ></font-awesome-icon></span>
+        </div>
 
         <h2>Location</h2>
         <p>{{brewery.streetAddress1}}</p>
@@ -10,10 +16,7 @@
         <p>{{brewery.history}}</p>
         <h2>View Beer List</h2>
         <p v-for='beer in beers' :key='beer.beerId'>{{beer.name}}</p>
-        <div v-if="loggedOn">
-        <button class="fav-btn" v-bind:class="{'mark-favorited': !FavBrewery}" v-if='!FavBrewery' v-on:click="addFavorite">Favorite</button>
-        <button class="fav-btn" v-bind:class="{'mark-unfavorited': FavBrewery}" v-if='FavBrewery' v-on:click="deleteFavorite">Unfavorite</button>
-        </div>
+        
         <h2>Ratings and Reviews</h2>
 
         <average-brewery-rating :number-of-brewery="brewery.breweryId" />
@@ -102,6 +105,9 @@ export default {
 review-display{
   padding-left: 30px;
 }
+#brewery-name{
+  font-size: 3em;
+}
 
 h1, h2, h3, p
 {
@@ -110,20 +116,31 @@ h1, h2, h3, p
 
 .mark-favorited
 {
-  background-color: pink;
+  font-size: 2em;
+  font-weight: bold;
   width: 100%;
-  text-align: center;
-  margin-left: 6px;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 0px 5px 0px 5px;
+  margin-left: 0px;
   margin-right: 0px;
+  cursor: pointer;
+}
+.mark-unfavorited > .not-favorite {
+  color: gold;
 }
 
 .mark-unfavorited
-{
-  background-color: grey;
+{ 
+  font-size: 2em;
+  font-weight: bold;
   width: 100%;
-  text-align: center;
-  margin-left: 6px;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 0px 5px 0px 5px;
+  margin-left: 0px;
   margin-right: 0px;
+  cursor: pointer;
 }
 .inner-block-brewery {
   display: flex;
