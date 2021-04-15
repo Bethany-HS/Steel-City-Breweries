@@ -2,7 +2,16 @@
   <div id="brewery-page">
   <div class="inner-block-brewery">
     <img class="upload" :src='picture'/>
-    <h1 id="brewery-name">{{brewery.name}}</h1>
+    <span id="top">
+    <h1 id="brewery-name">{{brewery.name}} &nbsp; &nbsp; </h1> 
+    <font-awesome-icon :icon="['fas', 'star']"  :class="FavBrewery?'favorite':'not-favorite'"/>
+    </span>
+    <div v-if="loggedOn">
+        <!-- <button class="fav-btn" v-bind:class="{'mark-favorited': !FavBrewery}" v-if='!FavBrewery' v-on:click="addFavorite">Favorite</button>
+        <button class="fav-btn" v-bind:class="{'mark-unfavorited': FavBrewery}" v-if='FavBrewery' v-on:click="deleteFavorite">Unfavorite</button> -->
+        <span v-bind:class="{'mark-favorited': !FavBrewery}" v-if='!FavBrewery' v-on:click="addFavorite">Favorite</span>
+        <span v-bind:class="{'mark-unfavorited': FavBrewery}" v-if='FavBrewery' v-on:click="deleteFavorite">Unfavorite</span>
+        </div>
 
         <h2>Location</h2>
         <p>{{brewery.streetAddress1}}</p>
@@ -10,10 +19,7 @@
         <p>{{brewery.history}}</p>
         <h2>View Beer List</h2>
         <p v-for='beer in beers' :key='beer.beerId'>{{beer.name}}</p>
-        <div v-if="loggedOn">
-        <button class="fav-btn" v-bind:class="{'mark-favorited': !FavBrewery}" v-if='!FavBrewery' v-on:click="addFavorite">Favorite</button>
-        <button class="fav-btn" v-bind:class="{'mark-unfavorited': FavBrewery}" v-if='FavBrewery' v-on:click="deleteFavorite">Unfavorite</button>
-        </div>
+        
         <h2>Ratings and Reviews</h2>
 
         <average-brewery-rating :number-of-brewery="brewery.breweryId" />
@@ -102,35 +108,70 @@ export default {
 review-display{
   padding-left: 30px;
 }
+#brewery-name{
+  font-size: 3em;
+}
+#top{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
 h1, h2, h3, p
 {
   text-align: center;
+  margin-left:0px;
 }
 
 .mark-favorited
 {
-  background-color: pink;
+  font-size: 2em;
+  font-weight: bold;
   width: 100%;
-  text-align: center;
-  margin-left: 6px;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 0px 5px 0px 5px;
+  margin-left: 0px;
   margin-right: 0px;
+  cursor: pointer;
+}
+ .not-favorite {
+  color: black;
+}
+.favorite{
+  color:gold;
+}
+.fa-star{
+  font-size:3em;
 }
 
 .mark-unfavorited
-{
-  background-color: grey;
+{ 
+  font-size: 2em;
+  font-weight: bold;
   width: 100%;
-  text-align: center;
-  margin-left: 6px;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 0px 5px 0px 5px;
+  margin-left: 0px;
   margin-right: 0px;
+  cursor: pointer;
 }
 .inner-block-brewery {
   display: flex;
   flex-basis: 100%;
+  height:fit-content;
   align-items:center;
   flex-direction: column;
   background-color: white;
+}
+
+p{
+  font-size:1.25rem;
+}
+h2{
+  font-size:1.5rem;
 }
 
 </style>

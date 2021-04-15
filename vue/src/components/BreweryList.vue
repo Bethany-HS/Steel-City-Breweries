@@ -3,7 +3,10 @@
       <div id='brewerylist'>
         <div id="brewery" v-for='brewery in currentBreweries' :key='brewery.breweryId' @click='showSideMenu(brewery.breweryId)'>
           <div class="inner-block"> 
-            <h2>{{brewery.name}} </h2>
+            <span id="top-card">
+             <h2>{{brewery.name}} </h2> 
+             <font-awesome-icon v-if="$store.state.userFavorites.includes(brewery.breweryId)" :icon="['fas', 'star']"  class='favorite'/>
+            </span>
             <h2>{{brewery.city}} {{brewery.phone}}</h2>
             <average-brewery-rating class="avgRating" :number-of-brewery="brewery.breweryId"/>
           </div>
@@ -55,6 +58,7 @@ export default {
   flex-direction: column;
   flex-basis: 60%;
   margin-right: 30px;
+  overflow:auto;
 }
 
 #brewery
@@ -66,6 +70,7 @@ export default {
   border-radius: 10px;
   box-shadow: 5px 5px 3px black;
   padding: 1rem;
+  margin-right:10px;
   justify-content: center;
 }
 
@@ -78,5 +83,15 @@ export default {
 {
   display: flex;
   margin-left: 10px;
+}
+
+#top-card{
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+.favorite{
+  color:gold;
+  font-size:2em;
 }
 </style>

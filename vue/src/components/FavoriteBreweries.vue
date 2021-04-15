@@ -1,6 +1,6 @@
 <template>
 <div id='viewBreweries'>
-      <div id='brewerylist'>
+      <div id='favbrewerylist'>
         <div id="brewery" v-for='brewery in favoriteBrewery' :key='brewery.breweryId' @click='goToBrewery(brewery)'>
           <div class="inner-block"> 
             <h2>{{brewery.name}} </h2>
@@ -43,6 +43,9 @@ export default {
 </script>
 
 <style>
+#favbrewerylist{
+  width: 100%;
+}
 #fav-breweries
 {
     border: 3px solid black;
